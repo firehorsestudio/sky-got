@@ -5,7 +5,7 @@ namespace game {
         
         OnUpdate(): void {
 
-            if (GameService.IsPaused(this.world))
+            if (GameService.IsPaused(this.world) || (GameService.GetCurrentGameState(this.world) != GameState.THROW) || (GameService.GetCurrentGameState(this.world) != GameState.PLAYING))
                 return;
 
 			if (ut.Core2D.Input.getMouseButtonDown(0))
