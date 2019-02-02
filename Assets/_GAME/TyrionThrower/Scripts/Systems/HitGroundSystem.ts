@@ -7,7 +7,7 @@ namespace game {
 
         OnUpdate(): void {
 
-            if (GameService.IsPaused(this.world))
+            if ( (GameService.IsPaused(this.world)) || (GameService.GetCurrentGameState(this.world) != GameState.PLAYING) )
                 return;
 
             let config = GameService.GetConfig(this.world);

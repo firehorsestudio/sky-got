@@ -14,7 +14,7 @@ namespace game {
 
         OnUpdate(): void
         {
-            if (GameService.IsPaused(this.world))
+            if (GameService.IsPaused(this.world) || GameService.GetCurrentGameState(this.world) != GameState.PLAYING)
                 return;
 
             let hero = GameService.GetHeroEntity(this.world);
