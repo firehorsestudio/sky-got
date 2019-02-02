@@ -1,0 +1,45 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "26faaac195524b86a3ffa013247d027e",
+    "Name": "BoxCollider",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "ac03c00b56f44a8099962a974b03e174",
+        "Name": "x",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "2c8ffcbf8d054ef29fcb9225e6de7d89",
+        "Name": "y",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "8cca7ac8a298440b85b991a1d4342b83",
+        "Name": "width",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "6c9d41aa6aa541309a0d304ee4928845",
+        "Name": "height",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "26faaac195524b86a3ffa013247d027e", "Name": "BoxCollider" }
+    }
+}]
