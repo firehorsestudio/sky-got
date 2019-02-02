@@ -42,6 +42,11 @@ namespace game {
             return state == GameState.PAUSED;
         }
 
+        static GetCurrentGameState(world: ut.World) {
+            let state = this.GetGame(world).State;
+            return state;
+        }
+
         static GetHeroEntity(world: ut.World): ut.Entity {
 
             if (!world.exists(this.HERO)) {
