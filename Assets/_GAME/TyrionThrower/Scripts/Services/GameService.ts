@@ -5,7 +5,7 @@ namespace game {
 
         static GAME: ut.Entity;
         static HERO: ut.Entity;
-        
+
         static GetConfig(world: ut.World): Config {
             return world.getConfigData(Config);
         }
@@ -44,7 +44,7 @@ namespace game {
 
         static GetHeroEntity(world: ut.World): ut.Entity {
 
-            if (!world.exists(this.GAME)) {
+            if (!world.exists(this.HERO)) {
                 this.HERO = world.getEntityByName("Hero");
                 if (!world.exists(this.HERO)) {
                     this.HERO = null;
@@ -52,7 +52,7 @@ namespace game {
                 }
             }
 
-            return this.GAME;
+            return this.HERO;
         }
 
         static GetHero(world: ut.World): Hero {
