@@ -1,0 +1,24 @@
+[{
+    "$TypeId": 3,
+    "Id": "55587703b34749cb96415f7bddad74d4",
+    "Name": "PauseMenu",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "0463b12a5ef2400face844fef3bcc449",
+        "Name": "Das",
+        "FieldType": { "Id": "2aa56ce081e14e8a93d276da72d813bc", "Name": "Int16" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "55587703b34749cb96415f7bddad74d4", "Name": "PauseMenu" },
+        "Properties": {
+            "Das": 5
+        }
+    }
+}]

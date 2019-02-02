@@ -6,6 +6,8 @@ namespace game {
         static PAUSEMENU: ut.Entity;
         static PAUSEMENUGROUP: ut.EntityGroup;
         private static PREVIOUSTATE: GameState;
+        static INGAMEPANEL: ut.EntityGroup;
+        static MENUINITIALL: ut.EntityGroup;
 
         static GetPauseMenuEntity(world: ut.World): ut.Entity {
 
@@ -40,13 +42,61 @@ namespace game {
             {
                 this.PAUSEMENUGROUP = null;
                 ut.EntityGroup.destroyAll(world, "game.PauseMenuGroup");
-                GameService.SetGameState(world, GameState.PLAYING);
+                GameService.SetGameState(world, this.PREVIOUSTATE);
             }
-
-
         }
 
+        static CheckForPauseMenuButtons(world: ut.World)
+        {
+            if (this.PAUSEMENUGROUP != null)
+            {
+                let buttonUnpauseEntity = world.getEntityByName("UnpauseButton");
+                let btnUnpause = world.getComponentData(buttonUnpauseEntity, game.CustomButton);
 
+                if (btnUnpause.JustClicked)
+                    this.TooglePauseMenu(world, false);
+            }
+        }
+        
+
+        static ToogleInGamePanel(world: ut.World, create: boolean) {
+            if (create && this.INGAMEPANEL == null) {
+                this.INGAMEPANEL = ut.EntityGroup.instantiate(world, "game.InGameTopMenuGroup");
+            }
+            else if (!create) {
+                this.INGAMEPANEL = null;
+                ut.EntityGroup.destroyAll(world, "game.InGameTopMenuGroup");
+            }
+        }
+
+        static CheckForPlayerScore(world: ut.World)
+        {
+            let herospeed = world.getEntityByName("HeroSpeed");
+            let heroSpeedText = world.getComponentData(herospeed, ut.Text.Text2DRenderer);
+            heroSpeedText.text += 1;
+        }
+
+        static ToogleMenuInitial(world: ut.World, create: boolean) {
+            if (create && this.MENUINITIALL == null) 
+                this.MENUINITIALL = ut.EntityGroup.instantiate(world, "game.MenuInitialGroup");
+            
+            else if (!create) {
+                this.MENUINITIALL = null;
+                ut.EntityGroup.destroyAll(world, "game.MenuInitialGroup");
+            }
+        }
+
+        static CheckForMenuInitialButtons(world: ut.World) {
+            if (this.MENUINITIALL != null) {
+                let buttonPlayGame = world.getEntityByName("PlayGameButton");
+                let btnPlayGame = world.getComponentData(buttonPlayGame, game.CustomButton);
+
+                if (btnPlayGame.JustClicked)
+                {
+                    this.TooglePauseMenu(world, false);
+                }
+            }
+        }
 
 
     }

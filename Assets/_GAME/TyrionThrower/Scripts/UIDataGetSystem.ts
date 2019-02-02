@@ -16,7 +16,30 @@ namespace game {
 
             if (ut.Runtime.Input.getKeyDown(ut.Core2D.KeyCode.Z))
             {
+                GameService.SetGameState(this.world, GameState.MENU);
+                console.log("GameStateChangeToMenu");
+            }
 
+            if (GameService.GetCurrentGameState(this.world) == GameState.PLAYING)
+            {
+                
+            }
+
+            switch (GameService.GetCurrentGameState(this.world))
+            {
+                case GameState.MENU:
+                   UIDataService.ToogleMenuInitial(this.world, true);
+                   UIDataService.CheckForMenuInitialButtons(this.world);
+                    break;
+  
+                case GameState.PAUSED:
+                    UIDataService.CheckForPauseMenuButtons(this.world);
+                    break;
+
+                case GameState.PLAYING:
+                    UIDataService.ToogleInGamePanel(this.world, true);
+                    UIDataService.CheckForPlayerScore(this.world);
+                    break;
             }
         }
     }
