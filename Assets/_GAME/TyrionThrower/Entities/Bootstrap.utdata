@@ -1,0 +1,104 @@
+﻿[{
+    "$TypeId": 4,
+    "Id": "3b962014c3064bc4bcd3c2e82118274a",
+    "Name": "Bootstrap",
+    "ExportFlags": 0,
+    "SerializedVersion": 0,
+    "Entities": [
+        { "$TypeId": 9, "Id": "23832db7e451418a80f77aa14982c8d3", "Name": "Camera" },
+        { "$TypeId": 9, "Id": "be5310ff5d8046dba7396471dd38154f", "Name": "Game" },
+        { "$TypeId": 9, "Id": "75bb7124ca7643dc9320ad4fb42bacca", "Name": "Hero" }
+    ]
+},
+{
+    "$TypeId": 5,
+    "Id": "23832db7e451418a80f77aa14982c8d3",
+    "Name": "Camera",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
+    }, {
+        "Type": { "Id": "12692383f3fef3bb74c209888c5b0939", "Name": "Camera2D" },
+        "Properties": {
+            "halfVerticalSize": 200,
+            "backgroundColor": {
+                "Type": { "Id": "2a90a1633d6dc16cd37cdfaca7b93cea", "Name": "Color" },
+                "Properties": {
+                    "r": 0.1792453,
+                    "g": 0.1292041,
+                    "b": 0.09046815,
+                    "a": 1
+                }
+            },
+            "clearFlags": {
+                "$TypeId": 8,
+                "Type": { "Id": "76a06ddd38e99125d930e77c6a287872", "Name": "CameraClearFlags" },
+                "Id": "9faedc246f34513076701ef66b5ad74f",
+                "Name": "SolidColor",
+                "Value": 1
+            },
+            "depth": -1
+        }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
+        "Properties": {
+            "position": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "y": 0
+                }
+            }
+        }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "be5310ff5d8046dba7396471dd38154f",
+    "Name": "Game",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "2aaad94d1338412dbfa0ce11b0b69b15", "Name": "Game" }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "75bb7124ca7643dc9320ad4fb42bacca",
+    "Name": "Hero",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
+    }, {
+        "Type": { "Id": "aa536273f1d44ebda1183759c33b0d6c", "Name": "Hero" }
+    }, {
+        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
+        "Properties": {
+            "sprite": { "$TypeId": 10, "Guid": "f8c9ea9447a844645b5fd572893052b2", "FileId": 21300000, "Type": 3 },
+            "color": {
+                "Type": { "Id": "2a90a1633d6dc16cd37cdfaca7b93cea", "Name": "Color" },
+                "Properties": {
+                    "r": 1,
+                    "g": 1,
+                    "b": 1,
+                    "a": 1
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
+        "Properties": {
+            "position": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "x": -189,
+                    "y": 0
+                }
+            }
+        }
+    }]
+}]

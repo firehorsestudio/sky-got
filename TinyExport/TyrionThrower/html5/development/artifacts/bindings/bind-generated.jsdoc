@@ -1,0 +1,530 @@
+/**
+
+@struct
+@memberof game
+@name GameState
+*/
+/**
+
+@member {game.GameState}
+@memberof game.GameState
+@name MENU
+*/
+/**
+
+@member {game.GameState}
+@memberof game.GameState
+@name THROW
+*/
+/**
+
+@member {game.GameState}
+@memberof game.GameState
+@name PLAYING
+*/
+/**
+
+@member {game.GameState}
+@memberof game.GameState
+@name PAUSED
+*/
+/**
+
+@member {game.GameState}
+@memberof game.GameState
+@name END
+*/
+/**
+
+@component
+@memberof entities.game.Bootstrap
+@name Component
+*/
+/**
+
+@component
+@memberof entities.game.SettingsMenu
+@name Component
+*/
+/**
+
+@component
+@memberof game
+@name Game
+*/
+/**
+
+@member {game.GameState}
+@memberof game.Game
+@name State
+*/
+/**
+
+@member {game.GameState}
+@memberof game.Game
+@name PreviousState
+*/
+/**
+
+@component
+@memberof game
+@name Hero
+*/
+/**
+
+@member {float}
+@memberof game.Hero
+@name ScrollSpeed
+*/
+/**
+
+@member {float}
+@memberof game.Hero
+@name AirSpeed
+*/
+/**
+
+@member {bool}
+@memberof game.Hero
+@name Launched
+*/
+/**
+
+@component
+@memberof game
+@name SettingsMenu
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.SettingsMenu
+@name ButtonOK
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.SettingsMenu
+@name ButtonCredits
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.SettingsMenu
+@name ButtonResetProgress
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.SettingsMenu
+@name ButtonLanguage
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.SettingsMenu
+@name ButtonRenderMode
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.SettingsMenu
+@name LabelRenderMode
+*/
+/**
+
+@component
+@memberof game
+@name CustomButton
+*/
+/**
+
+@member {bool}
+@memberof game.CustomButton
+@name IsPressed
+*/
+/**
+
+@member {bool}
+@memberof game.CustomButton
+@name JustDown
+*/
+/**
+
+@member {bool}
+@memberof game.CustomButton
+@name JustUp
+*/
+/**
+
+@member {bool}
+@memberof game.CustomButton
+@name JustClicked
+*/
+/**
+
+@member {float}
+@memberof game.CustomButton
+@name TimePressed
+*/
+/**
+
+@member {bool}
+@memberof game.CustomButton
+@name LastDown
+*/
+/**
+
+@member {bool}
+@memberof game.CustomButton
+@name LastOver
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.CustomButton
+@name DefaultSprite
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.CustomButton
+@name HoveredSprite
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.CustomButton
+@name PressedSprite
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.CustomButton
+@name DisabledSprite
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.CustomButton
+@name ContentToOffsetOnPress
+*/
+/**
+
+@member {float}
+@memberof game.CustomButton
+@name PressedOffsetY
+*/
+/**
+
+@member {float}
+@memberof game.CustomButton
+@name ContentDefautPositionY
+*/
+/**
+
+@member {bool}
+@memberof game.CustomButton
+@name ContentDefautPositionIsSet
+*/
+/**
+
+@member {bool}
+@memberof game.CustomButton
+@name IsPointerOver
+*/
+/**
+
+@member {bool}
+@memberof game.CustomButton
+@name IsInteractable
+*/
+/**
+
+@member {bool}
+@memberof game.CustomButton
+@name LastIsInteractable
+*/
+/**
+
+@component
+@memberof game
+@name Config
+*/
+/**
+
+@member {float}
+@memberof game.Config
+@name Gravity
+*/
+/**
+
+@member {float}
+@memberof game.Config
+@name GroundPosition
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.Config
+@name Sprite
+*/
+/**
+
+@component
+@memberof ut.Core2D.layers
+@name Default
+*/
+/**
+
+@component
+@memberof ut.Core2D.layers
+@name TransparentFX
+*/
+/**
+
+@component
+@memberof ut.Core2D.layers
+@name IgnoreRaycast
+*/
+/**
+
+@component
+@memberof ut.Core2D.layers
+@name Water
+*/
+/**
+
+@component
+@memberof ut.Core2D.layers
+@name UI
+*/
+/**
+
+@component
+@memberof ut.Core2D.layers
+@name a
+*/
+/**
+
+@component
+@memberof ut.Core2D.layers
+@name b
+*/
+/**
+
+@component
+@memberof ut.Core2D.layers
+@name c
+*/
+/**
+
+@component
+@memberof ut.EditorExtensions
+@name AssetReferenceAnimationClip
+*/
+/**
+
+@member {string}
+@memberof ut.EditorExtensions.AssetReferenceAnimationClip
+@name guid
+*/
+/**
+
+@member {int64}
+@memberof ut.EditorExtensions.AssetReferenceAnimationClip
+@name fileId
+*/
+/**
+
+@member {int32}
+@memberof ut.EditorExtensions.AssetReferenceAnimationClip
+@name type
+*/
+/**
+
+@component
+@memberof ut.EditorExtensions
+@name AssetReferenceAudioClip
+*/
+/**
+
+@member {string}
+@memberof ut.EditorExtensions.AssetReferenceAudioClip
+@name guid
+*/
+/**
+
+@member {int64}
+@memberof ut.EditorExtensions.AssetReferenceAudioClip
+@name fileId
+*/
+/**
+
+@member {int32}
+@memberof ut.EditorExtensions.AssetReferenceAudioClip
+@name type
+*/
+/**
+
+@component
+@memberof ut.EditorExtensions
+@name AssetReferenceSprite
+*/
+/**
+
+@member {string}
+@memberof ut.EditorExtensions.AssetReferenceSprite
+@name guid
+*/
+/**
+
+@member {int64}
+@memberof ut.EditorExtensions.AssetReferenceSprite
+@name fileId
+*/
+/**
+
+@member {int32}
+@memberof ut.EditorExtensions.AssetReferenceSprite
+@name type
+*/
+/**
+
+@component
+@memberof ut.EditorExtensions
+@name AssetReferenceSpriteAtlas
+*/
+/**
+
+@member {string}
+@memberof ut.EditorExtensions.AssetReferenceSpriteAtlas
+@name guid
+*/
+/**
+
+@member {int64}
+@memberof ut.EditorExtensions.AssetReferenceSpriteAtlas
+@name fileId
+*/
+/**
+
+@member {int32}
+@memberof ut.EditorExtensions.AssetReferenceSpriteAtlas
+@name type
+*/
+/**
+
+@component
+@memberof ut.EditorExtensions
+@name AssetReferenceTexture2D
+*/
+/**
+
+@member {string}
+@memberof ut.EditorExtensions.AssetReferenceTexture2D
+@name guid
+*/
+/**
+
+@member {int64}
+@memberof ut.EditorExtensions.AssetReferenceTexture2D
+@name fileId
+*/
+/**
+
+@member {int32}
+@memberof ut.EditorExtensions.AssetReferenceTexture2D
+@name type
+*/
+/**
+
+@component
+@memberof ut.EditorExtensions
+@name AssetReferenceTileBase
+*/
+/**
+
+@member {string}
+@memberof ut.EditorExtensions.AssetReferenceTileBase
+@name guid
+*/
+/**
+
+@member {int64}
+@memberof ut.EditorExtensions.AssetReferenceTileBase
+@name fileId
+*/
+/**
+
+@member {int32}
+@memberof ut.EditorExtensions.AssetReferenceTileBase
+@name type
+*/
+/**
+
+@component
+@memberof ut.EditorExtensions
+@name AssetReferenceTMP_FontAsset
+*/
+/**
+
+@member {string}
+@memberof ut.EditorExtensions.AssetReferenceTMP_FontAsset
+@name guid
+*/
+/**
+
+@member {int64}
+@memberof ut.EditorExtensions.AssetReferenceTMP_FontAsset
+@name fileId
+*/
+/**
+
+@member {int32}
+@memberof ut.EditorExtensions.AssetReferenceTMP_FontAsset
+@name type
+*/
+/**
+
+@component
+@memberof ut.EditorExtensions
+@name CameraCullingMask
+*/
+/**
+
+@member {int32}
+@memberof ut.EditorExtensions.CameraCullingMask
+@name mask
+*/
+/**
+
+@component
+@memberof ut.EditorExtensions
+@name EntityLayer
+*/
+/**
+
+@member {int32}
+@memberof ut.EditorExtensions.EntityLayer
+@name layer
+*/
+/**
+
+@system
+@memberof game
+@name FlyingSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name LaunchSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name UpdateCustomButtonSystemJS
+*/
+
+

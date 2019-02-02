@@ -1,0 +1,33 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "7cd18030e3864e51ae1efbfdcb801ab4",
+    "Name": "Config",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Configuration",
+    "Fields": [{
+        "Id": "1746b96905cd40d590269a55959d3c18",
+        "Name": "Gravity",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "dc90b2cfcd3e4e2fb3b47ccec43c9715",
+        "Name": "GroundPosition",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "7cd18030e3864e51ae1efbfdcb801ab4", "Name": "Config" },
+        "Properties": {
+            "Gravity": 400,
+            "GroundPosition": -138
+        }
+    }
+}]

@@ -1,0 +1,37 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "3f5499db90434e2fa47878e324dd59b1",
+    "Name": "Flying",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "23242a61750248419489cc1fab5f57ec",
+        "Name": "ScrollSpeed",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "48b20c2fc8e34b19a1dee49ce50ca6da",
+        "Name": "AirSpeed",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "e5614921711e4e52acad7fdc39fad9fd",
+        "Name": "PreviousPosition",
+        "FieldType": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "3f5499db90434e2fa47878e324dd59b1", "Name": "Flying" }
+    }
+}]

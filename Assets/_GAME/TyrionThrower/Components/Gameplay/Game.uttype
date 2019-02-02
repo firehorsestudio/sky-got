@@ -1,0 +1,38 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "2aaad94d1338412dbfa0ce11b0b69b15",
+    "Name": "Game",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "b973d3030c004b0a9b36d1b2b684476c",
+        "Name": "State",
+        "FieldType": { "Id": "5f484e349dcf4dd18e80468c299fa30b", "Name": "GameState" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "77ec0f2528134a59bfc61c8fe8834453",
+        "Name": "PreviousState",
+        "FieldType": { "Id": "5f484e349dcf4dd18e80468c299fa30b", "Name": "GameState" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "2aaad94d1338412dbfa0ce11b0b69b15", "Name": "Game" },
+        "Properties": {
+            "State": {
+                "$TypeId": 8,
+                "Type": { "Id": "5f484e349dcf4dd18e80468c299fa30b", "Name": "GameState" },
+                "Id": "5777cee24b7c48a6bd7f36cab5be21bf",
+                "Name": "THROW",
+                "Value": 20
+            }
+        }
+    }
+}]

@@ -1,0 +1,12 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "aa536273f1d44ebda1183759c33b0d6c",
+    "Name": "Hero",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "DefaultValue": {
+        "Type": { "Id": "aa536273f1d44ebda1183759c33b0d6c", "Name": "Hero" }
+    }
+}]

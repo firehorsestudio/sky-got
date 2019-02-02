@@ -1,0 +1,61 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "5f484e349dcf4dd18e80468c299fa30b",
+    "Name": "GameState",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Enum",
+    "BaseType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+    "Fields": [{
+        "Id": "5c12025f504941d48bfd538ce0a85d4a",
+        "Name": "MENU",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "5777cee24b7c48a6bd7f36cab5be21bf",
+        "Name": "THROW",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "4930f39a753143698fd1437c13e5c5d3",
+        "Name": "PLAYING",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "07a26a73ff41474cb6ab09e9f1f6aa64",
+        "Name": "PAUSED",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "e70ef913a44f4cac9b0d4545cbf25e3c",
+        "Name": "END",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "5f484e349dcf4dd18e80468c299fa30b", "Name": "GameState" },
+        "Properties": {
+            "MENU": 10,
+            "THROW": 20,
+            "PLAYING": 30,
+            "PAUSED": 40,
+            "END": 50
+        }
+    }
+}]

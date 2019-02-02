@@ -1,0 +1,81 @@
+{
+    "Success": true,
+    "Diagnostics": [],
+    "Systems": [
+        {
+            "Name": "FlyingSystem",
+            "QualifiedName": "game.FlyingSystem",
+            "Description": "",
+            "Source": {
+                "File": "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Systems/FlyingSystem.ts",
+                "Line": 4,
+                "Character": 17
+            }
+        },
+        {
+            "Name": "LaunchSystem",
+            "QualifiedName": "game.LaunchSystem",
+            "Description": "",
+            "Source": {
+                "File": "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Systems/LaunchSystem.ts",
+                "Line": 4,
+                "Character": 17
+            }
+        },
+        {
+            "Name": "UpdateCustomButtonSystem",
+            "QualifiedName": "game.UpdateCustomButtonSystem",
+            "Description": "Update the sprite and other visual elements of buttons depending on their current state.",
+            "Source": {
+                "File": "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Systems/UpdateCustomButtonSystem.ts",
+                "Line": 7,
+                "Character": 17
+            }
+        }
+    ],
+    "Filters": [],
+    "Behaviours": [],
+    "Performance": [
+        {
+            "Key": "tsconfig",
+            "Description": "Time taken to read and parse the given tsconfig.json file",
+            "Duration": 95,
+            "Steps": 1
+        },
+        {
+            "Key": "checksum",
+            "Description": "Time taken to compute the MD5 of all inputs",
+            "Duration": 178,
+            "Steps": 1
+        },
+        {
+            "Key": "compile",
+            "Description": "Time taken to compile the TypeScript program",
+            "Duration": 786,
+            "Steps": 14
+        },
+        {
+            "Key": "emit",
+            "Description": "Time taken to generate and write the JavaScript output",
+            "Duration": 63,
+            "Steps": 2
+        },
+        {
+            "Key": "metadata",
+            "Description": "Time taken to reflect Tiny metadata from the compiled program",
+            "Duration": 3,
+            "Steps": 3
+        }
+    ],
+    "SourceFiles": [
+        "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Services/GameService.ts",
+        "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Services/UserDataService.ts",
+        "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Systems/FlyingSystem.ts",
+        "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Systems/LaunchSystem.ts",
+        "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Systems/UpdateCustomButtonSystem.ts",
+        "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
+        "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
+    ],
+    "InputHash": "c05e11fef251d9796d5bf5eb7e874561",
+    "GeneratedAt": "Sat Feb 02 2019 06:35:58 GMT-0200 (Horário brasileiro de verão)"
+}
