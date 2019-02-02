@@ -93,7 +93,10 @@ namespace game {
 
                 if (btnPlayGame.JustClicked)
                 {
-                    this.TooglePauseMenu(world, false);
+                    this.ToogleMenuInitial(world, false);
+                    GameService.SetGameState(world, GameState.PLAYING);
+                    this.ToogleInGamePanel(world, true);
+                    ut.EntityGroup.instantiate(world, "game.GroundTile");
                 }
             }
         }

@@ -22,12 +22,30 @@
         "Visibility": 0,
         "EditorOnly": false,
         "Versioned": true
+    }, {
+        "Id": "5c48d5f682b84ecf919aeafa7acd119b",
+        "Name": "SmashForce",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "453b02cd16204e0385aef59e289a59fc",
+        "Name": "SmashCooldown",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
     }],
     "DefaultValue": {
         "Type": { "Id": "7cd18030e3864e51ae1efbfdcb801ab4", "Name": "Config" },
         "Properties": {
-            "Gravity": 400,
-            "GroundPosition": -138
+            "Gravity": -400,
+            "GroundPosition": -88,
+            "SmashForce": -600,
+            "SmashCooldown": 0.25
         }
     }
 }]

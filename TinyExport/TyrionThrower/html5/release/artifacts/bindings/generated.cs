@@ -9,7 +9,6 @@ using ut.EditorExtensions;
 using UTiny.UIControls;
 using UTiny.UILayout;
 using UTiny.Text;
-using UTiny.Interpolation;
 
 /*
  * !!! TEMP UNITL PROPER SCENE FORMAT !!!
@@ -22,7 +21,31 @@ namespace entities.game
         {
         }
     }
+    namespace GroundTile
+    {
+        public struct Component : IComponentData
+        {
+        }
+    }
     namespace SettingsMenu
+    {
+        public struct Component : IComponentData
+        {
+        }
+    }
+    namespace InGameTopMenuGroup
+    {
+        public struct Component : IComponentData
+        {
+        }
+    }
+    namespace MenuInitialGroup
+    {
+        public struct Component : IComponentData
+        {
+        }
+    }
+    namespace PauseMenuGroup
     {
         public struct Component : IComponentData
         {
@@ -32,14 +55,6 @@ namespace entities.game
 
 namespace game
 {
-    public struct Game : IComponentData
-    {
-        public game.GameState State;
-        public game.GameState PreviousState;
-    }
-    public struct Hero : IComponentData
-    {
-    }
     public struct SettingsMenu : IComponentData
     {
         public Entity ButtonOK;
@@ -48,6 +63,48 @@ namespace game
         public Entity ButtonLanguage;
         public Entity ButtonRenderMode;
         public Entity LabelRenderMode;
+    }
+    public struct BoxCollider : IComponentData
+    {
+        public float x;
+        public float y;
+        public float width;
+        public float height;
+    }
+    public struct Enemy : IComponentData
+    {
+    }
+    public struct Flying : IComponentData
+    {
+        public float ScrollSpeed;
+        public float AirSpeed;
+        public Vector3 PreviousPosition;
+    }
+    public struct Game : IComponentData
+    {
+        public game.GameState State;
+        public game.GameState PreviousState;
+    }
+    public struct Hero : IComponentData
+    {
+        public float ScrollSpeed;
+        public float AirSpeed;
+        public bool IsSmashing;
+        public float SmashCooldownTimer;
+        public bool IsSmashingCooldown;
+    }
+    public struct LastPosition : IComponentData
+    {
+        public Vector3 Position;
+        public bool Updated;
+    }
+    public struct InGamePanel : IComponentData
+    {
+        public short Das;
+    }
+    public struct PauseMenu : IComponentData
+    {
+        public short Das;
     }
     public struct CustomButton : IComponentData
     {
@@ -70,12 +127,6 @@ namespace game
         public bool IsInteractable;
         public bool LastIsInteractable;
     }
-    public struct Flying : IComponentData
-    {
-        public float ScrollSpeed;
-        public float AirSpeed;
-        public Vector3 PreviousPosition;
-    }
     public enum GameState
     {
         MENU = 10
@@ -89,6 +140,8 @@ namespace game
     {
         public float Gravity;
         public float GroundPosition;
+        public float SmashForce;
+        public float SmashCooldown;
     }
 }
 
@@ -244,13 +297,21 @@ namespace ut.HTML
 namespace ut.Text
 {
 }
-
-namespace ut.Interpolation
+namespace game
 {
+    public class UIDataGetSystemJS : IComponentSystem
+    {
+    }
 }
 namespace game
 {
     public class FlyingSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    public class HeroSystemJS : IComponentSystem
     {
     }
 }

@@ -3,11 +3,33 @@ namespace game {
 
     export class GameService {
 
+        static MAINCAMERA: ut.Entity;
         static GAME: ut.Entity;
         static HERO: ut.Entity;
-
+        
         static GetConfig(world: ut.World): Config {
             return world.getConfigData(Config);
+        }
+
+        static GetMainCameraEntity(world: ut.World): ut.Entity {
+
+            if (!world.exists(this.MAINCAMERA)) {
+                this.MAINCAMERA = world.getEntityByName("MainCamera");
+                if (!world.exists(this.MAINCAMERA)) {
+                    this.MAINCAMERA = null;
+                    return null;
+                }
+            }
+
+            return this.MAINCAMERA;
+        }
+
+        static GetMainCamera(world: ut.World): ut.Core2D.Camera2D {
+            let mainCameraEntity = this.GetMainCameraEntity(world);
+            if (mainCameraEntity == null)
+                return null;
+
+            return world.getComponentData(mainCameraEntity, ut.Core2D.Camera2D);
         }
 
         static GetGameEntity(world: ut.World): ut.Entity {
@@ -30,6 +52,11 @@ namespace game {
 
             return world.getComponentData(gameEntity, Game);
         }
+
+        static GetCurrentGameState(world: ut.World) {
+            let state = this.GetGame(world).State;
+            return state;
+        }
         
         static SetGameState(world: ut.World, state: GameState) {
             let game = this.GetGame(world);
@@ -37,14 +64,12 @@ namespace game {
             world.setComponentData(this.GAME, game);
         }
 
-        static IsPaused(world: ut.World) {
-            let state = this.GetGame(world).State;
-            return state == GameState.PAUSED;
+        static IsGameState(world: ut.World, state: GameState) {
+            return this.GetGame(world).State == state;
         }
 
-        static GetCurrentGameState(world: ut.World) {
-            let state = this.GetGame(world).State;
-            return state;
+        static IsPaused(world: ut.World) {
+            return this.IsGameState(world, GameState.PAUSED);
         }
 
         static GetHeroEntity(world: ut.World): ut.Entity {

@@ -2,7 +2,7 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "skipLibCheck": true,
-        "outFile": "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/TinyExport/TyrionThrower/html5/release/artifacts/scripts/tsc-emit.js",
+        "outFile": "C:/Ramon/Projetos/SkyGot/TinyExport/TyrionThrower/html5/release/artifacts/scripts/tsc-emit.js",
         "sourceMap": true,
         "target": "ES5"
     },

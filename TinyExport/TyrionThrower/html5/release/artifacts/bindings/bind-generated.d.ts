@@ -23,6 +23,22 @@ class Component extends ut.Component {
 }
 
 }
+declare namespace entities.game.GroundTile {
+
+class Component extends ut.Component {
+  constructor();
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: Component): Component;
+  static _toPtr(p: number, v: Component): void;
+  static _tempHeapPtr(v: Component): number;
+  static _dtorFn(v: Component): void;
+}
+
+}
 declare namespace entities.game.SettingsMenu {
 
 class Component extends ut.Component {
@@ -39,39 +55,51 @@ class Component extends ut.Component {
 }
 
 }
-declare namespace game {
+declare namespace entities.game.InGameTopMenuGroup {
 
-class Game extends ut.Component {
-  constructor(State?: GameState, PreviousState?: GameState);
-  State: GameState;
-  PreviousState: GameState;
-  
-  
-  static readonly cid: number;
-  static readonly _view: any;
-  static readonly _isSharedComp: boolean;
-
-  static _size: number;
-  static _fromPtr(p: number, v?: Game): Game;
-  static _toPtr(p: number, v: Game): void;
-  static _tempHeapPtr(v: Game): number;
-  static _dtorFn(v: Game): void;
-}
-
-}
-declare namespace game {
-
-class Hero extends ut.Component {
+class Component extends ut.Component {
   constructor();
   static readonly cid: number;
   static readonly _view: any;
   static readonly _isSharedComp: boolean;
 
   static _size: number;
-  static _fromPtr(p: number, v?: Hero): Hero;
-  static _toPtr(p: number, v: Hero): void;
-  static _tempHeapPtr(v: Hero): number;
-  static _dtorFn(v: Hero): void;
+  static _fromPtr(p: number, v?: Component): Component;
+  static _toPtr(p: number, v: Component): void;
+  static _tempHeapPtr(v: Component): number;
+  static _dtorFn(v: Component): void;
+}
+
+}
+declare namespace entities.game.MenuInitialGroup {
+
+class Component extends ut.Component {
+  constructor();
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: Component): Component;
+  static _toPtr(p: number, v: Component): void;
+  static _tempHeapPtr(v: Component): number;
+  static _dtorFn(v: Component): void;
+}
+
+}
+declare namespace entities.game.PauseMenuGroup {
+
+class Component extends ut.Component {
+  constructor();
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: Component): Component;
+  static _toPtr(p: number, v: Component): void;
+  static _tempHeapPtr(v: Component): number;
+  static _dtorFn(v: Component): void;
 }
 
 }
@@ -100,6 +128,170 @@ class SettingsMenu extends ut.Component {
   static _toPtr(p: number, v: SettingsMenu): void;
   static _tempHeapPtr(v: SettingsMenu): number;
   static _dtorFn(v: SettingsMenu): void;
+}
+
+}
+declare namespace game {
+
+class BoxCollider extends ut.Component {
+  constructor(x?: number, y?: number, width?: number, height?: number);
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  static readonly x: ComponentFieldDesc;
+  static readonly y: ComponentFieldDesc;
+  static readonly width: ComponentFieldDesc;
+  static readonly height: ComponentFieldDesc;
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: BoxCollider): BoxCollider;
+  static _toPtr(p: number, v: BoxCollider): void;
+  static _tempHeapPtr(v: BoxCollider): number;
+  static _dtorFn(v: BoxCollider): void;
+}
+
+}
+declare namespace game {
+
+class Enemy extends ut.Component {
+  constructor();
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: Enemy): Enemy;
+  static _toPtr(p: number, v: Enemy): void;
+  static _tempHeapPtr(v: Enemy): number;
+  static _dtorFn(v: Enemy): void;
+}
+
+}
+declare namespace game {
+
+class Flying extends ut.Component {
+  constructor(ScrollSpeed?: number, AirSpeed?: number, PreviousPosition?: Vector3);
+  ScrollSpeed: number;
+  AirSpeed: number;
+  PreviousPosition: Vector3;
+  static readonly ScrollSpeed: ComponentFieldDesc;
+  static readonly AirSpeed: ComponentFieldDesc;
+  static readonly PreviousPosition: Vector3ComponentFieldDesc;
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: Flying): Flying;
+  static _toPtr(p: number, v: Flying): void;
+  static _tempHeapPtr(v: Flying): number;
+  static _dtorFn(v: Flying): void;
+}
+
+}
+declare namespace game {
+
+class Game extends ut.Component {
+  constructor(State?: GameState, PreviousState?: GameState);
+  State: GameState;
+  PreviousState: GameState;
+  
+  
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: Game): Game;
+  static _toPtr(p: number, v: Game): void;
+  static _tempHeapPtr(v: Game): number;
+  static _dtorFn(v: Game): void;
+}
+
+}
+declare namespace game {
+
+class Hero extends ut.Component {
+  constructor(ScrollSpeed?: number, AirSpeed?: number, IsSmashing?: boolean, SmashCooldownTimer?: number, IsSmashingCooldown?: boolean);
+  ScrollSpeed: number;
+  AirSpeed: number;
+  IsSmashing: boolean;
+  SmashCooldownTimer: number;
+  IsSmashingCooldown: boolean;
+  static readonly ScrollSpeed: ComponentFieldDesc;
+  static readonly AirSpeed: ComponentFieldDesc;
+  static readonly IsSmashing: ComponentFieldDesc;
+  static readonly SmashCooldownTimer: ComponentFieldDesc;
+  static readonly IsSmashingCooldown: ComponentFieldDesc;
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: Hero): Hero;
+  static _toPtr(p: number, v: Hero): void;
+  static _tempHeapPtr(v: Hero): number;
+  static _dtorFn(v: Hero): void;
+}
+
+}
+declare namespace game {
+
+class LastPosition extends ut.Component {
+  constructor(Position?: Vector3, Updated?: boolean);
+  Position: Vector3;
+  Updated: boolean;
+  static readonly Position: Vector3ComponentFieldDesc;
+  static readonly Updated: ComponentFieldDesc;
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: LastPosition): LastPosition;
+  static _toPtr(p: number, v: LastPosition): void;
+  static _tempHeapPtr(v: LastPosition): number;
+  static _dtorFn(v: LastPosition): void;
+}
+
+}
+declare namespace game {
+
+class InGamePanel extends ut.Component {
+  constructor(Das?: number);
+  Das: number;
+  
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: InGamePanel): InGamePanel;
+  static _toPtr(p: number, v: InGamePanel): void;
+  static _tempHeapPtr(v: InGamePanel): number;
+  static _dtorFn(v: InGamePanel): void;
+}
+
+}
+declare namespace game {
+
+class PauseMenu extends ut.Component {
+  constructor(Das?: number);
+  Das: number;
+  
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: PauseMenu): PauseMenu;
+  static _toPtr(p: number, v: PauseMenu): void;
+  static _tempHeapPtr(v: PauseMenu): number;
+  static _dtorFn(v: PauseMenu): void;
 }
 
 }
@@ -157,34 +349,16 @@ class CustomButton extends ut.Component {
 }
 declare namespace game {
 
-class Flying extends ut.Component {
-  constructor(ScrollSpeed?: number, AirSpeed?: number, PreviousPosition?: Vector3);
-  ScrollSpeed: number;
-  AirSpeed: number;
-  PreviousPosition: Vector3;
-  static readonly ScrollSpeed: ComponentFieldDesc;
-  static readonly AirSpeed: ComponentFieldDesc;
-  static readonly PreviousPosition: Vector3ComponentFieldDesc;
-  static readonly cid: number;
-  static readonly _view: any;
-  static readonly _isSharedComp: boolean;
-
-  static _size: number;
-  static _fromPtr(p: number, v?: Flying): Flying;
-  static _toPtr(p: number, v: Flying): void;
-  static _tempHeapPtr(v: Flying): number;
-  static _dtorFn(v: Flying): void;
-}
-
-}
-declare namespace game {
-
 class Config extends ut.Component {
-  constructor(Gravity?: number, GroundPosition?: number);
+  constructor(Gravity?: number, GroundPosition?: number, SmashForce?: number, SmashCooldown?: number);
   Gravity: number;
   GroundPosition: number;
+  SmashForce: number;
+  SmashCooldown: number;
   static readonly Gravity: ComponentFieldDesc;
   static readonly GroundPosition: ComponentFieldDesc;
+  static readonly SmashForce: ComponentFieldDesc;
+  static readonly SmashCooldown: ComponentFieldDesc;
   static readonly cid: number;
   static readonly _view: any;
   static readonly _isSharedComp: boolean;
@@ -516,7 +690,13 @@ class EntityLayer extends ut.Component {
 
 }
 declare namespace game {
+var UIDataGetSystemJS: ut.SystemJS;
+}
+declare namespace game {
 var FlyingSystemJS: ut.SystemJS;
+}
+declare namespace game {
+var HeroSystemJS: ut.SystemJS;
 }
 declare namespace game {
 var HitGroundSystemJS: ut.SystemJS;

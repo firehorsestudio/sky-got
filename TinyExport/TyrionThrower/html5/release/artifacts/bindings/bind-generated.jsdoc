@@ -43,32 +43,32 @@
 /**
 
 @component
+@memberof entities.game.GroundTile
+@name Component
+*/
+/**
+
+@component
 @memberof entities.game.SettingsMenu
 @name Component
 */
 /**
 
 @component
-@memberof game
-@name Game
-*/
-/**
-
-@member {game.GameState}
-@memberof game.Game
-@name State
-*/
-/**
-
-@member {game.GameState}
-@memberof game.Game
-@name PreviousState
+@memberof entities.game.InGameTopMenuGroup
+@name Component
 */
 /**
 
 @component
-@memberof game
-@name Hero
+@memberof entities.game.MenuInitialGroup
+@name Component
+*/
+/**
+
+@component
+@memberof entities.game.PauseMenuGroup
+@name Component
 */
 /**
 
@@ -111,6 +111,162 @@
 @member {ut.Entity}
 @memberof game.SettingsMenu
 @name LabelRenderMode
+*/
+/**
+
+@component
+@memberof game
+@name BoxCollider
+*/
+/**
+
+@member {float}
+@memberof game.BoxCollider
+@name x
+*/
+/**
+
+@member {float}
+@memberof game.BoxCollider
+@name y
+*/
+/**
+
+@member {float}
+@memberof game.BoxCollider
+@name width
+*/
+/**
+
+@member {float}
+@memberof game.BoxCollider
+@name height
+*/
+/**
+
+@component
+@memberof game
+@name Enemy
+*/
+/**
+
+@component
+@memberof game
+@name Flying
+*/
+/**
+
+@member {float}
+@memberof game.Flying
+@name ScrollSpeed
+*/
+/**
+
+@member {float}
+@memberof game.Flying
+@name AirSpeed
+*/
+/**
+
+@member {ut.Math.Vector3}
+@memberof game.Flying
+@name PreviousPosition
+*/
+/**
+
+@component
+@memberof game
+@name Game
+*/
+/**
+
+@member {game.GameState}
+@memberof game.Game
+@name State
+*/
+/**
+
+@member {game.GameState}
+@memberof game.Game
+@name PreviousState
+*/
+/**
+
+@component
+@memberof game
+@name Hero
+*/
+/**
+
+@member {float}
+@memberof game.Hero
+@name ScrollSpeed
+*/
+/**
+
+@member {float}
+@memberof game.Hero
+@name AirSpeed
+*/
+/**
+
+@member {bool}
+@memberof game.Hero
+@name IsSmashing
+*/
+/**
+
+@member {float}
+@memberof game.Hero
+@name SmashCooldownTimer
+*/
+/**
+
+@member {bool}
+@memberof game.Hero
+@name IsSmashingCooldown
+*/
+/**
+
+@component
+@memberof game
+@name LastPosition
+*/
+/**
+
+@member {ut.Math.Vector3}
+@memberof game.LastPosition
+@name Position
+*/
+/**
+
+@member {bool}
+@memberof game.LastPosition
+@name Updated
+*/
+/**
+
+@component
+@memberof game
+@name InGamePanel
+*/
+/**
+
+@member {int16}
+@memberof game.InGamePanel
+@name Das
+*/
+/**
+
+@component
+@memberof game
+@name PauseMenu
+*/
+/**
+
+@member {int16}
+@memberof game.PauseMenu
+@name Das
 */
 /**
 
@@ -230,30 +386,6 @@
 
 @component
 @memberof game
-@name Flying
-*/
-/**
-
-@member {float}
-@memberof game.Flying
-@name ScrollSpeed
-*/
-/**
-
-@member {float}
-@memberof game.Flying
-@name AirSpeed
-*/
-/**
-
-@member {ut.Math.Vector3}
-@memberof game.Flying
-@name PreviousPosition
-*/
-/**
-
-@component
-@memberof game
 @name Config
 */
 /**
@@ -267,6 +399,18 @@
 @member {float}
 @memberof game.Config
 @name GroundPosition
+*/
+/**
+
+@member {float}
+@memberof game.Config
+@name SmashForce
+*/
+/**
+
+@member {float}
+@memberof game.Config
+@name SmashCooldown
 */
 /**
 
@@ -512,7 +656,19 @@
 
 @system
 @memberof game
+@name UIDataGetSystemJS
+*/
+/**
+
+@system
+@memberof game
 @name FlyingSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name HeroSystemJS
 */
 /**
 

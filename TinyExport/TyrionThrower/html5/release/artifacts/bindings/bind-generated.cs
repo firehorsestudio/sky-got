@@ -22,6 +22,18 @@ namespace entities.game.Bootstrap
 
     }
 }
+namespace entities.game.GroundTile
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Component : UTiny.IComponentData
+    {
+
+
+
+
+
+    }
+}
 namespace entities.game.SettingsMenu
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
@@ -29,6 +41,103 @@ namespace entities.game.SettingsMenu
     {
 
 
+
+
+
+    }
+}
+namespace entities.game.InGameTopMenuGroup
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Component : UTiny.IComponentData
+    {
+
+
+
+
+
+    }
+}
+namespace entities.game.MenuInitialGroup
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Component : UTiny.IComponentData
+    {
+
+
+
+
+
+    }
+}
+namespace entities.game.PauseMenuGroup
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Component : UTiny.IComponentData
+    {
+
+
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct SettingsMenu : UTiny.IComponentData
+    {
+
+
+        public UTiny.Entity ButtonOK;
+        public UTiny.Entity ButtonCredits;
+        public UTiny.Entity ButtonResetProgress;
+        public UTiny.Entity ButtonLanguage;
+        public UTiny.Entity ButtonRenderMode;
+        public UTiny.Entity LabelRenderMode;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct BoxCollider : UTiny.IComponentData
+    {
+
+
+        public float x;
+        public float y;
+        public float width;
+        public float height;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Enemy : UTiny.IComponentData
+    {
+
+
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Flying : UTiny.IComponentData
+    {
+
+
+        public float ScrollSpeed;
+        public float AirSpeed;
+        public Unity.Mathematics.float3 PreviousPosition;
 
 
 
@@ -55,6 +164,11 @@ namespace game
     {
 
 
+        public float ScrollSpeed;
+        public float AirSpeed;
+        public bool IsSmashing;
+        public float SmashCooldownTimer;
+        public bool IsSmashingCooldown;
 
 
 
@@ -63,16 +177,38 @@ namespace game
 namespace game
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
-    public struct SettingsMenu : UTiny.IComponentData
+    public struct LastPosition : UTiny.IComponentData
     {
 
 
-        public UTiny.Entity ButtonOK;
-        public UTiny.Entity ButtonCredits;
-        public UTiny.Entity ButtonResetProgress;
-        public UTiny.Entity ButtonLanguage;
-        public UTiny.Entity ButtonRenderMode;
-        public UTiny.Entity LabelRenderMode;
+        public Unity.Mathematics.float3 Position;
+        public bool Updated;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct InGamePanel : UTiny.IComponentData
+    {
+
+
+        public short Das;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct PauseMenu : UTiny.IComponentData
+    {
+
+
+        public short Das;
 
 
 
@@ -111,27 +247,14 @@ namespace game
 namespace game
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
-    public struct Flying : UTiny.IComponentData
-    {
-
-
-        public float ScrollSpeed;
-        public float AirSpeed;
-        public Unity.Mathematics.float3 PreviousPosition;
-
-
-
-    }
-}
-namespace game
-{
-    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
     public struct Config : UTiny.IComponentData
     {
 
 
         public float Gravity;
         public float GroundPosition;
+        public float SmashForce;
+        public float SmashCooldown;
 
 
 
