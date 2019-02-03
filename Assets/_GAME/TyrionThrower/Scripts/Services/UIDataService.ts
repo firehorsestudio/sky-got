@@ -46,7 +46,7 @@ namespace game {
             }
         }
 
-        static CheckForPauseMenuButtons(world: ut.World)
+        /*static CheckForPauseMenuButtons(world: ut.World)
         {
             if (this.PAUSEMENUGROUP != null)
             {
@@ -55,6 +55,22 @@ namespace game {
 
                 if (btnUnpause.JustClicked)
                     this.TooglePauseMenu(world, false);
+            }
+        }*/
+
+        static CheckForPauseButton(world: ut.World) {
+            if (this.INGAMEPANEL != null) {
+                let buttonPause = world.getEntityByName("PauseButton");
+                let btnPause = world.getComponentData(buttonPause, game.CustomButton);
+
+                if (btnPause.JustClicked)
+                {
+                    if (!GameService.IsPaused(world))
+                        this.TooglePauseMenu(world, true);
+                    else
+                        this.TooglePauseMenu(world, true);
+
+                }
             }
         }
         
@@ -71,15 +87,15 @@ namespace game {
 
         static CheckForPlayerScore(world: ut.World)
         {
-            let herospeed = world.getEntityByName("HeroSpeed");
+            let herospeed = world.getEntityByName("HeroSpeedPoints");
             let heroSpeedText = world.getComponentData(herospeed, ut.Text.Text2DRenderer);
             heroSpeedText.text += 1;
         }
 
         static ToogleMenuInitial(world: ut.World, create: boolean) {
-            if (create && this.MENUINITIALL == null) 
+            if (create && this.MENUINITIALL == null) {
                 this.MENUINITIALL = ut.EntityGroup.instantiate(world, "game.MenuInitialGroup");
-            
+            }            
             else if (!create) {
                 this.MENUINITIALL = null;
                 ut.EntityGroup.destroyAll(world, "game.MenuInitialGroup");
@@ -94,9 +110,11 @@ namespace game {
                 if (btnPlayGame.JustClicked)
                 {
                     this.ToogleMenuInitial(world, false);
-                    GameService.SetGameState(world, GameState.PLAYING);
+                    GameService.SetGameState(world, GameState.THROW);
                     this.ToogleInGamePanel(world, true);
                     ut.EntityGroup.instantiate(world, "game.GroundTile");
+                    UserDataService.SetBoolean("PlayedFirstGame", true);
+                    
                 }
             }
         }
