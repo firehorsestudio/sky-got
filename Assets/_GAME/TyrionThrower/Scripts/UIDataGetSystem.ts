@@ -19,13 +19,17 @@ namespace game {
                 GameService.SetGameState(this.world, GameState.PLAYING);
             }
 
+            if (ut.Runtime.Input.getKeyDown(ut.Core2D.KeyCode.P)) {
+                UserDataService.DeleteAllCookies();
+            }
+
 
             switch (GameService.GetCurrentGameState(this.world))
             {
                 case GameState.MENU:
                     UIDataService.ToogleGameplayEntity(this.world);
                     if (UserDataService.GetBoolean("PlayedFirstGame")) {
-                        GameService.SetGameState(this.world, GameState.PLAYING);
+                        GameService.SetGameState(this.world, GameState.THROW);
                         break;
                     }
                     else {

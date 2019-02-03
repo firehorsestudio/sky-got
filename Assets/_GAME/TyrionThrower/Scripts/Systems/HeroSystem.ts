@@ -57,9 +57,10 @@ namespace game {
     export class HeroSystem extends ut.ComponentSystem {
         
         OnUpdate(): void {
-
-            if (GameService.IsPaused(this.world) || (GameService.GetCurrentGameState(this.world) != GameState.THROW) || (GameService.GetCurrentGameState(this.world) != GameState.PLAYING))
+            
+            if (GameService.IsPaused(this.world) || ((GameService.GetCurrentGameState(this.world) != GameState.THROW) && (GameService.GetCurrentGameState(this.world) != GameState.PLAYING)))
                 return;
+
 
             let config = GameService.GetConfig(this.world);
             let dt = this.scheduler.deltaTime();

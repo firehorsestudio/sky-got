@@ -43,11 +43,28 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 1c428aa5d0656114fadbc099024a1fd8, type: 3}
     - {fileID: 2800000, guid: 4375dd281f4ab09468a020fada203c9f, type: 3}
     - {fileID: 2800000, guid: e6df0accaf493de40b8843f6390c10c2, type: 3}
-    totalSpriteSurfaceArea: 127949
+    - {fileID: 2800000, guid: e5028401e10a7f24ab1f10e650620e42, type: 3}
+    - {fileID: 2800000, guid: 2fb77f2ef63c43745b30abe86008356a, type: 3}
+    - {fileID: 2800000, guid: ddbad0dc231f5be4c8e3ffb10da62efb, type: 3}
+    - {fileID: 2800000, guid: 53bf6531845b990419660599462c78f0, type: 3}
+    - {fileID: 2800000, guid: 16b2d733b4368824c834009eb91f936e, type: 3}
+    - {fileID: 2800000, guid: d8c948ac503f0364883952b3432e6cb8, type: 3}
+    - {fileID: 2800000, guid: a6028b70dca91ff43be7813d4475cb58, type: 3}
+    - {fileID: 2800000, guid: af3fb483d56b2f141bbf5ed9c397ba67, type: 3}
+    - {fileID: 2800000, guid: b843b113e3ddf5c4a9be61b01f155ee5, type: 3}
+    - {fileID: 2800000, guid: 17ea4dc25d5bfe1488384ebdb4cf7ba8, type: 3}
+    totalSpriteSurfaceArea: 142160
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: a6028b70dca91ff43be7813d4475cb58, type: 3}
+  - {fileID: 21300000, guid: e5028401e10a7f24ab1f10e650620e42, type: 3}
+  - {fileID: 21300000, guid: 53bf6531845b990419660599462c78f0, type: 3}
   - {fileID: 21300000, guid: 0b4bae61a789a534d9fab013172f0b4c, type: 3}
+  - {fileID: 21300000, guid: 17ea4dc25d5bfe1488384ebdb4cf7ba8, type: 3}
+  - {fileID: 21300000, guid: b843b113e3ddf5c4a9be61b01f155ee5, type: 3}
+  - {fileID: 21300000, guid: 16b2d733b4368824c834009eb91f936e, type: 3}
+  - {fileID: 21300000, guid: af3fb483d56b2f141bbf5ed9c397ba67, type: 3}
   - {fileID: 21300000, guid: 9b0f9c15e4b9f4f4b849f2d5ce0da89b, type: 3}
   - {fileID: 21300000, guid: 1c428aa5d0656114fadbc099024a1fd8, type: 3}
   - {fileID: 21300000, guid: f72c9db6acdd09147a186d93599ae1dc, type: 3}
@@ -56,12 +73,22 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 16ff3098b249b844983e3a5c20ca2c60, type: 3}
   - {fileID: 21300000, guid: 77ab8d29c1dd2384a8bebfd4ca7dfb1c, type: 3}
   - {fileID: 21300000, guid: 6632748b62466a240bfc44488508f6d5, type: 3}
+  - {fileID: 21300000, guid: d8c948ac503f0364883952b3432e6cb8, type: 3}
   - {fileID: 21300000, guid: e6df0accaf493de40b8843f6390c10c2, type: 3}
+  - {fileID: 21300000, guid: ddbad0dc231f5be4c8e3ffb10da62efb, type: 3}
   - {fileID: 21300000, guid: 87ad159d37772be4c8ece11340465b27, type: 3}
+  - {fileID: 21300000, guid: 2fb77f2ef63c43745b30abe86008356a, type: 3}
   - {fileID: 21300000, guid: 03228e1fa41dec647bd445a820375ef7, type: 3}
   - {fileID: 21300000, guid: dd73fc4f9b4928b428727d3b1669d62e, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Green-Bar
+  - Dwarf-Catapult
+  - Dwarf-Hiting-01
   - Catapult-02
+  - PathBar-02
+  - PathBar-01
+  - Dwarf-Hiting-02
+  - Icon-Tyrion
   - Ice-Ground-Tile
   - Coin
   - Boots
@@ -70,8 +97,11 @@ SpriteAtlas:
   - Catapult-01
   - Ice-Wall
   - Ice-Trees
+  - Green-Ball
   - Pause-Button
+  - Dwarf-Flying-02
   - Ice-Sky-Tile
+  - Dwarf-Flying-01
   - Ice-Ground-Gradient
   - Ice-Mountains
   m_Tag: Atlas

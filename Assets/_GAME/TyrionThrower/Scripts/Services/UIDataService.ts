@@ -91,7 +91,7 @@ namespace game {
         static ToogleGameplayEntity(world: ut.World)
         {
             if (this.GAMEPLAYSTATE == null)
-                this.GAMEPLAYSTATE = ut.EntityGroup.instantiate(world, "game.GroundTile");
+                this.GAMEPLAYSTATE = ut.EntityGroup.instantiate(world, "game.Session");
         }
 
         static CheckForPlayerScore(world: ut.World)
@@ -121,7 +121,7 @@ namespace game {
                     this.ToogleMenuInitial(world, false);
                     GameService.SetGameState(world, GameState.THROW);
                     this.ToogleInGamePanel(world, true);
-                    ut.EntityGroup.instantiate(world, "game.GroundTile");
+                    ut.EntityGroup.instantiate(world, "game.Session");
                     UserDataService.SetBoolean("PlayedFirstGame", true);
                     
                 }
