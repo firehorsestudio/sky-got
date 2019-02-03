@@ -137,8 +137,8 @@
             "size": {
                 "Type": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
                 "Properties": {
-                    "x": 0,
-                    "y": 0
+                    "x": 531,
+                    "y": 392
                 }
             }
         }
@@ -194,7 +194,7 @@
     }, {
         "Type": { "Id": "0481d22c456081a992e7c7ee42da6c19", "Name": "Text2DStyleBitmapFont" },
         "Properties": {
-            "font": { "$TypeId": 10, "Guid": "8f586378b4e144a9851e7b34d9b748ee", "FileId": 11400000, "Type": 2 }
+            "font": { "$TypeId": 10, "Guid": "f2781addb6b2b4e489cfed100ec441f2", "FileId": 11400000, "Type": 2 }
         }
     }]
 },

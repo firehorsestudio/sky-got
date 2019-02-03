@@ -220,8 +220,8 @@
             "size": {
                 "Type": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
                 "Properties": {
-                    "x": 993.7499,
-                    "y": 475
+                    "x": 0,
+                    "y": 0
                 }
             }
         }
