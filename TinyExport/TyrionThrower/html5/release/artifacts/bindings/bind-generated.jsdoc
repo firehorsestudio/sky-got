@@ -386,6 +386,36 @@
 
 @component
 @memberof game
+@name FollowerCamera
+*/
+/**
+
+@member {bool}
+@memberof game.FollowerCamera
+@name Smooth
+*/
+/**
+
+@member {ut.Math.Vector2}
+@memberof game.FollowerCamera
+@name Offset
+*/
+/**
+
+@member {float}
+@memberof game.FollowerCamera
+@name UpperLimit
+*/
+/**
+
+@member {float}
+@memberof game.FollowerCamera
+@name BottomLimit
+*/
+/**
+
+@component
+@memberof game
 @name Config
 */
 /**
@@ -657,6 +687,12 @@
 @system
 @memberof game
 @name UIDataGetSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name CameraSystemJS
 */
 /**
 

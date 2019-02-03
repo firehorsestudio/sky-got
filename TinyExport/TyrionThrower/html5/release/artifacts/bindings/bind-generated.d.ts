@@ -349,6 +349,30 @@ class CustomButton extends ut.Component {
 }
 declare namespace game {
 
+class FollowerCamera extends ut.Component {
+  constructor(Smooth?: boolean, Offset?: Vector2, UpperLimit?: number, BottomLimit?: number);
+  Smooth: boolean;
+  Offset: Vector2;
+  UpperLimit: number;
+  BottomLimit: number;
+  static readonly Smooth: ComponentFieldDesc;
+  static readonly Offset: Vector2ComponentFieldDesc;
+  static readonly UpperLimit: ComponentFieldDesc;
+  static readonly BottomLimit: ComponentFieldDesc;
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: FollowerCamera): FollowerCamera;
+  static _toPtr(p: number, v: FollowerCamera): void;
+  static _tempHeapPtr(v: FollowerCamera): number;
+  static _dtorFn(v: FollowerCamera): void;
+}
+
+}
+declare namespace game {
+
 class Config extends ut.Component {
   constructor(Gravity?: number, GroundPosition?: number, SmashForce?: number, SmashCooldown?: number);
   Gravity: number;
@@ -691,6 +715,9 @@ class EntityLayer extends ut.Component {
 }
 declare namespace game {
 var UIDataGetSystemJS: ut.SystemJS;
+}
+declare namespace game {
+var CameraSystemJS: ut.SystemJS;
 }
 declare namespace game {
 var FlyingSystemJS: ut.SystemJS;

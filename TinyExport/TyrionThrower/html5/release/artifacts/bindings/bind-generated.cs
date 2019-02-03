@@ -247,6 +247,22 @@ namespace game
 namespace game
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct FollowerCamera : UTiny.IComponentData
+    {
+
+
+        public bool Smooth;
+        public Unity.Mathematics.float2 Offset;
+        public float UpperLimit;
+        public float BottomLimit;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
     public struct Config : UTiny.IComponentData
     {
 

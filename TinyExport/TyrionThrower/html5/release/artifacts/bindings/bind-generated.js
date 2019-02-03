@@ -1231,6 +1231,100 @@ game.CustomButton.ContentDefautPositionIsSet = { $ofs:60, $t:"bool", $c:game.Cus
 game.CustomButton.IsPointerOver = { $ofs:61, $t:"bool", $c:game.CustomButton };
 game.CustomButton.IsInteractable = { $ofs:62, $t:"bool", $c:game.CustomButton };
 game.CustomButton.LastIsInteractable = { $ofs:63, $t:"bool", $c:game.CustomButton };
+game.FollowerCamera = function(arg0, arg1, arg2, arg3) {
+  this._Smooth = (arg0 ? true : false);
+  this._Offset = new ut.Math.Vector2(); if ((arg1) !== undefined) { this._Offset.copy(arg1); };
+  this._UpperLimit = (+(arg2===undefined ? 0 : arg2));
+  this._BottomLimit = (+(arg3===undefined ? 0 : arg3));
+};
+game.FollowerCamera.prototype = Object.create(null);
+game.FollowerCamera.prototype.constructor = game.FollowerCamera;
+Object.defineProperties(game.FollowerCamera.prototype, {
+  Smooth: {
+    get: function() { return this._Smooth; },
+    set: function(v) { this._Smooth = (v ? true : false); },
+  },
+  Offset: {
+    get: function() { return this._Offset; },
+    set: function(v) { this._Offset.copy(v); },
+  },
+  UpperLimit: {
+    get: function() { return this._UpperLimit; },
+    set: function(v) { this._UpperLimit = (+(v===undefined ? 0 : v)); },
+  },
+  BottomLimit: {
+    get: function() { return this._BottomLimit; },
+    set: function(v) { this._BottomLimit = (+(v===undefined ? 0 : v)); },
+  },
+});
+game.FollowerCamera._size = 20;
+game.FollowerCamera._fromPtr = function(ptr, v) {
+  v = v || Object.create(game.FollowerCamera.prototype);
+  v._Smooth = (HEAP8[ptr+0]?true:false);
+  v._Offset = ut._utils.vec2FromHeap(null, ptr+4);
+  v._UpperLimit = HEAPF32[(ptr+12)>>2];
+  v._BottomLimit = HEAPF32[(ptr+16)>>2];
+  return v;
+};
+game.FollowerCamera._toPtr = function(ptr, v) {
+  HEAP8[ptr+0] = (v.Smooth)?1:0;
+  ut._utils.vec2ToHeap(v.Offset, ptr+4);
+  HEAPF32[(ptr+12)>>2] = v.UpperLimit;
+  HEAPF32[(ptr+16)>>2] = v.BottomLimit;
+};
+game.FollowerCamera._toTempHeapPtr = function(ptr, v) {
+  HEAP8[ptr+0] = (v.Smooth)?1:0;
+  ut._utils.vec2ToHeap(v.Offset, ptr+4);
+  HEAPF32[(ptr+12)>>2] = v.UpperLimit;
+  HEAPF32[(ptr+16)>>2] = v.BottomLimit;
+};
+game.FollowerCamera._tempHeapPtr = function(v) {
+  var ptr = ut.tempHeapPtrBufferZero(20);
+  if (v) game.FollowerCamera._toTempHeapPtr(ptr, v);
+  return ptr;
+};
+game.FollowerCamera.StorageView = function(ptr) {
+  this._ptr = ptr;
+};
+game.FollowerCamera.StorageView.prototype = Object.create(null);
+game.FollowerCamera.StorageView.prototype.constructor = game.FollowerCamera.StorageView;
+game.FollowerCamera._view = game.FollowerCamera.StorageView;
+game.FollowerCamera.StorageView._isSharedComp = game.FollowerCamera._isSharedComp = false;
+game.FollowerCamera.StorageView._fromPtr = game.FollowerCamera._fromPtr;
+game.FollowerCamera.StorageView._toPtr = game.FollowerCamera._toPtr;
+game.FollowerCamera.StorageView._tempHeapPtr = game.FollowerCamera._tempHeapPtr;
+game.FollowerCamera.StorageView._size = game.FollowerCamera._size;
+game.FollowerCamera.StorageView.prototype.$advance = function() {
+  this._ptr += 20;
+};
+Object.defineProperties(game.FollowerCamera.StorageView.prototype, {
+  Smooth: {
+    get: function() { return (HEAP8[this._ptr+0]?true:false); },
+    set: function(v) { HEAP8[this._ptr+0] = (v)?1:0; },
+  },
+  Offset: {
+    get: function() { return ut._utils.vec2FromHeap(null, this._ptr+4); },
+    set: function(v) { if (typeof(v) !== 'object') { throw new Error('expected an object'); } ut._utils.vec2ToHeap(v, this._ptr+4); },
+  },
+  UpperLimit: {
+    get: function() { return HEAPF32[(this._ptr+12)>>2]; },
+    set: function(v) { HEAPF32[(this._ptr+12)>>2] = v; },
+  },
+  BottomLimit: {
+    get: function() { return HEAPF32[(this._ptr+16)>>2]; },
+    set: function(v) { HEAPF32[(this._ptr+16)>>2] = v; },
+  },
+});
+game.FollowerCamera._dtorFn = function dtor(ptr) { /* POD, no-op */ }
+// game.FollowerCamera is a POD type, so a JavaScript side copy constructor game.FollowerCamera._copyFn = function copy(src, dst) { ... } does not need to be generated for it
+Object.defineProperties(game.FollowerCamera, { cid: { configurable: true, get: function() { delete game.FollowerCamera.cid; var offsetsPtr = 0, offsetsCount = 0; return game.FollowerCamera.cid = Module._ut_component_register_cid(/*game.FollowerCamera*/ 20, 4, 0, offsetsPtr, offsetsCount, 0/*"game::FollowerCamera"*/, 0, 0); } } });
+Object.defineProperties(game.FollowerCamera.StorageView, { cid: { configurable: true, get: function() { return game.FollowerCamera.cid; } } });
+game.FollowerCamera.Smooth = { $ofs:0, $t:"bool", $c:game.FollowerCamera };
+game.FollowerCamera.Offset = { $ofs:4, $t:"ut.Math.Vector2", $c:game.FollowerCamera };
+game.FollowerCamera.Offset.y = { $ofs:8, $t:"float", $c:game.FollowerCamera };
+game.FollowerCamera.Offset.x = { $ofs:4, $t:"float", $c:game.FollowerCamera };
+game.FollowerCamera.UpperLimit = { $ofs:12, $t:"float", $c:game.FollowerCamera };
+game.FollowerCamera.BottomLimit = { $ofs:16, $t:"float", $c:game.FollowerCamera };
 game.Config = function(arg0, arg1, arg2, arg3) {
   this._Gravity = (+(arg0===undefined ? 0 : arg0));
   this._GroundPosition = (+(arg1===undefined ? 0 : arg1));
@@ -2357,6 +2451,9 @@ Object.defineProperties(ut.EditorExtensions.EntityLayer.StorageView, { cid: { co
 ut.EditorExtensions.EntityLayer.layer = { $ofs:0, $t:"int32_t", $c:ut.EditorExtensions.EntityLayer };
 game.UIDataGetSystemJS = ut.System.define({
   name: "game.UIDataGetSystemJS"
+});
+game.CameraSystemJS = ut.System.define({
+  name: "game.CameraSystemJS"
 });
 game.FlyingSystemJS = ut.System.define({
   name: "game.FlyingSystemJS"

@@ -18,12 +18,66 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var game;
+(function (game) {
+    var UIDataGetSystem = /** @class */ (function (_super) {
+        __extends(UIDataGetSystem, _super);
+        function UIDataGetSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        UIDataGetSystem.prototype.OnUpdate = function () {
+            if (ut.Runtime.Input.getKeyDown(ut.Core2D.KeyCode.X)) {
+                if (!game.GameService.IsPaused(this.world))
+                    game.UIDataService.TooglePauseMenu(this.world, true);
+                else
+                    game.UIDataService.TooglePauseMenu(this.world, false);
+            }
+            if (ut.Runtime.Input.getKeyDown(ut.Core2D.KeyCode.Z)) {
+                game.GameService.SetGameState(this.world, game.GameState.MENU);
+                console.log("GameStateChangeToMenu");
+            }
+            if (game.GameService.GetCurrentGameState(this.world) == game.GameState.PLAYING) {
+            }
+            switch (game.GameService.GetCurrentGameState(this.world)) {
+                case game.GameState.MENU:
+                    game.UIDataService.ToogleMenuInitial(this.world, true);
+                    // UIDataService.CheckForMenuInitialButtons(this.world);
+                    break;
+                case game.GameState.PAUSED:
+                    game.UIDataService.CheckForPauseMenuButtons(this.world);
+                    break;
+                case game.GameState.PLAYING:
+                    game.UIDataService.ToogleInGamePanel(this.world, true);
+                    game.UIDataService.CheckForPlayerScore(this.world);
+                    break;
+            }
+        };
+        return UIDataGetSystem;
+    }(ut.ComponentSystem));
+    game.UIDataGetSystem = UIDataGetSystem;
+})(game || (game = {}));
+var game;
 (function (game_1) {
     var GameService = /** @class */ (function () {
         function GameService() {
         }
         GameService.GetConfig = function (world) {
             return world.getConfigData(game_1.Config);
+        };
+        GameService.GetMainCameraEntity = function (world) {
+            if (!world.exists(this.MAINCAMERA)) {
+                this.MAINCAMERA = world.getEntityByName("MainCamera");
+                if (!world.exists(this.MAINCAMERA)) {
+                    this.MAINCAMERA = null;
+                    return null;
+                }
+            }
+            return this.MAINCAMERA;
+        };
+        GameService.GetMainCamera = function (world) {
+            var mainCameraEntity = this.GetMainCameraEntity(world);
+            if (mainCameraEntity == null)
+                return null;
+            return world.getComponentData(mainCameraEntity, ut.Core2D.Camera2D);
         };
         GameService.GetGameEntity = function (world) {
             if (!world.exists(this.GAME)) {
@@ -41,24 +95,30 @@ var game;
                 return null;
             return world.getComponentData(gameEntity, game_1.Game);
         };
+        GameService.GetCurrentGameState = function (world) {
+            var state = this.GetGame(world).State;
+            return state;
+        };
         GameService.SetGameState = function (world, state) {
             var game = this.GetGame(world);
             game.State = state;
             world.setComponentData(this.GAME, game);
         };
+        GameService.IsGameState = function (world, state) {
+            return this.GetGame(world).State == state;
+        };
         GameService.IsPaused = function (world) {
-            var state = this.GetGame(world).State;
-            return state == game_1.GameState.PAUSED;
+            return this.IsGameState(world, game_1.GameState.PAUSED);
         };
         GameService.GetHeroEntity = function (world) {
-            if (!world.exists(this.GAME)) {
+            if (!world.exists(this.HERO)) {
                 this.HERO = world.getEntityByName("Hero");
                 if (!world.exists(this.HERO)) {
                     this.HERO = null;
                     return null;
                 }
             }
-            return this.GAME;
+            return this.HERO;
         };
         GameService.GetHero = function (world) {
             var heroEntity = this.GetHeroEntity(world);
@@ -69,6 +129,88 @@ var game;
         return GameService;
     }());
     game_1.GameService = GameService;
+})(game || (game = {}));
+var game;
+(function (game) {
+    var UIDataService = /** @class */ (function () {
+        function UIDataService() {
+        }
+        UIDataService.GetPauseMenuEntity = function (world) {
+            if (!world.exists(this.PAUSEMENU)) {
+                this.PAUSEMENU = world.getEntityByName("PauseMenu");
+                if (!world.exists(this.PAUSEMENU)) {
+                    this.PAUSEMENU = null;
+                    return null;
+                }
+            }
+            return this.PAUSEMENU;
+        };
+        UIDataService.GetPauseMenuComponent = function (world) {
+            var pauseMenu = this.GetPauseMenuEntity(world);
+            if (pauseMenu == null)
+                return null;
+            return world.getComponentData(pauseMenu, game.PauseMenu);
+        };
+        UIDataService.TooglePauseMenu = function (world, create) {
+            if (create && this.PAUSEMENUGROUP == null) {
+                this.PAUSEMENUGROUP = ut.EntityGroup.instantiate(world, "game.PauseMenuGroup");
+                this.PREVIOUSTATE = game.GameService.GetCurrentGameState(world);
+                game.GameService.SetGameState(world, game.GameState.PAUSED);
+            }
+            else if (!create) {
+                this.PAUSEMENUGROUP = null;
+                ut.EntityGroup.destroyAll(world, "game.PauseMenuGroup");
+                game.GameService.SetGameState(world, this.PREVIOUSTATE);
+            }
+        };
+        UIDataService.CheckForPauseMenuButtons = function (world) {
+            if (this.PAUSEMENUGROUP != null) {
+                var buttonUnpauseEntity = world.getEntityByName("UnpauseButton");
+                var btnUnpause = world.getComponentData(buttonUnpauseEntity, game.CustomButton);
+                if (btnUnpause.JustClicked)
+                    this.TooglePauseMenu(world, false);
+            }
+        };
+        UIDataService.ToogleInGamePanel = function (world, create) {
+            if (create && this.INGAMEPANEL == null) {
+                this.INGAMEPANEL = ut.EntityGroup.instantiate(world, "game.InGameTopMenuGroup");
+            }
+            else if (!create) {
+                this.INGAMEPANEL = null;
+                ut.EntityGroup.destroyAll(world, "game.InGameTopMenuGroup");
+            }
+        };
+        UIDataService.CheckForPlayerScore = function (world) {
+            var herospeed = world.getEntityByName("HeroSpeed");
+            var heroSpeedText = world.getComponentData(herospeed, ut.Text.Text2DRenderer);
+            heroSpeedText.text += 1;
+        };
+        UIDataService.ToogleMenuInitial = function (world, create) {
+            if (create && this.MENUINITIALL == null) {
+                console.log("TryCreateWorld");
+                this.MENUINITIALL = ut.EntityGroup.instantiate(world, "game.MenuInitialGroup");
+            }
+            else if (!create) {
+                console.log("TryDestroyWorld");
+                this.MENUINITIALL = null;
+                ut.EntityGroup.destroyAll(world, "game.MenuInitialGroup");
+            }
+        };
+        UIDataService.CheckForMenuInitialButtons = function (world) {
+            if (this.MENUINITIALL != null) {
+                var buttonPlayGame = world.getEntityByName("PlayGameButton");
+                var btnPlayGame = world.getComponentData(buttonPlayGame, game.CustomButton);
+                if (btnPlayGame.JustClicked) {
+                    this.ToogleMenuInitial(world, false);
+                    game.GameService.SetGameState(world, game.GameState.PLAYING);
+                    this.ToogleInGamePanel(world, true);
+                    ut.EntityGroup.instantiate(world, "game.GroundTile");
+                }
+            }
+        };
+        return UIDataService;
+    }());
+    game.UIDataService = UIDataService;
 })(game || (game = {}));
 var game;
 (function (game) {
@@ -132,11 +274,11 @@ var game;
             return _super !== null && _super.apply(this, arguments) || this;
         }
         FlyingSystem.prototype.OnUpdate = function () {
-            if (game.GameService.IsPaused(this.world))
+            if (game.GameService.IsPaused(this.world) || (game.GameService.GetCurrentGameState(this.world) != game.GameState.PLAYING))
                 return;
             var dt = this.scheduler.deltaTime();
             var config = game.GameService.GetConfig(this.world);
-            this.world.forEach([ut.Entity, game.Hero, Flying, ut.Core2D.TransformLocalPosition], function (entity, hero, flying, transform) {
+            this.world.forEach([ut.Entity, game.Hero, game.Flying, ut.Core2D.TransformLocalPosition], function (entity, hero, flying, transform) {
                 var pos = transform.position;
                 flying.PreviousPosition = pos;
                 pos.y += flying.AirSpeed * dt;
@@ -150,6 +292,177 @@ var game;
 })(game || (game = {}));
 var game;
 (function (game) {
+    var HeroSystem = /** @class */ (function (_super) {
+        __extends(HeroSystem, _super);
+        function HeroSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        HeroSystem.prototype.OnUpdate = function () {
+            if (game.GameService.IsPaused(this.world) || (game.GameService.GetCurrentGameState(this.world) != game.GameState.THROW) || (game.GameService.GetCurrentGameState(this.world) != game.GameState.PLAYING))
+                return;
+            var config = game.GameService.GetConfig(this.world);
+            var dt = this.scheduler.deltaTime();
+            var heroEntity = game.GameService.GetHeroEntity(this.world);
+            var hero = this.world.getComponentData(heroEntity, game.Hero);
+            var heroTransform = this.world.getComponentData(heroEntity, ut.Core2D.TransformLocalPosition);
+            if (game.GameService.IsGameState(this.world, game.GameState.THROW)) {
+                if (InputService.IsMouseDown()) {
+                    hero.AirSpeed = 400;
+                    hero.ScrollSpeed = 50;
+                    game.GameService.SetGameState(this.world, game.GameState.PLAYING);
+                    this.world.setComponentData(heroEntity, hero);
+                }
+                return;
+            }
+            else if (game.GameService.IsGameState(this.world, game.GameState.PLAYING)) {
+                var pos = heroTransform.position;
+                if (hero.IsSmashingCooldown) {
+                    hero.SmashCooldownTimer += dt;
+                    if (this.IsSmashingCooldownDone(hero, config)) {
+                        // BLINK TO SHOW THAT YOU CAN USE SMASH AGAIN
+                    }
+                }
+                if (!hero.IsSmashing && (!hero.IsSmashingCooldown || this.IsSmashingCooldownDone(hero, config))) {
+                    if (InputService.IsMouseDown()) {
+                        hero.AirSpeed = config.SmashForce;
+                        hero.IsSmashing = true;
+                    }
+                }
+                pos.y += hero.AirSpeed * dt;
+                if (!hero.IsSmashing)
+                    hero.AirSpeed += config.Gravity * dt;
+                //check for enemy collisions here
+                if (pos.y <= config.GroundPosition) {
+                    pos.y = config.GroundPosition;
+                    hero = this.ResetSmash(hero);
+                    if (Math.abs(hero.AirSpeed) < 55) {
+                        hero.AirSpeed = 0;
+                        hero.ScrollSpeed = 0;
+                        game.GameService.SetGameState(this.world, game.GameState.THROW);
+                    }
+                    else {
+                        hero.AirSpeed = -hero.AirSpeed * .75;
+                    }
+                }
+                heroTransform.position = pos;
+                //UPDATE COMPONENTS
+                this.world.setComponentData(heroEntity, hero);
+                this.world.setComponentData(heroEntity, heroTransform);
+                return;
+            }
+        };
+        HeroSystem.prototype.ResetSmash = function (hero) {
+            hero.IsSmashingCooldown = hero.IsSmashing;
+            hero.IsSmashing = false;
+            hero.SmashCooldownTimer = 0;
+            return hero;
+        };
+        HeroSystem.prototype.IsSmashingCooldownDone = function (hero, config) {
+            return hero.SmashCooldownTimer >= config.SmashCooldown;
+        };
+        return HeroSystem;
+    }(ut.ComponentSystem));
+    game.HeroSystem = HeroSystem;
+    var InputService = /** @class */ (function () {
+        function InputService() {
+        }
+        InputService.IsMouseDown = function () {
+            return ut.Core2D.Input.getMouseButtonDown(0);
+        };
+        return InputService;
+    }());
+    game.InputService = InputService;
+})(game || (game = {}));
+/// <reference path="FlyingSystem.ts" />
+var game;
+(function (game) {
+    var HitGroundSystem = /** @class */ (function (_super) {
+        __extends(HitGroundSystem, _super);
+        function HitGroundSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        HitGroundSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            if ((game.GameService.IsPaused(this.world)) || (game.GameService.GetCurrentGameState(this.world) != game.GameState.PLAYING))
+                return;
+            var config = game.GameService.GetConfig(this.world);
+            this.world.forEach([ut.Entity, game.Hero, game.Flying, ut.Core2D.TransformLocalPosition], function (entity, hero, flying, transform) {
+                var pos = transform.position;
+                if (pos.y <= config.GroundPosition) {
+                    pos.y = config.GroundPosition;
+                    var nextAirSpeed = -flying.AirSpeed * .75;
+                    var nextScrollSpeed = flying.ScrollSpeed * .75;
+                    nextScrollSpeed = Math.max(nextScrollSpeed, 0);
+                    if (nextAirSpeed < 10 || nextScrollSpeed <= 10) {
+                        flying.AirSpeed = 0;
+                        _this.world.removeComponent(entity, game.Flying);
+                        game.GameService.SetGameState(_this.world, game.GameState.END);
+                    }
+                    else {
+                        flying.AirSpeed = nextAirSpeed;
+                        flying.ScrollSpeed = nextScrollSpeed;
+                    }
+                }
+                transform.position = pos;
+            });
+        };
+        HitGroundSystem = __decorate([
+            ut.executeAfter(game.FlyingSystem)
+        ], HitGroundSystem);
+        return HitGroundSystem;
+    }(ut.ComponentSystem));
+    game.HitGroundSystem = HitGroundSystem;
+})(game || (game = {}));
+/// <reference path="FlyingSystem.ts" />
+/// <reference path="HitGroundSystem.ts" />
+var game;
+(function (game) {
+    var HitEnemySystem = /** @class */ (function (_super) {
+        __extends(HitEnemySystem, _super);
+        function HitEnemySystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        //private hero: game.BoxCollider;
+        //private heroOffsetedCollider: game.BoxCollider = new game.BoxCollider();
+        //private enemyOffsetedCollider: game.BoxCollider = new game.BoxCollider();
+        HitEnemySystem.prototype.OnUpdate = function () {
+            var _this = this;
+            if (game.GameService.IsPaused(this.world) || game.GameService.GetCurrentGameState(this.world) != game.GameState.PLAYING)
+                return;
+            var hero = game.GameService.GetHeroEntity(this.world);
+            var heroTransform = this.world.getComponentData(hero, ut.Core2D.TransformLocalPosition);
+            var heroCollider = this.world.getComponentData(hero, game.BoxCollider);
+            //console.log("hero h: " + heroCollider.height + ", w: " + heroCollider.width);
+            heroCollider.x = heroTransform.position.x - heroCollider.width;
+            heroCollider.y = heroTransform.position.y - heroCollider.height;
+            this.world.forEach([ut.Entity, game.Enemy, ut.Core2D.TransformLocalPosition, game.BoxCollider], function (entity, enemy, transform, collider) {
+                //console.log("enemy w: " + collider.width + ", h: " + collider.height);
+                var enemyCollider = new game.BoxCollider();
+                enemyCollider.x = transform.position.x - collider.width;
+                enemyCollider.y = transform.position.y - collider.height;
+                enemyCollider.height = collider.height;
+                enemyCollider.width = collider.width;
+                if (_this.CheckCollision(heroCollider, enemyCollider)) {
+                    console.log(_this.world.getEntityName(entity));
+                }
+            });
+        };
+        HitEnemySystem.prototype.CheckCollision = function (colliderA, colliderB) {
+            return !(((colliderA.y + 2 * colliderA.height) < (colliderB.y)) ||
+                (colliderA.y > (colliderB.y + 2 * colliderB.height)) ||
+                ((colliderA.x + 2 * colliderA.width) < colliderB.x) ||
+                (colliderA.x > (colliderB.x + 2 * colliderB.width)));
+        };
+        HitEnemySystem = __decorate([
+            ut.executeAfter(game.FlyingSystem),
+            ut.executeBefore(game.HitGroundSystem)
+        ], HitEnemySystem);
+        return HitEnemySystem;
+    }(ut.ComponentSystem));
+    game.HitEnemySystem = HitEnemySystem;
+})(game || (game = {}));
+var game;
+(function (game) {
     var LaunchSystem = /** @class */ (function (_super) {
         __extends(LaunchSystem, _super);
         function LaunchSystem() {
@@ -157,15 +470,15 @@ var game;
         }
         LaunchSystem.prototype.OnUpdate = function () {
             var _this = this;
-            if (game.GameService.IsPaused(this.world))
+            if (game.GameService.IsPaused(this.world) || (game.GameService.GetCurrentGameState(this.world) != game.GameState.THROW) || (game.GameService.GetCurrentGameState(this.world) != game.GameState.PLAYING))
                 return;
             if (ut.Core2D.Input.getMouseButtonDown(0)) {
                 var theGame = game.GameService.GetGame(this.world);
                 if (theGame.State == game.GameState.THROW) {
                     this.world.forEach([ut.Entity, game.Hero], function (entity, hero) {
-                        if (!_this.world.hasComponent(entity, Flying)) {
-                            _this.world.addComponent(entity, Flying);
-                            var flying = _this.world.getComponentData(entity, Flying);
+                        if (!_this.world.hasComponent(entity, game.Flying)) {
+                            _this.world.addComponent(entity, game.Flying);
+                            var flying = _this.world.getComponentData(entity, game.Flying);
                             flying.ScrollSpeed = 50;
                             flying.AirSpeed = 150;
                             _this.world.setComponentData(entity, flying);
@@ -313,68 +626,4 @@ var ut;
     }());
     ut.EntityLookupCache = EntityLookupCache;
 })(ut || (ut = {}));
-var game;
-(function (game) {
-    var HitGroundSystem = /** @class */ (function (_super) {
-        __extends(HitGroundSystem, _super);
-        function HitGroundSystem() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        HitGroundSystem.prototype.OnUpdate = function () {
-            var _this = this;
-            if (game.GameService.IsPaused(this.world))
-                return;
-            var config = game.GameService.GetConfig(this.world);
-            this.world.forEach([ut.Entity, game.Hero, Flying, ut.Core2D.TransformLocalPosition], function (entity, hero, flying, transform) {
-                var pos = transform.position;
-                if (pos.y <= config.GroundPosition) {
-                    pos.y = config.GroundPosition;
-                    var nextAirSpeed = -flying.AirSpeed * .75;
-                    var nextScrollSpeed = flying.ScrollSpeed * .75;
-                    nextScrollSpeed = Math.max(nextScrollSpeed, 0);
-                    if (nextAirSpeed < 10 || nextScrollSpeed <= 10) {
-                        flying.AirSpeed = 0;
-                        _this.world.removeComponent(entity, Flying);
-                        game.GameService.SetGameState(_this.world, game.GameState.END);
-                    }
-                    else {
-                        flying.AirSpeed = nextAirSpeed;
-                        flying.ScrollSpeed = nextScrollSpeed;
-                    }
-                }
-                transform.position = pos;
-            });
-        };
-        HitGroundSystem = __decorate([
-            ut.executeAfter(game.FlyingSystem)
-        ], HitGroundSystem);
-        return HitGroundSystem;
-    }(ut.ComponentSystem));
-    game.HitGroundSystem = HitGroundSystem;
-})(game || (game = {}));
-var game;
-(function (game) {
-    var HitEnemySystem = /** @class */ (function (_super) {
-        __extends(HitEnemySystem, _super);
-        function HitEnemySystem() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        HitEnemySystem.prototype.OnUpdate = function () {
-            if (game.GameService.IsPaused(this.world))
-                return;
-            var config = game.GameService.GetConfig(this.world);
-            this.world.forEach([ut.Entity, game.Hero, Flying, ut.Core2D.TransformLocalPosition], function (entity, hero, flying, transform) {
-                var pos = transform.position;
-                //look for enemy. Hit. Fix position
-                transform.position = pos;
-            });
-        };
-        HitEnemySystem = __decorate([
-            ut.executeAfter(game.FlyingSystem),
-            ut.executeBefore(game.HitGroundSystem)
-        ], HitEnemySystem);
-        return HitEnemySystem;
-    }(ut.ComponentSystem));
-    game.HitEnemySystem = HitEnemySystem;
-})(game || (game = {}));
 //# sourceMappingURL=tsc-emit.js.map

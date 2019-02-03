@@ -8,10 +8,7 @@ using UTiny.Rendering;
 using ut.EditorExtensions;
 using UTiny.UIControls;
 using UTiny.UILayout;
-using UTiny.Interpolation;
-using UTiny.Particles;
 using UTiny.Text;
-using UTiny.Tweens;
 
 /*
  * !!! TEMP UNITL PROPER SCENE FORMAT !!!
@@ -24,7 +21,31 @@ namespace entities.game
         {
         }
     }
+    namespace GroundTile
+    {
+        public struct Component : IComponentData
+        {
+        }
+    }
     namespace SettingsMenu
+    {
+        public struct Component : IComponentData
+        {
+        }
+    }
+    namespace InGameTopMenuGroup
+    {
+        public struct Component : IComponentData
+        {
+        }
+    }
+    namespace MenuInitialGroup
+    {
+        public struct Component : IComponentData
+        {
+        }
+    }
+    namespace PauseMenuGroup
     {
         public struct Component : IComponentData
         {
@@ -34,6 +55,31 @@ namespace entities.game
 
 namespace game
 {
+    public struct SettingsMenu : IComponentData
+    {
+        public Entity ButtonOK;
+        public Entity ButtonCredits;
+        public Entity ButtonResetProgress;
+        public Entity ButtonLanguage;
+        public Entity ButtonRenderMode;
+        public Entity LabelRenderMode;
+    }
+    public struct BoxCollider : IComponentData
+    {
+        public float x;
+        public float y;
+        public float width;
+        public float height;
+    }
+    public struct Enemy : IComponentData
+    {
+    }
+    public struct Flying : IComponentData
+    {
+        public float ScrollSpeed;
+        public float AirSpeed;
+        public Vector3 PreviousPosition;
+    }
     public struct Game : IComponentData
     {
         public game.GameState State;
@@ -43,16 +89,22 @@ namespace game
     {
         public float ScrollSpeed;
         public float AirSpeed;
-        public bool Launched;
+        public bool IsSmashing;
+        public float SmashCooldownTimer;
+        public bool IsSmashingCooldown;
     }
-    public struct SettingsMenu : IComponentData
+    public struct LastPosition : IComponentData
     {
-        public Entity ButtonOK;
-        public Entity ButtonCredits;
-        public Entity ButtonResetProgress;
-        public Entity ButtonLanguage;
-        public Entity ButtonRenderMode;
-        public Entity LabelRenderMode;
+        public Vector3 Position;
+        public bool Updated;
+    }
+    public struct InGamePanel : IComponentData
+    {
+        public short Das;
+    }
+    public struct PauseMenu : IComponentData
+    {
+        public short Das;
     }
     public struct CustomButton : IComponentData
     {
@@ -88,7 +140,8 @@ namespace game
     {
         public float Gravity;
         public float GroundPosition;
-        public Entity Sprite;
+        public float SmashForce;
+        public float SmashCooldown;
     }
 }
 
@@ -237,14 +290,6 @@ namespace ut.UILayout
 {
 }
 
-namespace ut.Interpolation
-{
-}
-
-namespace ut.Particles
-{
-}
-
 namespace ut.HTML
 {
 }
@@ -252,13 +297,36 @@ namespace ut.HTML
 namespace ut.Text
 {
 }
-
-namespace ut.Tweens
+namespace game
 {
+    public class UIDataGetSystemJS : IComponentSystem
+    {
+    }
 }
 namespace game
 {
     public class FlyingSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    public class HeroSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateAfter(typeof(game.FlyingSystemJS))]
+    public class HitGroundSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(game.HitGroundSystemJS))]
+    [UpdateAfter(typeof(game.FlyingSystemJS))]
+    public class HitEnemySystemJS : IComponentSystem
     {
     }
 }

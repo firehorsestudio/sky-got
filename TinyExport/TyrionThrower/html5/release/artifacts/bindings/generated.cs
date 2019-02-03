@@ -127,6 +127,13 @@ namespace game
         public bool IsInteractable;
         public bool LastIsInteractable;
     }
+    public struct FollowerCamera : IComponentData
+    {
+        public bool Smooth;
+        public Vector2 Offset;
+        public float UpperLimit;
+        public float BottomLimit;
+    }
     public enum GameState
     {
         MENU = 10
@@ -300,6 +307,12 @@ namespace ut.Text
 namespace game
 {
     public class UIDataGetSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    public class CameraSystemJS : IComponentSystem
     {
     }
 }

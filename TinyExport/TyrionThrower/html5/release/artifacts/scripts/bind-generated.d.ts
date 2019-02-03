@@ -245,6 +245,21 @@ declare namespace game{
         static _tempHeapPtr(v: CustomButton): number;
         static _dtorFn(v: CustomButton): void;
     }
+    class FollowerCamera extends ut.Component {
+        constructor();
+        Smooth: boolean;
+        Offset: ut.Math.Vector2;
+        UpperLimit: number;
+        BottomLimit: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: FollowerCamera): FollowerCamera;
+        static _toPtr(p: number, v: FollowerCamera): void;
+        static _tempHeapPtr(v: FollowerCamera): number;
+        static _dtorFn(v: FollowerCamera): void;
+    }
     enum GameState {
         MENU = 0,
         THROW = 1,
