@@ -105,6 +105,18 @@ declare namespace game{
         static _tempHeapPtr(v: BlinkToDeath): number;
         static _dtorFn(v: BlinkToDeath): void;
     }
+    class ScoreDistance extends ut.Component {
+        constructor();
+        Score: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: ScoreDistance): ScoreDistance;
+        static _toPtr(p: number, v: ScoreDistance): void;
+        static _tempHeapPtr(v: ScoreDistance): number;
+        static _dtorFn(v: ScoreDistance): void;
+    }
     class SettingsMenu extends ut.Component {
         constructor();
         ButtonOK: ut.Entity;
@@ -306,6 +318,8 @@ declare namespace game{
         constructor();
         Timer: number;
         NextDuration: number;
+        Modifier: number;
+        ModifierIncrement: number;
         static readonly cid: number;
         static readonly _view: any;
         static readonly _isSharedComp: boolean;
@@ -399,6 +413,17 @@ declare namespace game{
         static _toPtr(p: number, v: CustomButton): void;
         static _tempHeapPtr(v: CustomButton): number;
         static _dtorFn(v: CustomButton): void;
+    }
+    class DESTROYTHIS extends ut.Component {
+        constructor();
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: DESTROYTHIS): DESTROYTHIS;
+        static _toPtr(p: number, v: DESTROYTHIS): void;
+        static _tempHeapPtr(v: DESTROYTHIS): number;
+        static _dtorFn(v: DESTROYTHIS): void;
     }
     enum GameState {
         MENU = 0,
@@ -551,6 +576,7 @@ declare namespace ut{
             InGameTopMenuGroup: EntityGroupData;
             MenuInitialGroup: EntityGroupData;
             PauseMenuGroup: EntityGroupData;
+            NewEntityGroup: EntityGroupData;
         }
     }
 }

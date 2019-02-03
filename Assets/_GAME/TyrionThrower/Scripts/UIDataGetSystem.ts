@@ -32,14 +32,17 @@ namespace game {
                 spawnTimer.Timer += dt;
                 if (spawnTimer.Timer >= spawnTimer.NextDuration) {
 
-                    spawnTimer.NextDuration = .2 + Math.random() * .5;
+                    spawnTimer.NextDuration = .5 + Math.random() * 1.0;// * 1/GameService.GetHero(this.world).ScrollSpeed; //* spawnTimer.Modifier;
                     spawnTimer.Timer = 0;
                     let zombieEntity = ut.EntityGroup.instantiate(this.world, "game.Zombie")[0];
                     let zombieTransform = this.world.getComponentData(zombieEntity, ut.Core2D.TransformLocalPosition);
                     var pos = zombieTransform.position;
                     pos.x = 600;
+                    pos.y = pos.y + -10 + Math.random() * 10;
                     zombieTransform.position = pos;
                     this.world.setComponentData(zombieEntity, zombieTransform);
+
+                    spawnTimer.Modifier += spawnTimer.ModifierIncrement;
                 }
 
                 this.world.setComponentData(timerEntity, spawnTimer);

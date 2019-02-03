@@ -9,6 +9,7 @@ using ut.EditorExtensions;
 using UTiny.UIControls;
 using UTiny.UILayout;
 using UTiny.Text;
+using UTiny.Audio;
 
 /*
  * !!! TEMP UNITL PROPER SCENE FORMAT !!!
@@ -57,6 +58,12 @@ namespace entities.game
         {
         }
     }
+    namespace NewEntityGroup
+    {
+        public struct Component : IComponentData
+        {
+        }
+    }
 }
 
 namespace game
@@ -64,6 +71,10 @@ namespace game
     public struct BlinkToDeath : IComponentData
     {
         public float Timer;
+    }
+    public struct ScoreDistance : IComponentData
+    {
+        public long Score;
     }
     public struct SettingsMenu : IComponentData
     {
@@ -154,6 +165,8 @@ namespace game
     {
         public float Timer;
         public float NextDuration;
+        public float Modifier;
+        public float ModifierIncrement;
     }
     public struct ThrowState : IComponentData
     {
@@ -199,6 +212,9 @@ namespace game
         public bool IsPointerOver;
         public bool IsInteractable;
         public bool LastIsInteractable;
+    }
+    public struct DESTROYTHIS : IComponentData
+    {
     }
     public enum GameState
     {
@@ -368,6 +384,10 @@ namespace ut.HTML
 }
 
 namespace ut.Text
+{
+}
+
+namespace ut.Audio
 {
 }
 namespace game

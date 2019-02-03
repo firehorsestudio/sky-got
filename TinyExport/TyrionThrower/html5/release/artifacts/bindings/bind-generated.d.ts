@@ -119,6 +119,22 @@ class Component extends ut.Component {
 }
 
 }
+declare namespace entities.game.NewEntityGroup {
+
+class Component extends ut.Component {
+  constructor();
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: Component): Component;
+  static _toPtr(p: number, v: Component): void;
+  static _tempHeapPtr(v: Component): number;
+  static _dtorFn(v: Component): void;
+}
+
+}
 declare namespace game {
 
 class BlinkToDeath extends ut.Component {
@@ -134,6 +150,24 @@ class BlinkToDeath extends ut.Component {
   static _toPtr(p: number, v: BlinkToDeath): void;
   static _tempHeapPtr(v: BlinkToDeath): number;
   static _dtorFn(v: BlinkToDeath): void;
+}
+
+}
+declare namespace game {
+
+class ScoreDistance extends ut.Component {
+  constructor(Score?: number);
+  Score: number;
+  
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: ScoreDistance): ScoreDistance;
+  static _toPtr(p: number, v: ScoreDistance): void;
+  static _tempHeapPtr(v: ScoreDistance): number;
+  static _dtorFn(v: ScoreDistance): void;
 }
 
 }
@@ -450,11 +484,15 @@ class Rotation2D extends ut.Component {
 declare namespace game {
 
 class SpawnTimer extends ut.Component {
-  constructor(Timer?: number, NextDuration?: number);
+  constructor(Timer?: number, NextDuration?: number, Modifier?: number, ModifierIncrement?: number);
   Timer: number;
   NextDuration: number;
+  Modifier: number;
+  ModifierIncrement: number;
   static readonly Timer: ComponentFieldDesc;
   static readonly NextDuration: ComponentFieldDesc;
+  static readonly Modifier: ComponentFieldDesc;
+  static readonly ModifierIncrement: ComponentFieldDesc;
   static readonly cid: number;
   static readonly _view: any;
   static readonly _isSharedComp: boolean;
@@ -604,6 +642,22 @@ class CustomButton extends ut.Component {
   static _toPtr(p: number, v: CustomButton): void;
   static _tempHeapPtr(v: CustomButton): number;
   static _dtorFn(v: CustomButton): void;
+}
+
+}
+declare namespace game {
+
+class DESTROYTHIS extends ut.Component {
+  constructor();
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: DESTROYTHIS): DESTROYTHIS;
+  static _toPtr(p: number, v: DESTROYTHIS): void;
+  static _tempHeapPtr(v: DESTROYTHIS): number;
+  static _dtorFn(v: DESTROYTHIS): void;
 }
 
 }

@@ -28,7 +28,7 @@
             "Description": "",
             "Source": {
                 "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/UIDataGetSystem.ts",
-                "Line": 52,
+                "Line": 55,
                 "Character": 17
             }
         },
@@ -58,7 +58,7 @@
             "Description": "",
             "Source": {
                 "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
-                "Line": 27,
+                "Line": 29,
                 "Character": 17
             }
         },
@@ -68,7 +68,7 @@
             "Description": "",
             "Source": {
                 "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
-                "Line": 57,
+                "Line": 59,
                 "Character": 17
             }
         },
@@ -109,25 +109,25 @@
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 68,
+            "Duration": 85,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 180,
+            "Duration": 217,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 813,
+            "Duration": 1002,
             "Steps": 17
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 132,
+            "Duration": 147,
             "Steps": 2
         },
         {
@@ -149,6 +149,6 @@
         "C:/Ramon/Projetos/SkyGot/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
         "C:/Ramon/Projetos/SkyGot/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "6a4555887f6e442df5a860f68b294d0a",
-    "GeneratedAt": "Sun Feb 03 2019 05:35:44 GMT-0200 (Horário brasileiro de verão)"
+    "InputHash": "d03766bd1c49b3142553e50914764d08",
+    "GeneratedAt": "Sun Feb 03 2019 08:28:03 GMT-0200 (Horário brasileiro de verão)"
 }

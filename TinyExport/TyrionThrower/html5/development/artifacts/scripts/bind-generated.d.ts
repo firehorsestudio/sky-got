@@ -105,6 +105,18 @@ declare namespace game{
         static _tempHeapPtr(v: BlinkToDeath): number;
         static _dtorFn(v: BlinkToDeath): void;
     }
+    class ScoreDistance extends ut.Component {
+        constructor();
+        Score: number;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: ScoreDistance): ScoreDistance;
+        static _toPtr(p: number, v: ScoreDistance): void;
+        static _tempHeapPtr(v: ScoreDistance): number;
+        static _dtorFn(v: ScoreDistance): void;
+    }
     class SettingsMenu extends ut.Component {
         constructor();
         ButtonOK: ut.Entity;

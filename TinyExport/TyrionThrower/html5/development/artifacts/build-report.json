@@ -26,24 +26,9 @@
         "Children": [{
             "Item": {
                 "Name": "JavaScript",
-                "Size": 70918,
+                "Size": 70862,
                 "CompressedSize": 0
             }
-        }, {
-            "Item": {
-                "Name": "Assets/TinySamples/PhysicsDemo/Textures/PhysicsDemo.png",
-                "Size": 0,
-                "CompressedSize": 0,
-                "Object": { "$TypeId": 10, "Guid": "892392a92dd8841bd814c19af3368e28", "FileId": 2800000, "Type": 3 }
-            },
-            "Children": [{
-                "Item": {
-                    "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/PhysicsDemo.png",
-                    "Size": 3805,
-                    "CompressedSize": 3527,
-                    "Object": { "$TypeId": 10, "Guid": "892392a92dd8841bd814c19af3368e28", "FileId": 2800000, "Type": 3 }
-                }
-            }]
         }, {
             "Item": {
                 "Name": "Assets/_GAME/TyrionThrower/Fonts/Blocktopia SDF.asset",
@@ -57,6 +42,21 @@
                     "Size": 66695,
                     "CompressedSize": 66438,
                     "Object": { "$TypeId": 10, "Guid": "f2781addb6b2b4e489cfed100ec441f2", "FileId": 11400000, "Type": 2 }
+                }
+            }]
+        }, {
+            "Item": {
+                "Name": "Assets/TinySamples/PhysicsDemo/Textures/PhysicsDemo.png",
+                "Size": 0,
+                "CompressedSize": 0,
+                "Object": { "$TypeId": 10, "Guid": "892392a92dd8841bd814c19af3368e28", "FileId": 2800000, "Type": 3 }
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/PhysicsDemo.png",
+                    "Size": 3805,
+                    "CompressedSize": 3527,
+                    "Object": { "$TypeId": 10, "Guid": "892392a92dd8841bd814c19af3368e28", "FileId": 2800000, "Type": 3 }
                 }
             }]
         }, {
@@ -83,8 +83,8 @@
         "Children": [{
             "Item": {
                 "Name": "TinyExport/TyrionThrower/html5/development/build/entities.js",
-                "Size": 206610,
-                "CompressedSize": 28696
+                "Size": 211264,
+                "CompressedSize": 29484
             },
             "Children": [{
                 "Item": {
@@ -95,8 +95,8 @@
             }, {
                 "Item": {
                     "Name": "Session",
-                    "Size": 102888,
-                    "CompressedSize": 13833
+                    "Size": 108072,
+                    "CompressedSize": 14687
                 }
             }, {
                 "Item": {
@@ -113,8 +113,8 @@
             }, {
                 "Item": {
                     "Name": "InGameTopMenuGroup",
-                    "Size": 31683,
-                    "CompressedSize": 5171
+                    "Size": 31153,
+                    "CompressedSize": 5150
                 }
             }, {
                 "Item": {
@@ -132,8 +132,8 @@
         }, {
             "Item": {
                 "Name": "TinyExport/TyrionThrower/html5/development/build/bindings.js",
-                "Size": 198750,
-                "CompressedSize": 17363
+                "Size": 201575,
+                "CompressedSize": 17653
             }
         }, {
             "Item": {
@@ -144,8 +144,8 @@
             "Children": [{
                 "Item": {
                     "Name": "TinyExport/TyrionThrower/html5/development/artifacts/scripts/tsc-emit.js",
-                    "Size": 46591,
-                    "CompressedSize": 7307
+                    "Size": 47194,
+                    "CompressedSize": 7433
                 }
             }]
         }, {

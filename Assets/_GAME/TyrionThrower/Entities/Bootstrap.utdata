@@ -6,7 +6,8 @@
     "SerializedVersion": 0,
     "Entities": [
         { "$TypeId": 9, "Id": "e52c05798ce0462aa4997f8e1ccfd6bd", "Name": "MainCamera" },
-        { "$TypeId": 9, "Id": "ad01e367a9904e7182efb4f26e66cbe4", "Name": "Game" }
+        { "$TypeId": 9, "Id": "ad01e367a9904e7182efb4f26e66cbe4", "Name": "Game" },
+        { "$TypeId": 9, "Id": "4c6703d9127e49489cff91c6535f13fb", "Name": "Music" }
     ]
 },
 {
@@ -49,7 +50,7 @@
             "Offset": {
                 "Type": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
                 "Properties": {
-                    "x": 30
+                    "x": 65
                 }
             },
             "UpperLimit": 10
@@ -74,5 +75,23 @@
                 "Value": 10
             }
         }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "4c6703d9127e49489cff91c6535f13fb",
+    "Name": "Music",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "a60aa1b9ad84a83eefb0d5382a4d5967", "Name": "AudioSource" },
+        "Properties": {
+            "clip": { "$TypeId": 10, "Guid": "c58099e53a0af414986d8f8b1da90b02", "FileId": 8300000, "Type": 3 },
+            "volume": 0.5,
+            "loop": true
+        }
+    }, {
+        "Type": { "Id": "fb67fae37e3e484fa554012ae4edd7c6", "Name": "AudioSourceStart" }
     }]
 }]

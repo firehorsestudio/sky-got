@@ -28,7 +28,7 @@
             "Description": "",
             "Source": {
                 "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/UIDataGetSystem.ts",
-                "Line": 52,
+                "Line": 53,
                 "Character": 17
             }
         },
@@ -109,25 +109,25 @@
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 70,
+            "Duration": 77,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 169,
+            "Duration": 191,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 770,
+            "Duration": 894,
             "Steps": 17
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 128,
+            "Duration": 134,
             "Steps": 2
         },
         {
@@ -149,6 +149,6 @@
         "C:/Ramon/Projetos/SkyGot/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
         "C:/Ramon/Projetos/SkyGot/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "ee5e0c2a81354c5b5dfc6bd6cc0b74a4",
-    "GeneratedAt": "Sun Feb 03 2019 05:36:24 GMT-0200 (Horário brasileiro de verão)"
+    "InputHash": "6d39cbbf41ca9488786521fdafde2eaa",
+    "GeneratedAt": "Sun Feb 03 2019 06:33:53 GMT-0200 (Horário brasileiro de verão)"
 }

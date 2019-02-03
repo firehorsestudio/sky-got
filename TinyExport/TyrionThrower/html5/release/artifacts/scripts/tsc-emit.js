@@ -41,14 +41,16 @@ var game;
                 var spawnTimer = this.world.getComponentData(timerEntity, game.SpawnTimer);
                 spawnTimer.Timer += dt;
                 if (spawnTimer.Timer >= spawnTimer.NextDuration) {
-                    spawnTimer.NextDuration = .2 + Math.random() * .5;
+                    spawnTimer.NextDuration = .5 + Math.random() * 1.0; // * 1/GameService.GetHero(this.world).ScrollSpeed; //* spawnTimer.Modifier;
                     spawnTimer.Timer = 0;
                     var zombieEntity = ut.EntityGroup.instantiate(this.world, "game.Zombie")[0];
                     var zombieTransform = this.world.getComponentData(zombieEntity, ut.Core2D.TransformLocalPosition);
                     var pos = zombieTransform.position;
                     pos.x = 600;
+                    pos.y = pos.y + -10 + Math.random() * 10;
                     zombieTransform.position = pos;
                     this.world.setComponentData(zombieEntity, zombieTransform);
+                    spawnTimer.Modifier += spawnTimer.ModifierIncrement;
                 }
                 this.world.setComponentData(timerEntity, spawnTimer);
             }
@@ -466,6 +468,16 @@ var game;
                     return;
                 }
                 if (throwState.State == 0) {
+                    var handEntity = this.world.getEntityByName("Hand");
+                    var ourLogo = this.world.getEntityByName("OurLogo");
+                    var skyLogo = this.world.getEntityByName("SkyLogo");
+                    var fhLogo = this.world.getEntityByName("FHLogo");
+                    /*
+                    this.world.addComponent(handEntity, ut.Disabled);
+                    this.world.addComponent(ourLogo, ut.Disabled);
+                    this.world.addComponent(skyLogo, ut.Disabled);
+                    this.world.addComponent(fhLogo, ut.Disabled);
+                    */
                     var angleBarEntity = this.world.getEntityByName("AngleBar");
                     var angleBarArrowEntity = this.world.getEntityByName("AngleBarArrow");
                     var angleBarArrowSpriteEntity = this.world.getEntityByName("AngleBarArrowSprite");
@@ -583,6 +595,8 @@ var game;
                 }
             }
             else if (game.GameService.IsGameState(this.world, game.GameState.PLAYING)) {
+                var scoreEntity = this.world.getEntityByName("Score");
+                var score = this.world.getComponentData(scoreEntity, game.ScoreDistance);
                 var pos_2 = heroTransform.position;
                 if (hero.IsSmashingCooldown) {
                     hero.SmashCooldownTimer += dt;
@@ -634,10 +648,35 @@ var game;
                         //pos.y = transform.position.y;
                         hero = _this.ResetSmash(hero);
                         dwarfRenderer.sprite = Math.random() < .5 ? dwarfSprites.Kick1 : dwarfSprites.Kick2;
-                        hero.AirSpeed = -hero.AirSpeed * .75;
-                        hero.ScrollSpeed *= .75;
+                        hero.ScrollSpeed = hero.ScrollSpeed * .8;
+                        hero.AirSpeed = -hero.AirSpeed * .85;
+                        //hero.ScrollSpeed *= 1.05;
+                        //hero.AirSpeed = -hero.AirSpeed;
+                        //hero.ScrollSpeed *= .75;
                     }
                 });
+                if (throwState.State == 30) {
+                    throwState.ThrowTimer += dt;
+                    this.world.setComponentData(heroEntity, throwState);
+                    if (throwState.ThrowTimer > 2) {
+                        throwState.State = 31;
+                        ut.EntityGroup.destroyAll(this.world, "game.Session");
+                        this.world.forEach([ut.Entity, game.Enemy], function (entity, enemy) {
+                            _this.world.destroyEntity(entity);
+                        });
+                        ut.EntityGroup.destroyAll(this.world, "game.Zombie");
+                        ut.EntityGroup.destroyAll(this.world, "game.InGameTopMenuGroup");
+                        ut.EntityGroup.destroyAll(this.world, "game.PauseMenuGroup");
+                        ut.EntityGroup.destroyAll(this.world, "game.MenuInitialGroup");
+                        ut.EntityGroup.destroyAll(this.world, "game.SettingsMenu");
+                        ut.EntityGroup.destroyAll(this.world, "game.Bootstrap");
+                        ut.EntityGroup.instantiate(this.world, "game.Bootstrap");
+                    }
+                    return;
+                }
+                else if (throwState.State == 31) {
+                    return;
+                }
                 if (!gotEnemy_1) {
                     if (pos_2.y <= config.GroundPosition) {
                         pos_2.y = config.GroundPosition;
@@ -646,7 +685,8 @@ var game;
                             hero.AirSpeed = 0;
                             hero.ScrollSpeed = 0;
                             dwarfRenderer.sprite = dwarfSprites.Dead;
-                            game.GameService.SetGameState(this.world, game.GameState.THROW);
+                            throwState.State = 30;
+                            throwState.ThrowTimer = 0;
                         }
                         else {
                             dwarfRenderer.sprite = Math.random() < .5 ? dwarfSprites.Kick1 : dwarfSprites.Kick2;
@@ -661,6 +701,8 @@ var game;
                 this.world.setComponentData(heroEntity, dwarfRenderer);
                 this.world.setComponentData(heroEntity, hero);
                 this.world.setComponentData(heroEntity, heroTransform);
+                score.Score += Math.floor(hero.ScrollSpeed);
+                this.world.setComponentData(scoreEntity, score);
                 return;
             }
         };

@@ -389,6 +389,64 @@ game.BlinkToDeath._typeDesc = (function() {
 Object.defineProperties(game.BlinkToDeath, { cid: { configurable: true, get: function() { delete game.BlinkToDeath.cid; var offsetsPtr = 0, offsetsCount = 0; return game.BlinkToDeath.cid = Module._ut_component_register_cid_with_type(game.BlinkToDeath._typeDesc, 4, 0, offsetsPtr, offsetsCount, 0, 0); } } });
 Object.defineProperties(game.BlinkToDeath.StorageView, { cid: { configurable: true, get: function() { return game.BlinkToDeath.cid; } } });
 game.BlinkToDeath.Timer = { $ofs:0, $t:"float", $c:game.BlinkToDeath };
+game.ScoreDistance = function(arg0) {
+  this._Score = (/*64BIT*/arg0|0);
+};
+game.ScoreDistance.prototype = Object.create(null);
+game.ScoreDistance.prototype.constructor = game.ScoreDistance;
+Object.defineProperties(game.ScoreDistance.prototype, {
+  Score: {
+    get: function() { return this._Score; },
+    set: function(v) { this._Score = (/*64BIT*/v|0); },
+  },
+});
+game.ScoreDistance._size = 8;
+game.ScoreDistance._fromPtr = function(ptr, v) {
+  v = v || Object.create(game.ScoreDistance.prototype);
+  v._Score = (/*64BIT*/HEAP32[(ptr+0)>>2]);
+  return v;
+};
+game.ScoreDistance._toPtr = function(ptr, v) {
+  HEAP32[(ptr+0)>>2] = /*64BIT*/v.Score;
+};
+game.ScoreDistance._toTempHeapPtr = function(ptr, v) {
+  HEAP32[(ptr+0)>>2] = /*64BIT*/v.Score;
+};
+game.ScoreDistance._tempHeapPtr = function(v) {
+  var ptr = ut.tempHeapPtrBufferZero(8);
+  if (v) game.ScoreDistance._toTempHeapPtr(ptr, v);
+  return ptr;
+};
+game.ScoreDistance.StorageView = function(ptr) {
+  this._ptr = ptr;
+};
+game.ScoreDistance.StorageView.prototype = Object.create(null);
+game.ScoreDistance.StorageView.prototype.constructor = game.ScoreDistance.StorageView;
+game.ScoreDistance._view = game.ScoreDistance.StorageView;
+game.ScoreDistance.StorageView._isSharedComp = game.ScoreDistance._isSharedComp = false;
+game.ScoreDistance.StorageView._fromPtr = game.ScoreDistance._fromPtr;
+game.ScoreDistance.StorageView._toPtr = game.ScoreDistance._toPtr;
+game.ScoreDistance.StorageView._tempHeapPtr = game.ScoreDistance._tempHeapPtr;
+game.ScoreDistance.StorageView._size = game.ScoreDistance._size;
+game.ScoreDistance.StorageView.prototype.$advance = function() {
+  this._ptr += 8;
+};
+Object.defineProperties(game.ScoreDistance.StorageView.prototype, {
+  Score: {
+    get: function() { return (/*64BIT*/HEAP32[(this._ptr+0)>>2]); },
+    set: function(v) { HEAP32[(this._ptr+0)>>2] = /*64BIT*/v; },
+  },
+});
+game.ScoreDistance._dtorFn = function dtor(ptr) { /* POD, no-op */ }
+// game.ScoreDistance is a POD type, so a JavaScript side copy constructor game.ScoreDistance._copyFn = function copy(src, dst) { ... } does not need to be generated for it
+game.ScoreDistance._typeDesc = (function() {
+  return ut.meta.allocType(5, 'game.ScoreDistance', 8, [
+    {name: 'Score', offset: 0, type: ut.meta.getType('int64')}
+  ]);
+})();
+Object.defineProperties(game.ScoreDistance, { cid: { configurable: true, get: function() { delete game.ScoreDistance.cid; var offsetsPtr = 0, offsetsCount = 0; return game.ScoreDistance.cid = Module._ut_component_register_cid_with_type(game.ScoreDistance._typeDesc, 8, 0, offsetsPtr, offsetsCount, 0, 0); } } });
+Object.defineProperties(game.ScoreDistance.StorageView, { cid: { configurable: true, get: function() { return game.ScoreDistance.cid; } } });
+game.ScoreDistance.Score = { $ofs:0, $t:"System.Int64", $c:game.ScoreDistance };
 game.SettingsMenu = function(arg0, arg1, arg2, arg3, arg4, arg5) {
   this._ButtonOK = (arg0 === undefined ? new ut.Entity : arg0);
   this._ButtonCredits = (arg1 === undefined ? new ut.Entity : arg1);

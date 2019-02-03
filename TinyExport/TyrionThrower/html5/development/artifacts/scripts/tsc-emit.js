@@ -41,12 +41,13 @@ var game;
                 var spawnTimer = this.world.getComponentData(timerEntity, game.SpawnTimer);
                 spawnTimer.Timer += dt;
                 if (spawnTimer.Timer >= spawnTimer.NextDuration) {
-                    spawnTimer.NextDuration = .2 + Math.random() * .5;
+                    spawnTimer.NextDuration = .2 + Math.random() * .5 * game.GameService.GetHero(this.world).ScrollSpeed * .01;
                     spawnTimer.Timer = 0;
                     var zombieEntity = ut.EntityGroup.instantiate(this.world, "game.Zombie")[0];
                     var zombieTransform = this.world.getComponentData(zombieEntity, ut.Core2D.TransformLocalPosition);
                     var pos = zombieTransform.position;
                     pos.x = 600;
+                    pos.y = pos.y + -10 + Math.random() * 10;
                     zombieTransform.position = pos;
                     this.world.setComponentData(zombieEntity, zombieTransform);
                 }
@@ -466,6 +467,8 @@ var game;
                     return;
                 }
                 if (throwState.State == 0) {
+                    var handEntity = this.world.getEntityByName("Hand");
+                    this.world.addComponent(handEntity, ut.Disabled);
                     var angleBarEntity = this.world.getEntityByName("AngleBar");
                     var angleBarArrowEntity = this.world.getEntityByName("AngleBarArrow");
                     var angleBarArrowSpriteEntity = this.world.getEntityByName("AngleBarArrowSprite");
@@ -583,6 +586,8 @@ var game;
                 }
             }
             else if (game.GameService.IsGameState(this.world, game.GameState.PLAYING)) {
+                var scoreEntity = this.world.getEntityByName("Score");
+                var score = this.world.getComponentData(scoreEntity, game.ScoreDistance);
                 var pos_2 = heroTransform.position;
                 if (hero.IsSmashingCooldown) {
                     hero.SmashCooldownTimer += dt;
@@ -634,8 +639,9 @@ var game;
                         //pos.y = transform.position.y;
                         hero = _this.ResetSmash(hero);
                         dwarfRenderer.sprite = Math.random() < .5 ? dwarfSprites.Kick1 : dwarfSprites.Kick2;
-                        hero.AirSpeed = -hero.AirSpeed * .75;
-                        hero.ScrollSpeed *= .75;
+                        hero.ScrollSpeed *= 1.05;
+                        hero.AirSpeed = -hero.AirSpeed;
+                        //hero.ScrollSpeed *= .75;
                     }
                 });
                 if (!gotEnemy_1) {
@@ -661,6 +667,8 @@ var game;
                 this.world.setComponentData(heroEntity, dwarfRenderer);
                 this.world.setComponentData(heroEntity, hero);
                 this.world.setComponentData(heroEntity, heroTransform);
+                score.Score += Math.floor(hero.ScrollSpeed);
+                this.world.setComponentData(scoreEntity, score);
                 return;
             }
         };

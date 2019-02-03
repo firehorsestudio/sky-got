@@ -92,6 +92,18 @@
 
 @component
 @memberof game
+@name ScoreDistance
+*/
+/**
+
+@member {int64}
+@memberof game.ScoreDistance
+@name Score
+*/
+/**
+
+@component
+@memberof game
 @name SettingsMenu
 */
 /**

@@ -62,7 +62,8 @@
         { "Id": "60feebda86c36292119505b0bd2ac3e9", "Name": "UTiny.UIControls" },
         { "Id": "e46c24fb4d9a01e79b109bbcf6d24260", "Name": "UTiny.UILayout" },
         { "Id": "e6d4e4660e226bf8de8d111b4ef61f3d", "Name": "UTiny.TextHTML" },
-        { "Id": "0b0e260844fa6632977aa15579b42291", "Name": "UTiny.Text" }
+        { "Id": "0b0e260844fa6632977aa15579b42291", "Name": "UTiny.Text" },
+        { "Id": "251df5ef6819533f94e1cbf3181f722e", "Name": "UTiny.Audio" }
     ],
     "StartupEntityGroup": { "Id": "3b962014c3064bc4bcd3c2e82118274a", "Name": "NewEntityGroup" }
 },
@@ -93,5 +94,7 @@
         "Type": { "Id": "0ad79fe8aa3f427696461fa6d8d396b8", "Name": "TESTCONFIG" }
     }, {
         "Type": { "Id": "7cd18030e3864e51ae1efbfdcb801ab4", "Name": "Config" }
+    }, {
+        "Type": { "Id": "e816e7b93a13b9e5ddf993486ca79278", "Name": "AudioConfig" }
     }]
 }]

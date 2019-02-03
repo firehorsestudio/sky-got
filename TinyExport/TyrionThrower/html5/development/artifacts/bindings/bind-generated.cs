@@ -110,6 +110,19 @@ namespace game
 namespace game
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct ScoreDistance : UTiny.IComponentData
+    {
+
+
+        public long Score;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
     public struct SettingsMenu : UTiny.IComponentData
     {
 

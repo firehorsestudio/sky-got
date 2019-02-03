@@ -22,11 +22,28 @@
         "Visibility": 0,
         "EditorOnly": false,
         "Versioned": true
+    }, {
+        "Id": "05e0c8f237a6460880c06aa5930cabda",
+        "Name": "Modifier",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "764bfdd63e8e45cc8500710f73d71068",
+        "Name": "ModifierIncrement",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
     }],
     "DefaultValue": {
         "Type": { "Id": "b67f5354c4bf417b88738f0e2fa50f56", "Name": "SpawnTimer" },
         "Properties": {
-            "NextDuration": 0.5
+            "NextDuration": 0.5,
+            "ModifierIncrement": 0.15
         }
     }
 }]

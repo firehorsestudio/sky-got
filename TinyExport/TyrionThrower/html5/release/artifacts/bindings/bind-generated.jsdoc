@@ -79,6 +79,12 @@
 /**
 
 @component
+@memberof entities.game.NewEntityGroup
+@name Component
+*/
+/**
+
+@component
 @memberof game
 @name BlinkToDeath
 */
@@ -87,6 +93,18 @@
 @member {float}
 @memberof game.BlinkToDeath
 @name Timer
+*/
+/**
+
+@component
+@memberof game
+@name ScoreDistance
+*/
+/**
+
+@member {int64}
+@memberof game.ScoreDistance
+@name Score
 */
 /**
 
@@ -450,6 +468,18 @@
 */
 /**
 
+@member {float}
+@memberof game.SpawnTimer
+@name Modifier
+*/
+/**
+
+@member {float}
+@memberof game.SpawnTimer
+@name ModifierIncrement
+*/
+/**
+
 @component
 @memberof game
 @name ThrowState
@@ -657,6 +687,12 @@
 @member {bool}
 @memberof game.CustomButton
 @name LastIsInteractable
+*/
+/**
+
+@component
+@memberof game
+@name DESTROYTHIS
 */
 /**
 

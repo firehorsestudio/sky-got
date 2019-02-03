@@ -3,6 +3,8 @@ namespace game {
 
     export class MovingWithPlayerSystem extends ut.ComponentSystem {
 
+
+
         OnUpdate(): void {
 
             let hero = GameService.GetHero(this.world);
@@ -32,7 +34,7 @@ namespace game {
                 [ut.Entity, RepeatingBackground],
                 (entity, bg) => {
                     let t1 = this.world.getComponentData(bg.First, ut.Core2D.TransformLocalPosition);
-                    let t2 = this.world.getComponentData(bg.Second, ut.Core2D.TransformLocalPosition);  
+                    let t2 = this.world.getComponentData(bg.Second, ut.Core2D.TransformLocalPosition);
 
                     var t1Pos = t1.position;
                     var t2Pos = t2.position;
@@ -53,7 +55,7 @@ namespace game {
         }
 
     }
-    
+
     export class HeroSystem extends ut.ComponentSystem {
         
         OnUpdate(): void {
@@ -88,7 +90,21 @@ namespace game {
                 }
 
                 if (throwState.State == 0) {
-                    
+
+                    let handEntity = this.world.getEntityByName("Hand");
+                    let ourLogo = this.world.getEntityByName("OurLogo");
+                    let skyLogo = this.world.getEntityByName("SkyLogo");
+                    let fhLogo = this.world.getEntityByName("FHLogo");
+
+                    /*
+                    this.world.addComponent(handEntity, ut.Disabled);
+                    this.world.addComponent(ourLogo, ut.Disabled);
+                    this.world.addComponent(skyLogo, ut.Disabled);
+                    this.world.addComponent(fhLogo, ut.Disabled);
+                    */
+
+
+
                     let angleBarEntity = this.world.getEntityByName("AngleBar");
                     let angleBarArrowEntity = this.world.getEntityByName("AngleBarArrow");
                     let angleBarArrowSpriteEntity = this.world.getEntityByName("AngleBarArrowSprite");
@@ -97,7 +113,6 @@ namespace game {
                     this.world.removeComponent(angleBarArrowEntity, ut.Disabled);
                     this.world.removeComponent(angleBarArrowSpriteEntity, ut.Disabled);
 
-                    
                     let angleBarArrowQuaternion = this.world.getComponentData(angleBarArrowEntity, ut.Core2D.TransformLocalRotation);
                     let angleBarArrowRotation = this.world.getComponentData(angleBarArrowEntity, Rotation2D);
                     let angleBarBackAndForth = this.world.getComponentData(angleBarArrowEntity, BackAndForth);
@@ -123,7 +138,7 @@ namespace game {
                     this.world.setComponentData(angleBarArrowEntity, angleBarArrowQuaternion);
                     this.world.setComponentData(angleBarArrowEntity, angleBarArrowRotation);
                     this.world.setComponentData(angleBarArrowEntity, angleBarBackAndForth);
-                    
+
                     if (InputService.IsMouseDown()) {
                         let angleRatio = Math.abs(ratio - .5) / .5;
                         throwState.Angle = GameService.Lerp(100, 500, 1 - angleRatio);
@@ -143,7 +158,7 @@ namespace game {
                     this.world.removeComponent(powerBarArrowEntity, ut.Disabled);
                     this.world.removeComponent(PowerBarBackroundEntity, ut.Disabled);
 
-                    
+
                     let powerBarArrowTransform = this.world.getComponentData(powerBarArrowEntity, ut.Core2D.TransformLocalPosition);
                     let powerBarArrowRotation = this.world.getComponentData(powerBarArrowEntity, Rotation2D);
                     let powerBarBackAndForth = this.world.getComponentData(powerBarArrowEntity, BackAndForth);
@@ -168,7 +183,7 @@ namespace game {
                         powerBarBackAndForth.Timer = 0;
                         powerBarBackAndForth.Forward = !powerBarBackAndForth.Forward;
                     }
-                    
+
                     this.world.setComponentData(powerBarArrowEntity, powerBarArrowTransform);
                     this.world.setComponentData(powerBarArrowEntity, powerBarArrowRotation);
                     this.world.setComponentData(powerBarArrowEntity, powerBarBackAndForth);
@@ -240,10 +255,12 @@ namespace game {
             }
             else if (GameService.IsGameState(this.world, GameState.PLAYING)) {
 
+                let scoreEntity = this.world.getEntityByName("Score");
+                let score = this.world.getComponentData(scoreEntity, game.ScoreDistance);
+
                 let pos = heroTransform.position;
 
-                if (hero.IsSmashingCooldown)
-                {
+                if (hero.IsSmashingCooldown) {
                     hero.SmashCooldownTimer += dt;
                     if (this.IsSmashingCooldownDone(hero, config)) {
                         // BLINK TO SHOW THAT YOU CAN USE SMASH AGAIN
@@ -257,7 +274,7 @@ namespace game {
                         dwarfRenderer.sprite = dwarfSprites.Dive;
                     }
                 }
-                
+
                 pos.y += hero.AirSpeed * dt;
                 if (!hero.IsSmashing) {
                     var previousAirSpeed = hero.AirSpeed;
@@ -266,7 +283,7 @@ namespace game {
                         dwarfRenderer.sprite = Math.random() < .5 ? dwarfSprites.Fly1 : dwarfSprites.Fly2;
                     }
                 }
-                
+
 
                 //check for enemy collisions here
                 let heroCollider = this.world.getComponentData(heroEntity, game.BoxCollider);
@@ -310,12 +327,46 @@ namespace game {
                             hero = this.ResetSmash(hero);
 
                             dwarfRenderer.sprite = Math.random() < .5 ? dwarfSprites.Kick1 : dwarfSprites.Kick2;
-                            hero.AirSpeed = -hero.AirSpeed * .75;
-                            hero.ScrollSpeed *= .75;
+                            hero.ScrollSpeed = hero.ScrollSpeed * .8;
+                            hero.AirSpeed = -hero.AirSpeed * .85;
+                            //hero.ScrollSpeed *= 1.05;
+                            //hero.AirSpeed = -hero.AirSpeed;
+                            //hero.ScrollSpeed *= .75;
                         }
                     }
                 );
 
+                if (throwState.State == 30) {
+                    throwState.ThrowTimer += dt;
+                    this.world.setComponentData(heroEntity, throwState);
+
+                    if (throwState.ThrowTimer > 2) {
+                        
+                        throwState.State = 31;
+                        ut.EntityGroup.destroyAll(this.world, "game.Session");
+
+                        this.world.forEach(
+                            [ut.Entity, Enemy],
+                            (entity, enemy) => {
+                                this.world.destroyEntity(entity);
+                            }
+                        )
+
+                        
+                        ut.EntityGroup.destroyAll(this.world, "game.Zombie");
+                        ut.EntityGroup.destroyAll(this.world, "game.InGameTopMenuGroup");
+                        ut.EntityGroup.destroyAll(this.world, "game.PauseMenuGroup");
+                        ut.EntityGroup.destroyAll(this.world, "game.MenuInitialGroup");
+                        ut.EntityGroup.destroyAll(this.world, "game.SettingsMenu");
+                        ut.EntityGroup.destroyAll(this.world, "game.Bootstrap");
+
+                        ut.EntityGroup.instantiate(this.world, "game.Bootstrap");
+                    }
+                    return;
+                }
+                else if (throwState.State == 31) {
+                    return;
+                }
 
                 if (!gotEnemy) {
                     if (pos.y <= config.GroundPosition) {
@@ -327,7 +378,9 @@ namespace game {
                             hero.AirSpeed = 0;
                             hero.ScrollSpeed = 0;
                             dwarfRenderer.sprite = dwarfSprites.Dead;
-                            GameService.SetGameState(this.world, GameState.THROW);
+
+                            throwState.State = 30;
+                            throwState.ThrowTimer = 0;
                         }
                         else {
                             dwarfRenderer.sprite = Math.random() < .5 ? dwarfSprites.Kick1 : dwarfSprites.Kick2;
@@ -344,6 +397,9 @@ namespace game {
                 this.world.setComponentData(heroEntity, dwarfRenderer);
                 this.world.setComponentData(heroEntity, hero);
                 this.world.setComponentData(heroEntity, heroTransform);
+
+                score.Score += Math.floor(hero.ScrollSpeed);
+                this.world.setComponentData(scoreEntity, score);
 
                 return;
             }
@@ -365,7 +421,7 @@ namespace game {
             return hero;
         }
 
-        IsSmashingCooldownDone(hero: Hero, config: Config) : boolean {
+        IsSmashingCooldownDone(hero: Hero, config: Config): boolean {
             return hero.SmashCooldownTimer >= config.SmashCooldown;
         }
     }

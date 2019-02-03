@@ -139,6 +139,24 @@ class BlinkToDeath extends ut.Component {
 }
 declare namespace game {
 
+class ScoreDistance extends ut.Component {
+  constructor(Score?: number);
+  Score: number;
+  
+  static readonly cid: number;
+  static readonly _view: any;
+  static readonly _isSharedComp: boolean;
+
+  static _size: number;
+  static _fromPtr(p: number, v?: ScoreDistance): ScoreDistance;
+  static _toPtr(p: number, v: ScoreDistance): void;
+  static _tempHeapPtr(v: ScoreDistance): number;
+  static _dtorFn(v: ScoreDistance): void;
+}
+
+}
+declare namespace game {
+
 class SettingsMenu extends ut.Component {
   constructor(ButtonOK?: Entity, ButtonCredits?: Entity, ButtonResetProgress?: Entity, ButtonLanguage?: Entity, ButtonRenderMode?: Entity, LabelRenderMode?: Entity);
   ButtonOK: Entity;

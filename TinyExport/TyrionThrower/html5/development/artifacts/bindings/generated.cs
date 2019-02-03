@@ -65,6 +65,10 @@ namespace game
     {
         public float Timer;
     }
+    public struct ScoreDistance : IComponentData
+    {
+        public long Score;
+    }
     public struct SettingsMenu : IComponentData
     {
         public Entity ButtonOK;

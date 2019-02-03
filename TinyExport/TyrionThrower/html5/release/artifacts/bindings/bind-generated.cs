@@ -94,6 +94,18 @@ namespace entities.game.PauseMenuGroup
 
     }
 }
+namespace entities.game.NewEntityGroup
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Component : UTiny.IComponentData
+    {
+
+
+
+
+
+    }
+}
 namespace game
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
@@ -102,6 +114,19 @@ namespace game
 
 
         public float Timer;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct ScoreDistance : UTiny.IComponentData
+    {
+
+
+        public long Score;
 
 
 
@@ -327,6 +352,8 @@ namespace game
 
         public float Timer;
         public float NextDuration;
+        public float Modifier;
+        public float ModifierIncrement;
 
 
 
@@ -417,6 +444,18 @@ namespace game
         public bool IsPointerOver;
         public bool IsInteractable;
         public bool LastIsInteractable;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct DESTROYTHIS : UTiny.IComponentData
+    {
+
+
 
 
 

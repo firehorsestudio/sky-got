@@ -26,7 +26,7 @@
     "$TypeId": 5,
     "Id": "1bca6a5e4aa346768750d5ede5972ad4",
     "Name": "Canvas",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 5,
     "Components": [{
@@ -1183,7 +1183,7 @@
     "$TypeId": 5,
     "Id": "c0484eab8e3940698e8510a0f25d8a3a",
     "Name": "CanvasCamera",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
