@@ -1,0 +1,48 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "c2d0dbf4437e470d97ee6232302da1f6",
+    "Name": "FollowerCamera",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "1b34c471b7ba4774b7926e0387adb02c",
+        "Name": "Smooth",
+        "FieldType": { "Id": "2b477f505af74487b7092b5617d88d3f", "Name": "Boolean" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "8ca82bf646cc4fa3a61df5a655946599",
+        "Name": "Offset",
+        "FieldType": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "0a4bd82d79e74b1da1828aa64be72b7d",
+        "Name": "UpperLimit",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "31ea311b40dd4658839c6d9fcf1e6504",
+        "Name": "BottomLimit",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "c2d0dbf4437e470d97ee6232302da1f6", "Name": "FollowerCamera" },
+        "Properties": {
+            "Smooth": true
+        }
+    }
+}]

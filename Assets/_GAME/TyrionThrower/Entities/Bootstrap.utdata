@@ -51,6 +51,17 @@
                 }
             }
         }
+    }, {
+        "Type": { "Id": "c2d0dbf4437e470d97ee6232302da1f6", "Name": "FollowerCamera" },
+        "Properties": {
+            "Offset": {
+                "Type": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
+                "Properties": {
+                    "x": 100
+                }
+            },
+            "UpperLimit": 10
+        }
     }]
 },
 {
