@@ -46,6 +46,18 @@ namespace entities.game.SettingsMenu
 
     }
 }
+namespace entities.game.Zombie
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Component : UTiny.IComponentData
+    {
+
+
+
+
+
+    }
+}
 namespace entities.game.InGameTopMenuGroup
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
@@ -85,6 +97,19 @@ namespace entities.game.PauseMenuGroup
 namespace game
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct BlinkToDeath : UTiny.IComponentData
+    {
+
+
+        public float Timer;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
     public struct SettingsMenu : UTiny.IComponentData
     {
 
@@ -111,6 +136,39 @@ namespace game
         public float y;
         public float width;
         public float height;
+        public bool Deactivated;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct DeathSprite : UTiny.IComponentData
+    {
+
+
+        public UTiny.Entity Death;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct DwarfSprites : UTiny.IComponentData
+    {
+
+
+        public UTiny.Entity Idle;
+        public UTiny.Entity Fly1;
+        public UTiny.Entity Fly2;
+        public UTiny.Entity Kick1;
+        public UTiny.Entity Kick2;
+        public UTiny.Entity Dive;
+        public UTiny.Entity Dead;
 
 
 
@@ -138,6 +196,22 @@ namespace game
         public float ScrollSpeed;
         public float AirSpeed;
         public Unity.Mathematics.float3 PreviousPosition;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct FollowerCamera : UTiny.IComponentData
+    {
+
+
+        public bool Smooth;
+        public Unity.Mathematics.float2 Offset;
+        public float UpperLimit;
+        public float BottomLimit;
 
 
 
@@ -183,6 +257,110 @@ namespace game
 
         public Unity.Mathematics.float3 Position;
         public bool Updated;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct MovingWithPlayer : UTiny.IComponentData
+    {
+
+
+        public float Speed;
+        public bool Deactivated;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct RepeatingBackground : UTiny.IComponentData
+    {
+
+
+        public UTiny.Entity First;
+        public UTiny.Entity Second;
+        public float Spacing;
+        public float Offscreen;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct ReusableEnemy : UTiny.IComponentData
+    {
+
+
+        public float Offset;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Rotation2D : UTiny.IComponentData
+    {
+
+
+        public float Rotation;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct SpawnTimer : UTiny.IComponentData
+    {
+
+
+        public float Timer;
+        public float NextDuration;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct ThrowState : UTiny.IComponentData
+    {
+
+
+        public sbyte State;
+        public float Angle;
+        public float Force;
+        public float ThrowTimer;
+        public bool CanRethrow;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct BackAndForth : UTiny.IComponentData
+    {
+
+
+        public float Min;
+        public float Max;
+        public bool Forward;
+        public float Duration;
+        public float Timer;
 
 
 
@@ -239,52 +417,6 @@ namespace game
         public bool IsPointerOver;
         public bool IsInteractable;
         public bool LastIsInteractable;
-
-
-
-    }
-}
-namespace game
-{
-    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
-    public struct RepeatingBackground : UTiny.IComponentData
-    {
-
-
-        public UTiny.Entity First;
-        public UTiny.Entity Second;
-        public float Spacing;
-        public float Offscreen;
-
-
-
-    }
-}
-namespace game
-{
-    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
-    public struct MovingWithPlayer : UTiny.IComponentData
-    {
-
-
-        public float Speed;
-
-
-
-    }
-}
-namespace game
-{
-    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
-    public struct DwarfSprites : UTiny.IComponentData
-    {
-
-
-        public UTiny.Entity Idle;
-        public UTiny.Entity Fly1;
-        public UTiny.Entity Fly2;
-        public UTiny.Entity Kick1;
-        public UTiny.Entity Kick2;
 
 
 

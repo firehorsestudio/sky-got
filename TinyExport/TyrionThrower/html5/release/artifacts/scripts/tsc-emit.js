@@ -11,14 +11,51 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 var game;
 (function (game) {
+    var DestroyZombiesSystem = /** @class */ (function (_super) {
+        __extends(DestroyZombiesSystem, _super);
+        function DestroyZombiesSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        DestroyZombiesSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            this.world.forEach([ut.Entity, game.ReusableEnemy, ut.Core2D.TransformLocalPosition], function (entity, enemy, transform) {
+                if (transform.position.x < enemy.Offset) {
+                    _this.world.destroyEntity(entity);
+                }
+            });
+        };
+        return DestroyZombiesSystem;
+    }(ut.ComponentSystem));
+    game.DestroyZombiesSystem = DestroyZombiesSystem;
+    var SpawnZombiesSystem = /** @class */ (function (_super) {
+        __extends(SpawnZombiesSystem, _super);
+        function SpawnZombiesSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        SpawnZombiesSystem.prototype.OnUpdate = function () {
+            if (game.GameService.IsGameState(this.world, game.GameState.PLAYING)) {
+                var dt = this.scheduler.deltaTime();
+                var timerEntity = this.world.getEntityByName("SpawnTimer");
+                var spawnTimer = this.world.getComponentData(timerEntity, game.SpawnTimer);
+                spawnTimer.Timer += dt;
+                if (spawnTimer.Timer >= spawnTimer.NextDuration) {
+                    spawnTimer.NextDuration = .2 + Math.random() * .5;
+                    spawnTimer.Timer = 0;
+                    var zombieEntity = ut.EntityGroup.instantiate(this.world, "game.Zombie")[0];
+                    var zombieTransform = this.world.getComponentData(zombieEntity, ut.Core2D.TransformLocalPosition);
+                    var pos = zombieTransform.position;
+                    pos.x = 600;
+                    zombieTransform.position = pos;
+                    this.world.setComponentData(zombieEntity, zombieTransform);
+                }
+                this.world.setComponentData(timerEntity, spawnTimer);
+            }
+        };
+        return SpawnZombiesSystem;
+    }(ut.ComponentSystem));
+    game.SpawnZombiesSystem = SpawnZombiesSystem;
     var UIDataGetSystem = /** @class */ (function (_super) {
         __extends(UIDataGetSystem, _super);
         function UIDataGetSystem() {
@@ -34,18 +71,27 @@ var game;
             if (ut.Runtime.Input.getKeyDown(ut.Core2D.KeyCode.K)) {
                 game.GameService.SetGameState(this.world, game.GameState.PLAYING);
             }
+            if (ut.Runtime.Input.getKeyDown(ut.Core2D.KeyCode.P)) {
+                game.UserDataService.DeleteAllCookies();
+            }
             switch (game.GameService.GetCurrentGameState(this.world)) {
                 case game.GameState.MENU:
                     game.UIDataService.ToogleGameplayEntity(this.world);
-                    if (game.UserDataService.GetBoolean("PlayedFirstGame")) {
-                        game.GameService.SetGameState(this.world, game.GameState.PLAYING);
+                    game.GameService.SetGameState(this.world, game.GameState.THROW);
+                    break;
+                /*
+                case GameState.MENU:
+                    UIDataService.ToogleGameplayEntity(this.world);
+                    if (UserDataService.GetBoolean("PlayedFirstGame")) {
+                        GameService.SetGameState(this.world, GameState.THROW);
                         break;
                     }
                     else {
-                        game.UIDataService.ToogleMenuInitial(this.world, true);
-                        game.UIDataService.CheckForMenuInitialButtons(this.world);
+                        UIDataService.ToogleMenuInitial(this.world, true);
+                        UIDataService.CheckForMenuInitialButtons(this.world);
                         break;
                     }
+                */
                 case game.GameState.PAUSED:
                     game.UIDataService.CheckForPauseButton(this.world);
                     break;
@@ -67,6 +113,9 @@ var game;
     var GameService = /** @class */ (function () {
         function GameService() {
         }
+        GameService.Lerp = function (start, end, amt) {
+            return (1 - amt) * start + amt * end;
+        };
         GameService.GetConfig = function (world) {
             return world.getConfigData(game_1.Config);
         };
@@ -106,6 +155,14 @@ var game;
             var state = this.GetGame(world).State;
             return state;
         };
+        GameService.ConvertRange01 = function (min, max, value) {
+            return this.BaseConvertRange(min, max, 0, 1, value);
+        };
+        GameService.BaseConvertRange = function (oldMin, oldMax, newMin, newMax, value) {
+            if (oldMax == oldMin)
+                return newMax;
+            return (value - oldMin) * (newMax - newMin) / (oldMax - oldMin) + newMin;
+        };
         GameService.SetGameState = function (world, state) {
             var game = this.GetGame(world);
             game.State = state;
@@ -126,6 +183,11 @@ var game;
                 }
             }
             return this.HERO;
+        };
+        GameService.InOut = function (k) {
+            if ((k *= 2) < 1)
+                return 0.5 * k * k;
+            return -0.5 * ((k -= 1) * (k - 2) - 1);
         };
         GameService.GetHero = function (world) {
             var heroEntity = this.GetHeroEntity(world);
@@ -204,7 +266,7 @@ var game;
         };
         UIDataService.ToogleGameplayEntity = function (world) {
             if (this.GAMEPLAYSTATE == null)
-                this.GAMEPLAYSTATE = ut.EntityGroup.instantiate(world, "game.GroundTile");
+                this.GAMEPLAYSTATE = ut.EntityGroup.instantiate(world, "game.Session");
         };
         UIDataService.CheckForPlayerScore = function (world) {
             var herospeed = world.getEntityByName("HeroSpeedPoints");
@@ -228,7 +290,7 @@ var game;
                     this.ToogleMenuInitial(world, false);
                     game.GameService.SetGameState(world, game.GameState.THROW);
                     this.ToogleInGamePanel(world, true);
-                    ut.EntityGroup.instantiate(world, "game.GroundTile");
+                    ut.EntityGroup.instantiate(world, "game.Session");
                     game.UserDataService.SetBoolean("PlayedFirstGame", true);
                 }
             }
@@ -305,17 +367,20 @@ var game;
         */
         CameraSystem.prototype.OnUpdate = function () {
             var _this = this;
+            var displayInfo = this.world.getConfigData(ut.Core2D.DisplayInfo);
+            var cameraEntity = this.world.getEntityByName("MainCamera");
+            var camera = this.world.getComponentData(cameraEntity, ut.Core2D.Camera2D);
+            var cameraHalfWidth = displayInfo.width / displayInfo.height * camera.halfVerticalSize;
             var hero = game.GameService.GetHeroEntity(this.world);
-            var playerPos = this.world.getComponentData(hero, ut.Core2D.TransformLocalPosition);
+            var playerPos = ut.Core2D.TransformService.computeWorldPosition(this.world, hero);
             this.world.forEach([ut.Core2D.Camera2D, game.FollowerCamera, ut.Core2D.TransformLocalPosition], function (camera, followerCamera, transform) {
-                //let height = 2 * camera.halfVerticalSize;
                 var pos = transform.position;
-                pos.x = playerPos.position.x + followerCamera.Offset.x;
-                if (playerPos.position.y + followerCamera.Offset.y >= followerCamera.UpperLimit)
-                    pos.y = playerPos.position.y + followerCamera.Offset.y;
+                pos.x = playerPos.x + cameraHalfWidth - followerCamera.Offset.x;
+                if (playerPos.y + followerCamera.Offset.y >= followerCamera.UpperLimit)
+                    pos.y = playerPos.y + followerCamera.Offset.y;
                 else
-                    pos.y = _this.lerp(playerPos.position.y + followerCamera.Offset.y, followerCamera.BottomLimit, _this.scheduler.deltaTime());
-                if (playerPos.position.y <= followerCamera.BottomLimit)
+                    pos.y = _this.lerp(playerPos.y + followerCamera.Offset.y, followerCamera.BottomLimit, _this.scheduler.deltaTime());
+                if (playerPos.y <= followerCamera.BottomLimit)
                     pos.y = followerCamera.BottomLimit;
                 transform.position = pos;
             });
@@ -329,54 +394,196 @@ var game;
 })(game || (game = {}));
 var game;
 (function (game) {
-    var FlyingSystem = /** @class */ (function (_super) {
-        __extends(FlyingSystem, _super);
-        function FlyingSystem() {
+    var MovingWithPlayerSystem = /** @class */ (function (_super) {
+        __extends(MovingWithPlayerSystem, _super);
+        function MovingWithPlayerSystem() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        FlyingSystem.prototype.OnUpdate = function () {
-            if (game.GameService.IsPaused(this.world) || (game.GameService.GetCurrentGameState(this.world) != game.GameState.PLAYING))
-                return;
+        MovingWithPlayerSystem.prototype.OnUpdate = function () {
+            var hero = game.GameService.GetHero(this.world);
             var dt = this.scheduler.deltaTime();
-            var config = game.GameService.GetConfig(this.world);
-            this.world.forEach([ut.Entity, game.Hero, game.Flying, ut.Core2D.TransformLocalPosition], function (entity, hero, flying, transform) {
+            this.world.forEach([ut.Entity, game.MovingWithPlayer, ut.Core2D.TransformLocalPosition], function (entity, moving, transform) {
+                if (moving.Deactivated)
+                    return;
                 var pos = transform.position;
-                flying.PreviousPosition = pos;
-                pos.y += flying.AirSpeed * dt;
-                flying.AirSpeed -= config.Gravity * dt;
+                pos.x -= moving.Speed * hero.ScrollSpeed * dt;
                 transform.position = pos;
             });
         };
-        return FlyingSystem;
+        return MovingWithPlayerSystem;
     }(ut.ComponentSystem));
-    game.FlyingSystem = FlyingSystem;
-})(game || (game = {}));
-var game;
-(function (game) {
+    game.MovingWithPlayerSystem = MovingWithPlayerSystem;
+    var RepeatingBackgroundSystem = /** @class */ (function (_super) {
+        __extends(RepeatingBackgroundSystem, _super);
+        function RepeatingBackgroundSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        RepeatingBackgroundSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            this.world.forEach([ut.Entity, game.RepeatingBackground], function (entity, bg) {
+                var t1 = _this.world.getComponentData(bg.First, ut.Core2D.TransformLocalPosition);
+                var t2 = _this.world.getComponentData(bg.Second, ut.Core2D.TransformLocalPosition);
+                var t1Pos = t1.position;
+                var t2Pos = t2.position;
+                if (t1Pos.x < bg.Offscreen)
+                    t1Pos.x = t2Pos.x + bg.Spacing;
+                if (t2Pos.x < bg.Offscreen)
+                    t2Pos.x = t1Pos.x + bg.Spacing;
+                t1.position = t1Pos;
+                t2.position = t2Pos;
+                _this.world.setComponentData(bg.First, t1);
+                _this.world.setComponentData(bg.Second, t2);
+            });
+        };
+        return RepeatingBackgroundSystem;
+    }(ut.ComponentSystem));
+    game.RepeatingBackgroundSystem = RepeatingBackgroundSystem;
     var HeroSystem = /** @class */ (function (_super) {
         __extends(HeroSystem, _super);
         function HeroSystem() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         HeroSystem.prototype.OnUpdate = function () {
-            if (game.GameService.IsPaused(this.world) || (game.GameService.GetCurrentGameState(this.world) != game.GameState.THROW) || (game.GameService.GetCurrentGameState(this.world) != game.GameState.PLAYING))
+            var _this = this;
+            if (game.GameService.IsPaused(this.world) || ((game.GameService.GetCurrentGameState(this.world) != game.GameState.THROW) && (game.GameService.GetCurrentGameState(this.world) != game.GameState.PLAYING)))
                 return;
             var config = game.GameService.GetConfig(this.world);
             var dt = this.scheduler.deltaTime();
             var heroEntity = game.GameService.GetHeroEntity(this.world);
             var hero = this.world.getComponentData(heroEntity, game.Hero);
             var heroTransform = this.world.getComponentData(heroEntity, ut.Core2D.TransformLocalPosition);
+            var heroRotation = this.world.getComponentData(heroEntity, ut.Core2D.TransformLocalRotation);
+            var dwarfSprites = this.world.getComponentData(heroEntity, game.DwarfSprites);
+            var dwarfRenderer = this.world.getComponentData(heroEntity, ut.Core2D.Sprite2DRenderer);
+            var throwState = this.world.getComponentData(heroEntity, game.ThrowState);
             if (game.GameService.IsGameState(this.world, game.GameState.THROW)) {
-                if (InputService.IsMouseDown()) {
-                    hero.AirSpeed = 400;
-                    hero.ScrollSpeed = 50;
-                    game.GameService.SetGameState(this.world, game.GameState.PLAYING);
-                    this.world.setComponentData(heroEntity, hero);
+                dwarfRenderer.sprite = dwarfSprites.Idle;
+                if (throwState.State == -1) {
+                    if (InputService.IsMouseDown()) {
+                        throwState.State = 0;
+                        this.world.setComponentData(heroEntity, throwState);
+                    }
+                    return;
                 }
-                return;
+                if (throwState.State == 0) {
+                    var angleBarEntity = this.world.getEntityByName("AngleBar");
+                    var angleBarArrowEntity = this.world.getEntityByName("AngleBarArrow");
+                    var angleBarArrowSpriteEntity = this.world.getEntityByName("AngleBarArrowSprite");
+                    this.world.removeComponent(angleBarEntity, ut.Disabled);
+                    this.world.removeComponent(angleBarArrowEntity, ut.Disabled);
+                    this.world.removeComponent(angleBarArrowSpriteEntity, ut.Disabled);
+                    var angleBarArrowQuaternion = this.world.getComponentData(angleBarArrowEntity, ut.Core2D.TransformLocalRotation);
+                    var angleBarArrowRotation = this.world.getComponentData(angleBarArrowEntity, game.Rotation2D);
+                    var angleBarBackAndForth = this.world.getComponentData(angleBarArrowEntity, game.BackAndForth);
+                    angleBarBackAndForth.Timer += dt;
+                    var ratio = angleBarBackAndForth.Timer / angleBarBackAndForth.Duration;
+                    ratio = Math.min(1, ratio);
+                    ratio = game.GameService.InOut(ratio);
+                    var angle = 0;
+                    if (angleBarBackAndForth.Forward)
+                        angle = game.GameService.Lerp(angleBarBackAndForth.Min, angleBarBackAndForth.Max, ratio);
+                    else
+                        angle = game.GameService.Lerp(angleBarBackAndForth.Max, angleBarBackAndForth.Min, ratio);
+                    angleBarArrowRotation.Rotation = angle;
+                    angleBarArrowQuaternion.rotation = angleBarArrowQuaternion.rotation.setFromEuler(new Euler(0, 0, angle * 0.0174533));
+                    if (ratio >= 1) {
+                        angleBarBackAndForth.Timer = 0;
+                        angleBarBackAndForth.Forward = !angleBarBackAndForth.Forward;
+                    }
+                    this.world.setComponentData(angleBarArrowEntity, angleBarArrowQuaternion);
+                    this.world.setComponentData(angleBarArrowEntity, angleBarArrowRotation);
+                    this.world.setComponentData(angleBarArrowEntity, angleBarBackAndForth);
+                    if (InputService.IsMouseDown()) {
+                        var angleRatio = Math.abs(ratio - .5) / .5;
+                        throwState.Angle = game.GameService.Lerp(100, 500, 1 - angleRatio);
+                        throwState.State = 1;
+                        this.world.setComponentData(heroEntity, throwState);
+                    }
+                    return;
+                }
+                else if (throwState.State == 1) {
+                    var powerBarEntity = this.world.getEntityByName("PowerBar");
+                    var powerBarArrowEntity = this.world.getEntityByName("PowerBarArrow");
+                    var PowerBarBackroundEntity = this.world.getEntityByName("PowerBarBackround");
+                    this.world.removeComponent(powerBarEntity, ut.Disabled);
+                    this.world.removeComponent(powerBarArrowEntity, ut.Disabled);
+                    this.world.removeComponent(PowerBarBackroundEntity, ut.Disabled);
+                    var powerBarArrowTransform = this.world.getComponentData(powerBarArrowEntity, ut.Core2D.TransformLocalPosition);
+                    var powerBarArrowRotation = this.world.getComponentData(powerBarArrowEntity, game.Rotation2D);
+                    var powerBarBackAndForth = this.world.getComponentData(powerBarArrowEntity, game.BackAndForth);
+                    powerBarBackAndForth.Timer += dt;
+                    var ratio = powerBarBackAndForth.Timer / powerBarBackAndForth.Duration;
+                    ratio = Math.min(1, ratio);
+                    ratio = game.GameService.InOut(ratio);
+                    var angle = 0;
+                    if (powerBarBackAndForth.Forward)
+                        angle = game.GameService.Lerp(powerBarBackAndForth.Min, powerBarBackAndForth.Max, ratio);
+                    else
+                        angle = game.GameService.Lerp(powerBarBackAndForth.Max, powerBarBackAndForth.Min, ratio);
+                    powerBarArrowRotation.Rotation = angle;
+                    var pos_1 = powerBarArrowTransform.position;
+                    pos_1.x = angle;
+                    powerBarArrowTransform.position = pos_1;
+                    if (ratio >= 1) {
+                        powerBarBackAndForth.Timer = 0;
+                        powerBarBackAndForth.Forward = !powerBarBackAndForth.Forward;
+                    }
+                    this.world.setComponentData(powerBarArrowEntity, powerBarArrowTransform);
+                    this.world.setComponentData(powerBarArrowEntity, powerBarArrowRotation);
+                    this.world.setComponentData(powerBarArrowEntity, powerBarBackAndForth);
+                    if (InputService.IsMouseDown()) {
+                        var ratio_1 = game.GameService.ConvertRange01(powerBarBackAndForth.Min, powerBarBackAndForth.Max, powerBarArrowRotation.Rotation);
+                        throwState.Force = game.GameService.Lerp(8, 30, ratio_1);
+                        throwState.State = 2;
+                        this.world.setComponentData(heroEntity, throwState);
+                    }
+                    return;
+                }
+                else if (throwState.State == 2) {
+                    throwState.ThrowTimer += dt;
+                    var stickEntity = this.world.getEntityByName("Stick");
+                    var stickQuaternionRotation = this.world.getComponentData(stickEntity, ut.Core2D.TransformLocalRotation);
+                    var stickRotation = this.world.getComponentData(stickEntity, game.Rotation2D);
+                    var ratio = throwState.ThrowTimer / .1;
+                    ratio = Math.min(1, ratio);
+                    var currentRotation = game.GameService.Lerp(0, 60, ratio);
+                    stickRotation.Rotation = currentRotation;
+                    stickQuaternionRotation.rotation = stickQuaternionRotation.rotation.setFromEuler(new Euler(0, 0, -currentRotation * 0.0174533));
+                    if (ratio >= 1.0)
+                        throwState.State = 3;
+                    this.world.setComponentData(heroEntity, throwState);
+                    this.world.setComponentData(stickEntity, stickQuaternionRotation);
+                    this.world.setComponentData(stickEntity, stickRotation);
+                    this.world.setComponentData(stickEntity, stickQuaternionRotation);
+                    return;
+                }
+                else if (throwState.State == 3) {
+                    var worldPosition = ut.Core2D.TransformService.computeWorldPosition(this.world, heroEntity);
+                    ut.Core2D.TransformService.unlink(this.world, heroEntity);
+                    heroRotation.rotation = heroRotation.rotation.setFromEuler(new Euler(0, 0, 0));
+                    var pos = heroTransform.position;
+                    pos.x = worldPosition.x;
+                    pos.y = worldPosition.y;
+                    pos.z = worldPosition.z;
+                    heroTransform.position = pos;
+                    hero.AirSpeed = throwState.Angle;
+                    hero.ScrollSpeed = throwState.Force;
+                    game.GameService.SetGameState(this.world, game.GameState.PLAYING);
+                    dwarfRenderer.sprite = Math.random() < .5 ? dwarfSprites.Fly1 : dwarfSprites.Fly2;
+                    var catapultaEntity = this.world.getEntityByName("Catapulta");
+                    var moving = this.world.getComponentData(catapultaEntity, game.MovingWithPlayer);
+                    moving.Deactivated = false;
+                    throwState.State = 4;
+                    this.world.setComponentData(heroEntity, throwState);
+                    this.world.setComponentData(heroEntity, heroTransform);
+                    this.world.setComponentData(heroEntity, dwarfRenderer);
+                    this.world.setComponentData(heroEntity, hero);
+                    this.world.setComponentData(heroEntity, heroRotation);
+                    this.world.setComponentData(catapultaEntity, moving);
+                }
             }
             else if (game.GameService.IsGameState(this.world, game.GameState.PLAYING)) {
-                var pos = heroTransform.position;
+                var pos_2 = heroTransform.position;
                 if (hero.IsSmashingCooldown) {
                     hero.SmashCooldownTimer += dt;
                     if (this.IsSmashingCooldownDone(hero, config)) {
@@ -387,30 +594,81 @@ var game;
                     if (InputService.IsMouseDown()) {
                         hero.AirSpeed = config.SmashForce;
                         hero.IsSmashing = true;
+                        dwarfRenderer.sprite = dwarfSprites.Dive;
                     }
                 }
-                pos.y += hero.AirSpeed * dt;
-                if (!hero.IsSmashing)
+                pos_2.y += hero.AirSpeed * dt;
+                if (!hero.IsSmashing) {
+                    var previousAirSpeed = hero.AirSpeed;
                     hero.AirSpeed += config.Gravity * dt;
-                //check for enemy collisions here
-                if (pos.y <= config.GroundPosition) {
-                    pos.y = config.GroundPosition;
-                    hero = this.ResetSmash(hero);
-                    if (Math.abs(hero.AirSpeed) < 55) {
-                        hero.AirSpeed = 0;
-                        hero.ScrollSpeed = 0;
-                        game.GameService.SetGameState(this.world, game.GameState.THROW);
-                    }
-                    else {
-                        hero.AirSpeed = -hero.AirSpeed * .75;
+                    if (previousAirSpeed > hero.AirSpeed && hero.AirSpeed < 200 && hero.AirSpeed > 0 && dwarfRenderer.sprite.index != dwarfSprites.Fly1.index && dwarfRenderer.sprite.index != dwarfSprites.Fly2.index) {
+                        dwarfRenderer.sprite = Math.random() < .5 ? dwarfSprites.Fly1 : dwarfSprites.Fly2;
                     }
                 }
-                heroTransform.position = pos;
+                //check for enemy collisions here
+                var heroCollider_1 = this.world.getComponentData(heroEntity, game.BoxCollider);
+                //console.log("hero h: " + heroCollider.height + ", w: " + heroCollider.width);
+                heroCollider_1.x = heroTransform.position.x - heroCollider_1.width;
+                heroCollider_1.y = heroTransform.position.y - heroCollider_1.height;
+                var gotEnemy_1 = false;
+                this.world.forEach([ut.Entity, game.Enemy, ut.Core2D.TransformLocalPosition, game.BoxCollider, ut.Core2D.Sprite2DRenderer, game.DeathSprite], function (entity, enemy, transform, collider, spriteRenderer, deathSprite) {
+                    if (gotEnemy_1 || collider.Deactivated)
+                        return;
+                    //console.log("enemy w: " + collider.width + ", h: " + collider.height);
+                    var enemyCollider = new game.BoxCollider();
+                    enemyCollider.x = transform.position.x - collider.width;
+                    enemyCollider.y = transform.position.y - collider.height;
+                    enemyCollider.height = collider.height;
+                    enemyCollider.width = collider.width;
+                    if (_this.CheckCollision(heroCollider_1, enemyCollider) && hero.AirSpeed < 0) {
+                        gotEnemy_1 = true;
+                        collider.Deactivated = true;
+                        spriteRenderer.sprite = deathSprite.Death;
+                        _this.world.removeComponent(entity, ut.Core2D.Sprite2DSequencePlayer);
+                        if (!_this.world.hasComponent(entity, game.BlinkToDeath))
+                            _this.world.addComponent(entity, game.BlinkToDeath);
+                        var finalPos = transform.position;
+                        transform.position = finalPos;
+                        finalPos.y -= 13;
+                        transform.position = finalPos;
+                        //pos.y = transform.position.y;
+                        hero = _this.ResetSmash(hero);
+                        dwarfRenderer.sprite = Math.random() < .5 ? dwarfSprites.Kick1 : dwarfSprites.Kick2;
+                        hero.AirSpeed = -hero.AirSpeed * .75;
+                        hero.ScrollSpeed *= .75;
+                    }
+                });
+                if (!gotEnemy_1) {
+                    if (pos_2.y <= config.GroundPosition) {
+                        pos_2.y = config.GroundPosition;
+                        hero = this.ResetSmash(hero);
+                        if (Math.abs(hero.AirSpeed) < 55 || hero.ScrollSpeed < 3) {
+                            hero.AirSpeed = 0;
+                            hero.ScrollSpeed = 0;
+                            dwarfRenderer.sprite = dwarfSprites.Dead;
+                            game.GameService.SetGameState(this.world, game.GameState.THROW);
+                        }
+                        else {
+                            dwarfRenderer.sprite = Math.random() < .5 ? dwarfSprites.Kick1 : dwarfSprites.Kick2;
+                            hero.AirSpeed = -hero.AirSpeed * .75;
+                            hero.ScrollSpeed *= .75;
+                        }
+                    }
+                }
+                heroTransform.position = pos_2;
                 //UPDATE COMPONENTS
+                this.world.setComponentData(heroEntity, throwState);
+                this.world.setComponentData(heroEntity, dwarfRenderer);
                 this.world.setComponentData(heroEntity, hero);
                 this.world.setComponentData(heroEntity, heroTransform);
                 return;
             }
+        };
+        HeroSystem.prototype.CheckCollision = function (colliderA, colliderB) {
+            return !(((colliderA.y + 2 * colliderA.height) < (colliderB.y)) ||
+                (colliderA.y > (colliderB.y + 2 * colliderB.height)) ||
+                ((colliderA.x + 2 * colliderA.width) < colliderB.x) ||
+                (colliderA.x > (colliderB.x + 2 * colliderB.width)));
         };
         HeroSystem.prototype.ResetSmash = function (hero) {
             hero.IsSmashingCooldown = hero.IsSmashing;
@@ -434,50 +692,29 @@ var game;
     }());
     game.InputService = InputService;
 })(game || (game = {}));
-/// <reference path="FlyingSystem.ts" />
 var game;
 (function (game) {
-    var HitGroundSystem = /** @class */ (function (_super) {
-        __extends(HitGroundSystem, _super);
-        function HitGroundSystem() {
+    var BlinkEnemyystem = /** @class */ (function (_super) {
+        __extends(BlinkEnemyystem, _super);
+        function BlinkEnemyystem() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        HitGroundSystem.prototype.OnUpdate = function () {
-            var _this = this;
-            if ((game.GameService.IsPaused(this.world)) || (game.GameService.GetCurrentGameState(this.world) != game.GameState.PLAYING))
-                return;
-            var config = game.GameService.GetConfig(this.world);
-            this.world.forEach([ut.Entity, game.Hero, game.Flying, ut.Core2D.TransformLocalPosition], function (entity, hero, flying, transform) {
-                var pos = transform.position;
-                if (pos.y <= config.GroundPosition) {
-                    pos.y = config.GroundPosition;
-                    var nextAirSpeed = -flying.AirSpeed * .75;
-                    var nextScrollSpeed = flying.ScrollSpeed * .75;
-                    nextScrollSpeed = Math.max(nextScrollSpeed, 0);
-                    if (nextAirSpeed < 10 || nextScrollSpeed <= 10) {
-                        flying.AirSpeed = 0;
-                        _this.world.removeComponent(entity, game.Flying);
-                        game.GameService.SetGameState(_this.world, game.GameState.END);
-                    }
-                    else {
-                        flying.AirSpeed = nextAirSpeed;
-                        flying.ScrollSpeed = nextScrollSpeed;
-                    }
-                }
-                transform.position = pos;
+        BlinkEnemyystem.prototype.OnUpdate = function () {
+            var dt = this.scheduler.deltaTime();
+            this.world.forEach([ut.Entity, game.BlinkToDeath, ut.Core2D.Sprite2DRenderer], function (entity, blink, sprite) {
+                /*
+                blink.Timer += dt;
+
+                if (blink.Timer > 0)
+                    sprite.color = new ut.Core2D.Color(1, 1, 1, 0);
+                else if (blink.Timer > 1)
+                    sprite.color = new ut.Core2D.Color(1, 1, 1, 1);
+                */
             });
         };
-        HitGroundSystem = __decorate([
-            ut.executeAfter(game.FlyingSystem)
-        ], HitGroundSystem);
-        return HitGroundSystem;
+        return BlinkEnemyystem;
     }(ut.ComponentSystem));
-    game.HitGroundSystem = HitGroundSystem;
-})(game || (game = {}));
-/// <reference path="FlyingSystem.ts" />
-/// <reference path="HitGroundSystem.ts" />
-var game;
-(function (game) {
+    game.BlinkEnemyystem = BlinkEnemyystem;
     var HitEnemySystem = /** @class */ (function (_super) {
         __extends(HitEnemySystem, _super);
         function HitEnemySystem() {
@@ -514,44 +751,9 @@ var game;
                 ((colliderA.x + 2 * colliderA.width) < colliderB.x) ||
                 (colliderA.x > (colliderB.x + 2 * colliderB.width)));
         };
-        HitEnemySystem = __decorate([
-            ut.executeAfter(game.FlyingSystem),
-            ut.executeBefore(game.HitGroundSystem)
-        ], HitEnemySystem);
         return HitEnemySystem;
     }(ut.ComponentSystem));
     game.HitEnemySystem = HitEnemySystem;
-})(game || (game = {}));
-var game;
-(function (game) {
-    var LaunchSystem = /** @class */ (function (_super) {
-        __extends(LaunchSystem, _super);
-        function LaunchSystem() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        LaunchSystem.prototype.OnUpdate = function () {
-            var _this = this;
-            if (game.GameService.IsPaused(this.world) || (game.GameService.GetCurrentGameState(this.world) != game.GameState.THROW) || (game.GameService.GetCurrentGameState(this.world) != game.GameState.PLAYING))
-                return;
-            if (ut.Core2D.Input.getMouseButtonDown(0)) {
-                var theGame = game.GameService.GetGame(this.world);
-                if (theGame.State == game.GameState.THROW) {
-                    this.world.forEach([ut.Entity, game.Hero], function (entity, hero) {
-                        if (!_this.world.hasComponent(entity, game.Flying)) {
-                            _this.world.addComponent(entity, game.Flying);
-                            var flying = _this.world.getComponentData(entity, game.Flying);
-                            flying.ScrollSpeed = 50;
-                            flying.AirSpeed = 150;
-                            _this.world.setComponentData(entity, flying);
-                        }
-                    });
-                    game.GameService.SetGameState(this.world, game.GameState.PLAYING);
-                }
-            }
-        };
-        return LaunchSystem;
-    }(ut.ComponentSystem));
-    game.LaunchSystem = LaunchSystem;
 })(game || (game = {}));
 var game;
 (function (game) {

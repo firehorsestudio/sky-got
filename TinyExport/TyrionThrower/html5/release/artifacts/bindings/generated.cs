@@ -21,13 +21,19 @@ namespace entities.game
         {
         }
     }
-    namespace GroundTile
+    namespace Session
     {
         public struct Component : IComponentData
         {
         }
     }
     namespace SettingsMenu
+    {
+        public struct Component : IComponentData
+        {
+        }
+    }
+    namespace Zombie
     {
         public struct Component : IComponentData
         {
@@ -55,6 +61,10 @@ namespace entities.game
 
 namespace game
 {
+    public struct BlinkToDeath : IComponentData
+    {
+        public float Timer;
+    }
     public struct SettingsMenu : IComponentData
     {
         public Entity ButtonOK;
@@ -70,6 +80,21 @@ namespace game
         public float y;
         public float width;
         public float height;
+        public bool Deactivated;
+    }
+    public struct DeathSprite : IComponentData
+    {
+        public Entity Death;
+    }
+    public struct DwarfSprites : IComponentData
+    {
+        public Entity Idle;
+        public Entity Fly1;
+        public Entity Fly2;
+        public Entity Kick1;
+        public Entity Kick2;
+        public Entity Dive;
+        public Entity Dead;
     }
     public struct Enemy : IComponentData
     {
@@ -79,6 +104,13 @@ namespace game
         public float ScrollSpeed;
         public float AirSpeed;
         public Vector3 PreviousPosition;
+    }
+    public struct FollowerCamera : IComponentData
+    {
+        public bool Smooth;
+        public Vector2 Offset;
+        public float UpperLimit;
+        public float BottomLimit;
     }
     public struct Game : IComponentData
     {
@@ -97,6 +129,47 @@ namespace game
     {
         public Vector3 Position;
         public bool Updated;
+    }
+    public struct MovingWithPlayer : IComponentData
+    {
+        public float Speed;
+        public bool Deactivated;
+    }
+    public struct RepeatingBackground : IComponentData
+    {
+        public Entity First;
+        public Entity Second;
+        public float Spacing;
+        public float Offscreen;
+    }
+    public struct ReusableEnemy : IComponentData
+    {
+        public float Offset;
+    }
+    public struct Rotation2D : IComponentData
+    {
+        public float Rotation;
+    }
+    public struct SpawnTimer : IComponentData
+    {
+        public float Timer;
+        public float NextDuration;
+    }
+    public struct ThrowState : IComponentData
+    {
+        public sbyte State;
+        public float Angle;
+        public float Force;
+        public float ThrowTimer;
+        public bool CanRethrow;
+    }
+    public struct BackAndForth : IComponentData
+    {
+        public float Min;
+        public float Max;
+        public bool Forward;
+        public float Duration;
+        public float Timer;
     }
     public struct InGamePanel : IComponentData
     {
@@ -126,13 +199,6 @@ namespace game
         public bool IsPointerOver;
         public bool IsInteractable;
         public bool LastIsInteractable;
-    }
-    public struct FollowerCamera : IComponentData
-    {
-        public bool Smooth;
-        public Vector2 Offset;
-        public float UpperLimit;
-        public float BottomLimit;
     }
     public enum GameState
     {
@@ -306,6 +372,18 @@ namespace ut.Text
 }
 namespace game
 {
+    public class DestroyZombiesSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    public class SpawnZombiesSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
     public class UIDataGetSystemJS : IComponentSystem
     {
     }
@@ -318,7 +396,13 @@ namespace game
 }
 namespace game
 {
-    public class FlyingSystemJS : IComponentSystem
+    public class MovingWithPlayerSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    public class RepeatingBackgroundSystemJS : IComponentSystem
     {
     }
 }
@@ -330,22 +414,13 @@ namespace game
 }
 namespace game
 {
-    [UpdateAfter(typeof(game.FlyingSystemJS))]
-    public class HitGroundSystemJS : IComponentSystem
+    public class BlinkEnemyystemJS : IComponentSystem
     {
     }
 }
 namespace game
 {
-    [UpdateBefore(typeof(game.HitGroundSystemJS))]
-    [UpdateAfter(typeof(game.FlyingSystemJS))]
     public class HitEnemySystemJS : IComponentSystem
-    {
-    }
-}
-namespace game
-{
-    public class LaunchSystemJS : IComponentSystem
     {
     }
 }

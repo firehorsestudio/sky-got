@@ -1,0 +1,32 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "b67f5354c4bf417b88738f0e2fa50f56",
+    "Name": "SpawnTimer",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "14e96f72317b49b9b0bbf404e27f94ea",
+        "Name": "Timer",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "877d850362cc431ab9ada84fc70f7a5f",
+        "Name": "NextDuration",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "b67f5354c4bf417b88738f0e2fa50f56", "Name": "SpawnTimer" },
+        "Properties": {
+            "NextDuration": 0.5
+        }
+    }
+}]

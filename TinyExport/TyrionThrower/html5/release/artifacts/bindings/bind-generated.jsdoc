@@ -43,13 +43,19 @@
 /**
 
 @component
-@memberof entities.game.GroundTile
+@memberof entities.game.Session
 @name Component
 */
 /**
 
 @component
 @memberof entities.game.SettingsMenu
+@name Component
+*/
+/**
+
+@component
+@memberof entities.game.Zombie
 @name Component
 */
 /**
@@ -69,6 +75,18 @@
 @component
 @memberof entities.game.PauseMenuGroup
 @name Component
+*/
+/**
+
+@component
+@memberof game
+@name BlinkToDeath
+*/
+/**
+
+@member {float}
+@memberof game.BlinkToDeath
+@name Timer
 */
 /**
 
@@ -144,6 +162,72 @@
 */
 /**
 
+@member {bool}
+@memberof game.BoxCollider
+@name Deactivated
+*/
+/**
+
+@component
+@memberof game
+@name DeathSprite
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.DeathSprite
+@name Death
+*/
+/**
+
+@component
+@memberof game
+@name DwarfSprites
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.DwarfSprites
+@name Idle
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.DwarfSprites
+@name Fly1
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.DwarfSprites
+@name Fly2
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.DwarfSprites
+@name Kick1
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.DwarfSprites
+@name Kick2
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.DwarfSprites
+@name Dive
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.DwarfSprites
+@name Dead
+*/
+/**
+
 @component
 @memberof game
 @name Enemy
@@ -171,6 +255,36 @@
 @member {ut.Math.Vector3}
 @memberof game.Flying
 @name PreviousPosition
+*/
+/**
+
+@component
+@memberof game
+@name FollowerCamera
+*/
+/**
+
+@member {bool}
+@memberof game.FollowerCamera
+@name Smooth
+*/
+/**
+
+@member {ut.Math.Vector2}
+@memberof game.FollowerCamera
+@name Offset
+*/
+/**
+
+@member {float}
+@memberof game.FollowerCamera
+@name UpperLimit
+*/
+/**
+
+@member {float}
+@memberof game.FollowerCamera
+@name BottomLimit
 */
 /**
 
@@ -243,6 +357,168 @@
 @member {bool}
 @memberof game.LastPosition
 @name Updated
+*/
+/**
+
+@component
+@memberof game
+@name MovingWithPlayer
+*/
+/**
+
+@member {float}
+@memberof game.MovingWithPlayer
+@name Speed
+*/
+/**
+
+@member {bool}
+@memberof game.MovingWithPlayer
+@name Deactivated
+*/
+/**
+
+@component
+@memberof game
+@name RepeatingBackground
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.RepeatingBackground
+@name First
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.RepeatingBackground
+@name Second
+*/
+/**
+
+@member {float}
+@memberof game.RepeatingBackground
+@name Spacing
+*/
+/**
+
+@member {float}
+@memberof game.RepeatingBackground
+@name Offscreen
+*/
+/**
+
+@component
+@memberof game
+@name ReusableEnemy
+*/
+/**
+
+@member {float}
+@memberof game.ReusableEnemy
+@name Offset
+*/
+/**
+
+@component
+@memberof game
+@name Rotation2D
+*/
+/**
+
+@member {float}
+@memberof game.Rotation2D
+@name Rotation
+*/
+/**
+
+@component
+@memberof game
+@name SpawnTimer
+*/
+/**
+
+@member {float}
+@memberof game.SpawnTimer
+@name Timer
+*/
+/**
+
+@member {float}
+@memberof game.SpawnTimer
+@name NextDuration
+*/
+/**
+
+@component
+@memberof game
+@name ThrowState
+*/
+/**
+
+@member {int8}
+@memberof game.ThrowState
+@name State
+*/
+/**
+
+@member {float}
+@memberof game.ThrowState
+@name Angle
+*/
+/**
+
+@member {float}
+@memberof game.ThrowState
+@name Force
+*/
+/**
+
+@member {float}
+@memberof game.ThrowState
+@name ThrowTimer
+*/
+/**
+
+@member {bool}
+@memberof game.ThrowState
+@name CanRethrow
+*/
+/**
+
+@component
+@memberof game
+@name BackAndForth
+*/
+/**
+
+@member {float}
+@memberof game.BackAndForth
+@name Min
+*/
+/**
+
+@member {float}
+@memberof game.BackAndForth
+@name Max
+*/
+/**
+
+@member {bool}
+@memberof game.BackAndForth
+@name Forward
+*/
+/**
+
+@member {float}
+@memberof game.BackAndForth
+@name Duration
+*/
+/**
+
+@member {float}
+@memberof game.BackAndForth
+@name Timer
 */
 /**
 
@@ -381,36 +657,6 @@
 @member {bool}
 @memberof game.CustomButton
 @name LastIsInteractable
-*/
-/**
-
-@component
-@memberof game
-@name FollowerCamera
-*/
-/**
-
-@member {bool}
-@memberof game.FollowerCamera
-@name Smooth
-*/
-/**
-
-@member {ut.Math.Vector2}
-@memberof game.FollowerCamera
-@name Offset
-*/
-/**
-
-@member {float}
-@memberof game.FollowerCamera
-@name UpperLimit
-*/
-/**
-
-@member {float}
-@memberof game.FollowerCamera
-@name BottomLimit
 */
 /**
 
@@ -686,6 +932,18 @@
 
 @system
 @memberof game
+@name DestroyZombiesSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name SpawnZombiesSystemJS
+*/
+/**
+
+@system
+@memberof game
 @name UIDataGetSystemJS
 */
 /**
@@ -698,7 +956,13 @@
 
 @system
 @memberof game
-@name FlyingSystemJS
+@name MovingWithPlayerSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name RepeatingBackgroundSystemJS
 */
 /**
 
@@ -710,19 +974,13 @@
 
 @system
 @memberof game
-@name HitGroundSystemJS
+@name BlinkEnemyystemJS
 */
 /**
 
 @system
 @memberof game
 @name HitEnemySystemJS
-*/
-/**
-
-@system
-@memberof game
-@name LaunchSystemJS
 */
 /**
 

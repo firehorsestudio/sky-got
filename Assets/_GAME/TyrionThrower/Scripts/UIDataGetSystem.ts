@@ -1,6 +1,54 @@
 
 namespace game {
 
+    export class DestroyZombiesSystem extends ut.ComponentSystem {
+
+        OnUpdate(): void {
+
+            this.world.forEach(
+                [ut.Entity, ReusableEnemy, ut.Core2D.TransformLocalPosition],
+                (entity, enemy, transform) => {
+                    if (transform.position.x < enemy.Offset)
+                    {
+                        this.world.destroyEntity(entity);
+                    }
+                }
+            );
+
+        }
+
+    }
+
+    export class SpawnZombiesSystem extends ut.ComponentSystem {
+
+        OnUpdate(): void
+        {
+            if (GameService.IsGameState(this.world, GameState.PLAYING)) {
+
+                let dt = this.scheduler.deltaTime();
+                let timerEntity = this.world.getEntityByName("SpawnTimer");
+                let spawnTimer = this.world.getComponentData(timerEntity, SpawnTimer);
+
+                spawnTimer.Timer += dt;
+                if (spawnTimer.Timer >= spawnTimer.NextDuration) {
+
+                    spawnTimer.NextDuration = .2 + Math.random() * .5;
+                    spawnTimer.Timer = 0;
+                    let zombieEntity = ut.EntityGroup.instantiate(this.world, "game.Zombie")[0];
+                    let zombieTransform = this.world.getComponentData(zombieEntity, ut.Core2D.TransformLocalPosition);
+                    var pos = zombieTransform.position;
+                    pos.x = 600;
+                    zombieTransform.position = pos;
+                    this.world.setComponentData(zombieEntity, zombieTransform);
+                }
+
+                this.world.setComponentData(timerEntity, spawnTimer);
+            }
+
+        }
+
+    }
+
     export class UIDataGetSystem extends ut.ComponentSystem {
         
         OnUpdate(): void
@@ -27,6 +75,12 @@ namespace game {
             switch (GameService.GetCurrentGameState(this.world))
             {
                 case GameState.MENU:
+                    
+                    UIDataService.ToogleGameplayEntity(this.world);
+                    GameService.SetGameState(this.world, GameState.THROW);
+                    break;
+                /*
+                case GameState.MENU:
                     UIDataService.ToogleGameplayEntity(this.world);
                     if (UserDataService.GetBoolean("PlayedFirstGame")) {
                         GameService.SetGameState(this.world, GameState.THROW);
@@ -37,6 +91,7 @@ namespace game {
                         UIDataService.CheckForMenuInitialButtons(this.world);
                         break;
                     }
+                */
                 case GameState.PAUSED:
                     UIDataService.CheckForPauseButton(this.world);
                     break;

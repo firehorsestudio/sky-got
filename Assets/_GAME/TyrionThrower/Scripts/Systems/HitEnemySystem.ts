@@ -1,5 +1,29 @@
 namespace game {
 
+    export class BlinkEnemyystem extends ut.ComponentSystem {
+
+        OnUpdate(): void {
+
+
+            let dt = this.scheduler.deltaTime();
+            this.world.forEach(
+                [ut.Entity, BlinkToDeath, ut.Core2D.Sprite2DRenderer],
+                (entity, blink, sprite) => {
+                    /*
+                    blink.Timer += dt;
+
+                    if (blink.Timer > 0)
+                        sprite.color = new ut.Core2D.Color(1, 1, 1, 0);
+                    else if (blink.Timer > 1)
+                        sprite.color = new ut.Core2D.Color(1, 1, 1, 1);
+                    */
+                }
+            );
+
+        }
+
+    }
+
     export class HitEnemySystem extends ut.ComponentSystem {
 
         //private hero: game.BoxCollider;

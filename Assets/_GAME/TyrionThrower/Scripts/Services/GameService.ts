@@ -61,6 +61,18 @@ namespace game {
             let state = this.GetGame(world).State;
             return state;
         }
+
+        static ConvertRange01(min : number, max : number, value: number) : number {
+            return this.BaseConvertRange(min, max, 0, 1, value);
+        }
+
+        static BaseConvertRange(oldMin: number, oldMax: number, newMin: number, newMax: number, value: number) : number {
+            if (oldMax == oldMin)
+                return newMax;
+
+            return (value - oldMin) * (newMax - newMin) / (oldMax - oldMin) + newMin;
+        }
+
         
         static SetGameState(world: ut.World, state: GameState) {
             let game = this.GetGame(world);
@@ -88,6 +100,11 @@ namespace game {
 
             return this.HERO;
         }
+
+        static InOut(k : number) : number {
+            if ((k *= 2)<1) return 0.5 * k * k;
+            return -0.5 * ((k -= 1)* (k - 2) - 1);
+        }	
 
         static GetHero(world: ut.World): Hero {
             let heroEntity = this.GetHeroEntity(world);

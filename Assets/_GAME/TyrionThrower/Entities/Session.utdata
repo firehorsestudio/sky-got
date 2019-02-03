@@ -103,7 +103,14 @@
         { "$TypeId": 9, "Id": "e4661a23f2b24d1b81769c49c3a4ccfc", "Name": "Back" },
         { "$TypeId": 9, "Id": "b10eb8d3c72049d59f85646f2fa96598", "Name": "Stick" },
         { "$TypeId": 9, "Id": "75bb7124ca7643dc9320ad4fb42bacca", "Name": "Hero" },
-        { "$TypeId": 9, "Id": "5d2502bbe7d44774b121131c71604418", "Name": "StickSprite" }
+        { "$TypeId": 9, "Id": "5d2502bbe7d44774b121131c71604418", "Name": "StickSprite" },
+        { "$TypeId": 9, "Id": "c7482f2dd5694738b2ffa848c4f144f8", "Name": "AngleBar" },
+        { "$TypeId": 9, "Id": "3966ee00e77b43a9a9338ff6ac85667a", "Name": "AngleBarArrow" },
+        { "$TypeId": 9, "Id": "bd7038e038c64f8faaf2d4e04e8e4c9d", "Name": "AngleBarArrowSprite" },
+        { "$TypeId": 9, "Id": "c59fb83fcc2749f19ea2e972b061e67c", "Name": "PowerBar" },
+        { "$TypeId": 9, "Id": "83ed702693134ad283e8d34850472084", "Name": "PowerBarBackround" },
+        { "$TypeId": 9, "Id": "172aa8c30a63427e9bd187f94712da14", "Name": "PowerBarArrow" },
+        { "$TypeId": 9, "Id": "92fb2b662df44096b393bb94db4eeee9", "Name": "Hand" }
     ]
 },
 {
@@ -418,7 +425,7 @@
     "$TypeId": 5,
     "Id": "30a34fe3d533480c88b3d64431d0174c",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -453,7 +460,7 @@
     "$TypeId": 5,
     "Id": "587cbb37509c4d50b75665ba98d71c49",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -497,7 +504,7 @@
     "$TypeId": 5,
     "Id": "8c3c4390eeee4bdd814021266ced3603",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -532,7 +539,7 @@
     "$TypeId": 5,
     "Id": "1cfee3df33b9446396de5f72eba3e1e2",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -576,7 +583,7 @@
     "$TypeId": 5,
     "Id": "a3e8390aca4b44359be974506f851b04",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -620,7 +627,7 @@
     "$TypeId": 5,
     "Id": "4231a553dc3c4329896423ba17018d3d",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -677,7 +684,7 @@
     "$TypeId": 5,
     "Id": "6bccb8f07abb4ed080f0837bb512f8b7",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -721,7 +728,7 @@
     "$TypeId": 5,
     "Id": "cd75b5171d5844baa0a85928c51ee10c",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -765,7 +772,7 @@
     "$TypeId": 5,
     "Id": "dff9da90491d489f8b5074e8b3227bbb",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -809,7 +816,7 @@
     "$TypeId": 5,
     "Id": "afd1feae39b34796a8bed76a72669c28",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -844,7 +851,7 @@
     "$TypeId": 5,
     "Id": "ea5272ce642649e9aca55bcd24c23b48",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -901,7 +908,7 @@
     "$TypeId": 5,
     "Id": "03609a103a4e4f0f85c94897b857526a",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -945,7 +952,7 @@
     "$TypeId": 5,
     "Id": "c29f32da65cb4212a459e8f2dc3589f1",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -989,7 +996,7 @@
     "$TypeId": 5,
     "Id": "8e70d343053d4704a16ceef0ef465101",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1024,7 +1031,7 @@
     "$TypeId": 5,
     "Id": "07ef0d7ed1e54bc1acf9976350787435",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1068,7 +1075,7 @@
     "$TypeId": 5,
     "Id": "3cb4e6dac2f049dfb2a4d18bd93b2175",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1112,7 +1119,7 @@
     "$TypeId": 5,
     "Id": "0054a703c8e448a290310a3ceca57f79",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1169,7 +1176,7 @@
     "$TypeId": 5,
     "Id": "7a4d367674664f859950a595ff3bd482",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1279,7 +1286,7 @@
     "$TypeId": 5,
     "Id": "fa01be4e82ea4175982f26cf7115fc39",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1314,7 +1321,7 @@
     "$TypeId": 5,
     "Id": "29aed408f76743bc96e44289261e93cb",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1358,7 +1365,7 @@
     "$TypeId": 5,
     "Id": "50d3a1648d294a50ae5d131ae0ddbf6e",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1393,7 +1400,7 @@
     "$TypeId": 5,
     "Id": "9a55ca9e4e2240c7bab983fc2e589761",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1437,7 +1444,7 @@
     "$TypeId": 5,
     "Id": "0a5040a1f5d242e6a962492738acb0b5",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1481,7 +1488,7 @@
     "$TypeId": 5,
     "Id": "e85702f3574a43f0af46ec7367f4aee9",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1538,7 +1545,7 @@
     "$TypeId": 5,
     "Id": "992d4dd54cd34864a3ae58663bce88fd",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1582,7 +1589,7 @@
     "$TypeId": 5,
     "Id": "fea3b1a9ea7041109a30065be9c71dc9",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1626,7 +1633,7 @@
     "$TypeId": 5,
     "Id": "738b8c5c5e0e46ff8eb84a36e6106f05",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1670,7 +1677,7 @@
     "$TypeId": 5,
     "Id": "de5e9f4d15ef462abe00c82b5381632f",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1705,7 +1712,7 @@
     "$TypeId": 5,
     "Id": "8cf6643911294a4596e688fbb2104d5e",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1762,7 +1769,7 @@
     "$TypeId": 5,
     "Id": "c42df2c8bc8e45e081d2d9966e5781a5",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1806,7 +1813,7 @@
     "$TypeId": 5,
     "Id": "ca1f2f31774c48ec93d3fdcbd778a966",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1850,7 +1857,7 @@
     "$TypeId": 5,
     "Id": "4c370cbdf8fd4d57b06e345721176407",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1885,7 +1892,7 @@
     "$TypeId": 5,
     "Id": "22439bfe5b9a4b95983eba4d3bb6627a",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1929,7 +1936,7 @@
     "$TypeId": 5,
     "Id": "765ab03282774aa9a5f0a1614f8c5795",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -1973,7 +1980,7 @@
     "$TypeId": 5,
     "Id": "db6696285f0245c8bf1024ed07350225",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2017,7 +2024,7 @@
     "$TypeId": 5,
     "Id": "2bfc66c462d8456db9fdf042cd599ccc",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2052,7 +2059,7 @@
     "$TypeId": 5,
     "Id": "807c85d8b8b84c86afab7dc0f9e75da2",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2096,7 +2103,7 @@
     "$TypeId": 5,
     "Id": "0a5c1763e21b44c0a425015b0e5186ec",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2140,7 +2147,7 @@
     "$TypeId": 5,
     "Id": "7fa4cf038d8648d0ba508d2c27054d57",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2197,7 +2204,7 @@
     "$TypeId": 5,
     "Id": "9e2f9b0ff9b7411c803b3713325d6063",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2530,7 +2537,7 @@
     "$TypeId": 5,
     "Id": "0a546c3eb3724d59b9ddbad7717de21f",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2565,7 +2572,7 @@
     "$TypeId": 5,
     "Id": "3a9fd21fe3a94d5bb327f6cb8f4f795c",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2609,7 +2616,7 @@
     "$TypeId": 5,
     "Id": "9f65486c1d984131a97dff7f6cd50009",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2644,7 +2651,7 @@
     "$TypeId": 5,
     "Id": "3b5f57c57b5c4816b66512d707ff3d41",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2688,7 +2695,7 @@
     "$TypeId": 5,
     "Id": "6d00a81fe3664cf684608edb17aa12b8",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2732,7 +2739,7 @@
     "$TypeId": 5,
     "Id": "1b42c6db3e0f4d52a46492cea2409280",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2789,7 +2796,7 @@
     "$TypeId": 5,
     "Id": "67263ca881f3463b8df58b3b9e4daff4",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2833,7 +2840,7 @@
     "$TypeId": 5,
     "Id": "5f2d8d443de44a5aa2356c1175674b96",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2877,7 +2884,7 @@
     "$TypeId": 5,
     "Id": "eb81dac289bd4264b99dc450e8e9017d",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2921,7 +2928,7 @@
     "$TypeId": 5,
     "Id": "7eed71c654cc4af69f71a0b25ff590fb",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -2956,7 +2963,7 @@
     "$TypeId": 5,
     "Id": "9aba5021b35e4d96950df76ae3b04bcb",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3013,7 +3020,7 @@
     "$TypeId": 5,
     "Id": "c1eb75a37cfd4a42b5bea51cb010c5ca",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3057,7 +3064,7 @@
     "$TypeId": 5,
     "Id": "fb15f142c8f944df91648554273875ba",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3101,7 +3108,7 @@
     "$TypeId": 5,
     "Id": "badd7988947046f7a6248be60d22ffb7",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3136,7 +3143,7 @@
     "$TypeId": 5,
     "Id": "edf1a7969ba54cf5927de3e1581b6336",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3180,7 +3187,7 @@
     "$TypeId": 5,
     "Id": "876175c595e04e5da1dd4e8e8068ecc0",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3224,7 +3231,7 @@
     "$TypeId": 5,
     "Id": "11e663e478f64c68830cabf40ecb5d4f",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3281,7 +3288,7 @@
     "$TypeId": 5,
     "Id": "f77bf042a39c48b1be6f059c5a2022fd",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3391,7 +3398,7 @@
     "$TypeId": 5,
     "Id": "27508f2a79db430c904ccc01f1e5cdef",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3426,7 +3433,7 @@
     "$TypeId": 5,
     "Id": "3ad13823b9c747eab8521f29e9e00320",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3470,7 +3477,7 @@
     "$TypeId": 5,
     "Id": "497bcaf562e94ab8b790080c72f5e13a",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3505,7 +3512,7 @@
     "$TypeId": 5,
     "Id": "c3f7e100e56943cb8d5e35a0ce490944",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3549,7 +3556,7 @@
     "$TypeId": 5,
     "Id": "7cb6913fe11d407ca017ff0d2a60a06e",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3593,7 +3600,7 @@
     "$TypeId": 5,
     "Id": "07d7d1f50e7345848ba5d47f62124f36",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3650,7 +3657,7 @@
     "$TypeId": 5,
     "Id": "8cc42ed2c8dc4433887e3eb15e52e5dc",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3694,7 +3701,7 @@
     "$TypeId": 5,
     "Id": "e9608f622ff54c66917348c4f2466a7c",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3738,7 +3745,7 @@
     "$TypeId": 5,
     "Id": "f4b3f4117c5744f9b93e46b46717186a",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3782,7 +3789,7 @@
     "$TypeId": 5,
     "Id": "09d669789afc480194849ec7e62c64b2",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3817,7 +3824,7 @@
     "$TypeId": 5,
     "Id": "f84f9beb67a441edb0e3bc8481c76d71",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3874,7 +3881,7 @@
     "$TypeId": 5,
     "Id": "6da2b124de1f4051aedf4c493e266cb7",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3918,7 +3925,7 @@
     "$TypeId": 5,
     "Id": "e071da8a1b284b65b3082d8739b0dcb3",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3962,7 +3969,7 @@
     "$TypeId": 5,
     "Id": "2fb299ee50124610a84d6442d601238b",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -3997,7 +4004,7 @@
     "$TypeId": 5,
     "Id": "bab9741b03e2483caa20b527c0cbe960",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -4041,7 +4048,7 @@
     "$TypeId": 5,
     "Id": "e80cae0dc4fc439db5fce8038afbe1ba",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -4085,7 +4092,7 @@
     "$TypeId": 5,
     "Id": "c45c860944d347efa6b71690b938c22a",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -4129,7 +4136,7 @@
     "$TypeId": 5,
     "Id": "c67a47bb1c804cdf87f44866a9147b5a",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -4164,7 +4171,7 @@
     "$TypeId": 5,
     "Id": "ecca7b72946e44028cd66e22fe443da2",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -4208,7 +4215,7 @@
     "$TypeId": 5,
     "Id": "34e95a219c1241249d82a89b730ca279",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -4252,7 +4259,7 @@
     "$TypeId": 5,
     "Id": "d16ad0a7e64b42159c60462ea6d086de",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -4309,7 +4316,7 @@
     "$TypeId": 5,
     "Id": "1f10255c0b8e4c089c4b9339a22bc35c",
     "Name": "Entity",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 0,
     "Components": [{
@@ -4552,7 +4559,10 @@
             }
         }
     }, {
-        "Type": { "Id": "9598a1be199e4ed2a81a4cc59ffa73d1", "Name": "ThrowState" }
+        "Type": { "Id": "9598a1be199e4ed2a81a4cc59ffa73d1", "Name": "ThrowState" },
+        "Properties": {
+            "State": -1
+        }
     }]
 },
 {
@@ -4598,4 +4608,271 @@
             "order": 45
         }
     }]
+},
+{
+    "$TypeId": 5,
+    "Id": "c7482f2dd5694738b2ffa848c4f144f8",
+    "Name": "AngleBar",
+    "Enabled": false,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
+        "Properties": {
+            "sprite": { "$TypeId": 10, "Guid": "250582c67b0c83146b9f4141e1f22b0b", "FileId": 21300000, "Type": 3 }
+        }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
+        "Properties": {
+            "position": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "x": 138.8,
+                    "y": 129.1
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" },
+        "Properties": {
+            "parent": { "$TypeId": 9, "Id": "76357c61a32141b7a88090a2e373ed3b", "Name": "Catapulta" }
+        }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "3966ee00e77b43a9a9338ff6ac85667a",
+    "Name": "AngleBarArrow",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" },
+        "Properties": {
+            "parent": { "$TypeId": 9, "Id": "c7482f2dd5694738b2ffa848c4f144f8", "Name": "PowerBar" }
+        }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
+        "Properties": {
+            "position": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "x": -28.8,
+                    "y": -30.8
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "0ceaeee812f1443a9e2ded1acac86328", "Name": "Rotation2D" }
+    }, {
+        "Type": { "Id": "f8675f0b1ab84fd9b4d08d2328ab2750", "Name": "BackAndForth" },
+        "Properties": {
+            "Max": -90,
+            "Forward": true,
+            "Duration": 1
+        }
+    }, {
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "bd7038e038c64f8faaf2d4e04e8e4c9d",
+    "Name": "AngleBarArrowSprite",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" },
+        "Properties": {
+            "parent": { "$TypeId": 9, "Id": "3966ee00e77b43a9a9338ff6ac85667a", "Name": "Arrow" }
+        }
+    }, {
+        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
+        "Properties": {
+            "sprite": { "$TypeId": 10, "Guid": "34dd16a2261755849b942c67d536fec0", "FileId": 21300000, "Type": 3 }
+        }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
+        "Properties": {
+            "position": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "x": 0,
+                    "y": 33.4
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "b1e5348389156b7a260d6ed393754fba", "Name": "LayerSorting" },
+        "Properties": {
+            "order": 14
+        }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "c59fb83fcc2749f19ea2e972b061e67c",
+    "Name": "PowerBar",
+    "Enabled": false,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" },
+        "Properties": {
+            "parent": { "$TypeId": 9, "Id": "76357c61a32141b7a88090a2e373ed3b", "Name": "Catapulta" }
+        }
+    }, {
+        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
+        "Properties": {
+            "sprite": { "$TypeId": 10, "Guid": "419c7822102180949b43ff38419fa87b", "FileId": 21300000, "Type": 3 }
+        }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
+        "Properties": {
+            "position": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "x": 1,
+                    "y": -25.5
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" },
+        "Properties": {
+            "scale": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "x": 8.23
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "be2f221c9af74ec5c0a4495a2d6769a3", "Name": "Sprite2DRendererOptions" },
+        "Properties": {
+            "size": {
+                "Type": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
+                "Properties": {
+                    "x": 13,
+                    "y": 10
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "b1e5348389156b7a260d6ed393754fba", "Name": "LayerSorting" },
+        "Properties": {
+            "order": 56
+        }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "83ed702693134ad283e8d34850472084",
+    "Name": "PowerBarBackround",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" },
+        "Properties": {
+            "parent": { "$TypeId": 9, "Id": "c59fb83fcc2749f19ea2e972b061e67c", "Name": "PowerBar" }
+        }
+    }, {
+        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
+        "Properties": {
+            "sprite": { "$TypeId": 10, "Guid": "7604664f003c6cf4b8c8c55bb9ebc66e", "FileId": 21300000, "Type": 3 }
+        }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
+        "Properties": {
+            "position": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "x": -0.01,
+                    "y": 0.55
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" },
+        "Properties": {
+            "scale": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "x": 0.0865535,
+                    "y": 1.4933
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "b1e5348389156b7a260d6ed393754fba", "Name": "LayerSorting" },
+        "Properties": {
+            "order": 131
+        }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "172aa8c30a63427e9bd187f94712da14",
+    "Name": "PowerBarArrow",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0,
+    "Components": [{
+        "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" },
+        "Properties": {
+            "parent": { "$TypeId": 9, "Id": "c59fb83fcc2749f19ea2e972b061e67c", "Name": "PowerBar" }
+        }
+    }, {
+        "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
+        "Properties": {
+            "sprite": { "$TypeId": 10, "Guid": "29a15818129ae8e47bcd2dff619a237a", "FileId": 21300000, "Type": 3 }
+        }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
+        "Properties": {
+            "position": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "x": 5.76,
+                    "y": -0.7
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" },
+        "Properties": {
+            "scale": {
+                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
+                "Properties": {
+                    "x": 0.1073524,
+                    "y": 0.9109131
+                }
+            }
+        }
+    }, {
+        "Type": { "Id": "b1e5348389156b7a260d6ed393754fba", "Name": "LayerSorting" },
+        "Properties": {
+            "order": 183
+        }
+    }, {
+        "Type": { "Id": "0ceaeee812f1443a9e2ded1acac86328", "Name": "Rotation2D" }
+    }, {
+        "Type": { "Id": "f8675f0b1ab84fd9b4d08d2328ab2750", "Name": "BackAndForth" },
+        "Properties": {
+            "Min": -5.93,
+            "Max": 5.76,
+            "Forward": true,
+            "Duration": 1
+        }
+    }]
+},
+{
+    "$TypeId": 5,
+    "Id": "92fb2b662df44096b393bb94db4eeee9",
+    "Name": "Hand",
+    "Enabled": true,
+    "Static": false,
+    "Layer": 0
 }]

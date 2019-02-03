@@ -1,0 +1,53 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "f8675f0b1ab84fd9b4d08d2328ab2750",
+    "Name": "BackAndForth",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "6ecfd254017647d79c7e789cbe96f64c",
+        "Name": "Min",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "e112c3ab2f014cc8a36257cf21450115",
+        "Name": "Max",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "d73d6a02d51740b58d12afc2cf077d4f",
+        "Name": "Forward",
+        "FieldType": { "Id": "2b477f505af74487b7092b5617d88d3f", "Name": "Boolean" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "843b42855e5a450791096de1f2bbb648",
+        "Name": "Duration",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "2165912e0fc34774ab106e0e51944b7d",
+        "Name": "Timer",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "f8675f0b1ab84fd9b4d08d2328ab2750", "Name": "BackAndForth" }
+    }
+}]

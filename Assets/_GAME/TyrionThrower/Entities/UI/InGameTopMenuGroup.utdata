@@ -824,7 +824,7 @@
     "$TypeId": 5,
     "Id": "d75b37ad3fc04f048cc0d65af9853af3",
     "Name": "LeftPanel",
-    "Enabled": true,
+    "Enabled": false,
     "Static": false,
     "Layer": 5,
     "Components": [{

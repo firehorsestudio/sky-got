@@ -1,0 +1,24 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "ef27ca514a574117896d480eaab0084e",
+    "Name": "Zombie",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "5d62ffef158043dbbc759206c4abe0e0",
+        "Name": "Death",
+        "FieldType": { "Id": "cf54a635a25248ab87f2563bb840ed5b", "Name": "SpriteEntity" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "ef27ca514a574117896d480eaab0084e", "Name": "Zombie" },
+        "Properties": {
+            "Death": { "$TypeId": 10, "Guid": "625fd422aaed2484284450f5cfdc8747", "FileId": 21300000, "Type": 3 }
+        }
+    }
+}]

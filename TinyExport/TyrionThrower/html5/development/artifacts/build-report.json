@@ -26,20 +26,50 @@
         "Children": [{
             "Item": {
                 "Name": "JavaScript",
-                "Size": 8885,
+                "Size": 70918,
                 "CompressedSize": 0
             }
         }, {
             "Item": {
-                "Name": "sactx-512x512-DXT5-Atlas-a6b6ce0b",
+                "Name": "Assets/TinySamples/PhysicsDemo/Textures/PhysicsDemo.png",
+                "Size": 0,
+                "CompressedSize": 0,
+                "Object": { "$TypeId": 10, "Guid": "892392a92dd8841bd814c19af3368e28", "FileId": 2800000, "Type": 3 }
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/PhysicsDemo.png",
+                    "Size": 3805,
+                    "CompressedSize": 3527,
+                    "Object": { "$TypeId": 10, "Guid": "892392a92dd8841bd814c19af3368e28", "FileId": 2800000, "Type": 3 }
+                }
+            }]
+        }, {
+            "Item": {
+                "Name": "Assets/_GAME/TyrionThrower/Fonts/Blocktopia SDF.asset",
+                "Size": 0,
+                "CompressedSize": 0,
+                "Object": { "$TypeId": 10, "Guid": "f2781addb6b2b4e489cfed100ec441f2", "FileId": 11400000, "Type": 2 }
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/Blocktopia SDF.png",
+                    "Size": 66695,
+                    "CompressedSize": 66438,
+                    "Object": { "$TypeId": 10, "Guid": "f2781addb6b2b4e489cfed100ec441f2", "FileId": 11400000, "Type": 2 }
+                }
+            }]
+        }, {
+            "Item": {
+                "Name": "sactx-512x512-DXT5-Atlas-68b4bead",
                 "Size": 0,
                 "CompressedSize": 0
             },
             "Children": [{
                 "Item": {
-                    "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/sactx-512x512-DXT5-Atlas-a6b6ce0b.png",
-                    "Size": 59645,
-                    "CompressedSize": 58755,
+                    "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/sactx-512x512-DXT5-Atlas-68b4bead.png",
+                    "Size": 100110,
+                    "CompressedSize": 99762,
                     "Object": { "$TypeId": 10, "Guid": "00000000000000000000000000000000", "FileId": 2, "Type": 0 }
                 }
             }]
@@ -53,51 +83,57 @@
         "Children": [{
             "Item": {
                 "Name": "TinyExport/TyrionThrower/html5/development/build/entities.js",
-                "Size": 135282,
-                "CompressedSize": 19018
+                "Size": 206610,
+                "CompressedSize": 28696
             },
             "Children": [{
                 "Item": {
                     "Name": "Bootstrap",
-                    "Size": 1703,
-                    "CompressedSize": 615
+                    "Size": 1939,
+                    "CompressedSize": 682
                 }
             }, {
                 "Item": {
-                    "Name": "GroundTile",
-                    "Size": 48911,
-                    "CompressedSize": 6738
+                    "Name": "Session",
+                    "Size": 102888,
+                    "CompressedSize": 13833
                 }
             }, {
                 "Item": {
                     "Name": "SettingsMenu",
-                    "Size": 47404,
-                    "CompressedSize": 7506
+                    "Size": 47409,
+                    "CompressedSize": 7508
+                }
+            }, {
+                "Item": {
+                    "Name": "Zombie",
+                    "Size": 4318,
+                    "CompressedSize": 1067
                 }
             }, {
                 "Item": {
                     "Name": "InGameTopMenuGroup",
-                    "Size": 13321,
-                    "CompressedSize": 2484
+                    "Size": 31683,
+                    "CompressedSize": 5171
                 }
             }, {
                 "Item": {
                     "Name": "MenuInitialGroup",
-                    "Size": 15288,
-                    "CompressedSize": 2764
+                    "Size": 9900,
+                    "CompressedSize": 1944
                 }
             }, {
                 "Item": {
                     "Name": "PauseMenuGroup",
-                    "Size": 8580,
-                    "CompressedSize": 1797
+                    "Size": 8400,
+                    "CompressedSize": 1774
                 }
             }]
         }, {
             "Item": {
                 "Name": "TinyExport/TyrionThrower/html5/development/build/bindings.js",
-                "Size": 148733,
-                "CompressedSize": 12878
+                "Size": 198750,
+                "CompressedSize": 17363
             }
         }, {
             "Item": {
@@ -108,15 +144,15 @@
             "Children": [{
                 "Item": {
                     "Name": "TinyExport/TyrionThrower/html5/development/artifacts/scripts/tsc-emit.js",
-                    "Size": 29926,
-                    "CompressedSize": 5191
+                    "Size": 46591,
+                    "CompressedSize": 7307
                 }
             }]
         }, {
             "Item": {
                 "Name": "TinyExport/TyrionThrower/html5/development/build/main.js",
-                "Size": 3903,
-                "CompressedSize": 1075
+                "Size": 4377,
+                "CompressedSize": 1141
             }
         }, {
             "Item": {

@@ -46,6 +46,22 @@
         "Visibility": 0,
         "EditorOnly": false,
         "Versioned": true
+    }, {
+        "Id": "0220c806c9e64442a0090db2a3481a65",
+        "Name": "Dive",
+        "FieldType": { "Id": "cf54a635a25248ab87f2563bb840ed5b", "Name": "SpriteEntity" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "e53de019222f4767b3580f51756be7ef",
+        "Name": "Dead",
+        "FieldType": { "Id": "cf54a635a25248ab87f2563bb840ed5b", "Name": "SpriteEntity" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
     }],
     "DefaultValue": {
         "Type": { "Id": "b58acc1e5e0447e48bdde5cca4718b8c", "Name": "DwarfSprites" },
@@ -54,7 +70,9 @@
             "Fly1": { "$TypeId": 10, "Guid": "2fb77f2ef63c43745b30abe86008356a", "FileId": 21300000, "Type": 3 },
             "Fly2": { "$TypeId": 10, "Guid": "ddbad0dc231f5be4c8e3ffb10da62efb", "FileId": 21300000, "Type": 3 },
             "Kick1": { "$TypeId": 10, "Guid": "53bf6531845b990419660599462c78f0", "FileId": 21300000, "Type": 3 },
-            "Kick2": { "$TypeId": 10, "Guid": "16b2d733b4368824c834009eb91f936e", "FileId": 21300000, "Type": 3 }
+            "Kick2": { "$TypeId": 10, "Guid": "16b2d733b4368824c834009eb91f936e", "FileId": 21300000, "Type": 3 },
+            "Dive": { "$TypeId": 10, "Guid": "acc980e068ba84f459ea737ef140dff4", "FileId": 21300000, "Type": 3 },
+            "Dead": { "$TypeId": 10, "Guid": "7cf122f9e143e0c45ae3d4a5d8e46f03", "FileId": 21300000, "Type": 3 }
         }
     }
 }]

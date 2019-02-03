@@ -5,19 +5,21 @@
     "ExportFlags": 0,
     "SerializedVersion": 0,
     "Entities": [
-        { "$TypeId": 9, "Id": "23832db7e451418a80f77aa14982c8d3", "Name": "MainCamera" },
-        { "$TypeId": 9, "Id": "be5310ff5d8046dba7396471dd38154f", "Name": "Game" }
+        { "$TypeId": 9, "Id": "e52c05798ce0462aa4997f8e1ccfd6bd", "Name": "MainCamera" },
+        { "$TypeId": 9, "Id": "ad01e367a9904e7182efb4f26e66cbe4", "Name": "Game" }
     ]
 },
 {
     "$TypeId": 5,
-    "Id": "23832db7e451418a80f77aa14982c8d3",
+    "Id": "e52c05798ce0462aa4997f8e1ccfd6bd",
     "Name": "MainCamera",
     "Enabled": true,
     "Static": false,
     "Layer": 0,
     "Components": [{
         "Type": { "Id": "c895dbe72eb46ecb10d589d320151758", "Name": "TransformNode" }
+    }, {
+        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" }
     }, {
         "Type": { "Id": "12692383f3fef3bb74c209888c5b0939", "Name": "Camera2D" },
         "Properties": {
@@ -27,7 +29,7 @@
                 "Properties": {
                     "r": 0.5686275,
                     "g": 0.6745098,
-                    "b": 0.7529413,
+                    "b": 0.7529412,
                     "a": 1
                 }
             },
@@ -42,22 +44,12 @@
             "layerMask": 1815
         }
     }, {
-        "Type": { "Id": "70449d66178e0d9f66795c24f0fbbdfc", "Name": "TransformLocalPosition" },
-        "Properties": {
-            "position": {
-                "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
-                "Properties": {
-                    "y": 0
-                }
-            }
-        }
-    }, {
         "Type": { "Id": "c2d0dbf4437e470d97ee6232302da1f6", "Name": "FollowerCamera" },
         "Properties": {
             "Offset": {
                 "Type": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
                 "Properties": {
-                    "x": 100
+                    "x": 30
                 }
             },
             "UpperLimit": 10
@@ -66,7 +58,7 @@
 },
 {
     "$TypeId": 5,
-    "Id": "be5310ff5d8046dba7396471dd38154f",
+    "Id": "ad01e367a9904e7182efb4f26e66cbe4",
     "Name": "Game",
     "Enabled": true,
     "Static": false,

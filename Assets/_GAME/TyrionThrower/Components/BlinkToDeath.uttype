@@ -1,0 +1,21 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "97a8f230ac414453b4672443f6360772",
+    "Name": "BlinkToDeath",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "c2c242d48e374d5488c6af98f9f352e4",
+        "Name": "Timer",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "97a8f230ac414453b4672443f6360772", "Name": "BlinkToDeath" }
+    }
+}]

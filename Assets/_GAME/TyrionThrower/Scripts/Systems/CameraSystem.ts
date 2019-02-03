@@ -10,26 +10,29 @@ namespace game
 
         OnUpdate(): void
         {
+            let displayInfo = this.world.getConfigData(ut.Core2D.DisplayInfo);
+            let cameraEntity = this.world.getEntityByName("MainCamera");
+            let camera = this.world.getComponentData(cameraEntity, ut.Core2D.Camera2D);
+            let cameraHalfWidth = displayInfo.width / displayInfo.height * camera.halfVerticalSize;
+
+
             let hero = GameService.GetHeroEntity(this.world);
 
-            let playerPos = this.world.getComponentData(hero, ut.Core2D.TransformLocalPosition);
+            let playerPos = ut.Core2D.TransformService.computeWorldPosition(this.world, hero);
 
             this.world.forEach(
                 [ut.Core2D.Camera2D, game.FollowerCamera, ut.Core2D.TransformLocalPosition],
                 (camera, followerCamera, transform) => {
-
-                    //let height = 2 * camera.halfVerticalSize;
-                    
                     var pos = transform.position;
-                    
-                    pos.x = playerPos.position.x + followerCamera.Offset.x;
-                    
-                    if (playerPos.position.y + followerCamera.Offset.y >= followerCamera.UpperLimit)
-                        pos.y = playerPos.position.y + followerCamera.Offset.y;
-                    else
-                        pos.y = this.lerp(playerPos.position.y + followerCamera.Offset.y, followerCamera.BottomLimit, this.scheduler.deltaTime());
 
-                    if (playerPos.position.y <= followerCamera.BottomLimit)
+                    pos.x = playerPos.x + cameraHalfWidth - followerCamera.Offset.x;
+                    
+                    if (playerPos.y + followerCamera.Offset.y >= followerCamera.UpperLimit)
+                        pos.y = playerPos.y + followerCamera.Offset.y;
+                    else
+                        pos.y = this.lerp(playerPos.y + followerCamera.Offset.y, followerCamera.BottomLimit, this.scheduler.deltaTime());
+
+                    if (playerPos.y <= followerCamera.BottomLimit)
                         pos.y = followerCamera.BottomLimit;
 
                     transform.position = pos;
@@ -41,5 +44,7 @@ namespace game
         {
             return (1 - amt) * start + amt * end;
         }
+
+
     }
 }

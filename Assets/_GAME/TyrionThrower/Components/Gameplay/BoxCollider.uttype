@@ -38,6 +38,14 @@
         "Visibility": 0,
         "EditorOnly": false,
         "Versioned": true
+    }, {
+        "Id": "b914120fa3f4483b867ab000dee9e00a",
+        "Name": "Deactivated",
+        "FieldType": { "Id": "2b477f505af74487b7092b5617d88d3f", "Name": "Boolean" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
     }],
     "DefaultValue": {
         "Type": { "Id": "26faaac195524b86a3ffa013247d027e", "Name": "BoxCollider" }
