@@ -26,7 +26,7 @@
         "Children": [{
             "Item": {
                 "Name": "JavaScript",
-                "Size": 187978,
+                "Size": 171443,
                 "CompressedSize": 0
             }
         }, {
@@ -39,22 +39,37 @@
             "Children": [{
                 "Item": {
                     "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/PixellariExtended.png",
-                    "Size": 48668,
-                    "CompressedSize": 36363,
+                    "Size": 36499,
+                    "CompressedSize": 35729,
                     "Object": { "$TypeId": 10, "Guid": "f7fdd39164ea67a4f839f1aa793a2e11", "FileId": 11400000, "Type": 2 }
                 }
             }]
         }, {
             "Item": {
-                "Name": "sactx-1024x1024-Uncompressed-Dinosaur-15554da1",
+                "Name": "Assets/TinySamples/FlyingYolk/Textures/FlyingYolk.png",
+                "Size": 0,
+                "CompressedSize": 0,
+                "Object": { "$TypeId": 10, "Guid": "1f5fe83ba337c904994be4e7a0233c9f", "FileId": 2800000, "Type": 3 }
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/FlyingYolk.png",
+                    "Size": 107220,
+                    "CompressedSize": 101338,
+                    "Object": { "$TypeId": 10, "Guid": "1f5fe83ba337c904994be4e7a0233c9f", "FileId": 2800000, "Type": 3 }
+                }
+            }]
+        }, {
+            "Item": {
+                "Name": "sactx-512x512-DXT5-Atlas-ae1e2c91",
                 "Size": 0,
                 "CompressedSize": 0
             },
             "Children": [{
                 "Item": {
-                    "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/sactx-1024x1024-Uncompressed-Dinosaur-15554da1.png",
-                    "Size": 273440,
-                    "CompressedSize": 204850,
+                    "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/sactx-512x512-DXT5-Atlas-ae1e2c91.png",
+                    "Size": 71412,
+                    "CompressedSize": 70645,
                     "Object": { "$TypeId": 10, "Guid": "00000000000000000000000000000000", "FileId": 2, "Type": 0 }
                 }
             }]
@@ -67,8 +82,8 @@
             "Children": [{
                 "Item": {
                     "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/sactx-256x128-Uncompressed-UICommon-66cffeaf.png",
-                    "Size": 12776,
-                    "CompressedSize": 9669,
+                    "Size": 9582,
+                    "CompressedSize": 9591,
                     "Object": { "$TypeId": 10, "Guid": "00000000000000000000000000000000", "FileId": 2, "Type": 0 }
                 }
             }]
@@ -81,8 +96,50 @@
             "Children": [{
                 "Item": {
                     "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/sactx-64x128-Uncompressed-SettingsMenu-8118a901.png",
-                    "Size": 3380,
-                    "CompressedSize": 2547,
+                    "Size": 2533,
+                    "CompressedSize": 2544,
+                    "Object": { "$TypeId": 10, "Guid": "00000000000000000000000000000000", "FileId": 2, "Type": 0 }
+                }
+            }]
+        }, {
+            "Item": {
+                "Name": "sactx-256x256-Uncompressed-CampEnvironment-f4b73590",
+                "Size": 0,
+                "CompressedSize": 0
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/sactx-256x256-Uncompressed-CampEnvironment-f4b73590.png",
+                    "Size": 19463,
+                    "CompressedSize": 19373,
+                    "Object": { "$TypeId": 10, "Guid": "00000000000000000000000000000000", "FileId": 2, "Type": 0 }
+                }
+            }]
+        }, {
+            "Item": {
+                "Name": "sactx-256x256-Uncompressed-MainMenu-98902a76",
+                "Size": 0,
+                "CompressedSize": 0
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/sactx-256x256-Uncompressed-MainMenu-98902a76.png",
+                    "Size": 26119,
+                    "CompressedSize": 26014,
+                    "Object": { "$TypeId": 10, "Guid": "00000000000000000000000000000000", "FileId": 2, "Type": 0 }
+                }
+            }]
+        }, {
+            "Item": {
+                "Name": "sactx-256x128-Uncompressed-Explosions-edea75ef",
+                "Size": 0,
+                "CompressedSize": 0
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "TinyExport/TyrionThrower/html5/development/artifacts/assets/sactx-256x128-Uncompressed-Explosions-edea75ef.png",
+                    "Size": 7325,
+                    "CompressedSize": 7348,
                     "Object": { "$TypeId": 10, "Guid": "00000000000000000000000000000000", "FileId": 2, "Type": 0 }
                 }
             }]
@@ -96,14 +153,20 @@
         "Children": [{
             "Item": {
                 "Name": "TinyExport/TyrionThrower/html5/development/build/entities.js",
-                "Size": 52284,
-                "CompressedSize": 8333
+                "Size": 180536,
+                "CompressedSize": 24911
             },
             "Children": [{
                 "Item": {
                     "Name": "Bootstrap",
-                    "Size": 2643,
-                    "CompressedSize": 810
+                    "Size": 1703,
+                    "CompressedSize": 615
+                }
+            }, {
+                "Item": {
+                    "Name": "Session",
+                    "Size": 90402,
+                    "CompressedSize": 12009
                 }
             }, {
                 "Item": {
@@ -111,12 +174,30 @@
                     "Size": 49558,
                     "CompressedSize": 7781
                 }
+            }, {
+                "Item": {
+                    "Name": "InGameTopMenuGroup",
+                    "Size": 13499,
+                    "CompressedSize": 2551
+                }
+            }, {
+                "Item": {
+                    "Name": "MenuInitialGroup",
+                    "Size": 16295,
+                    "CompressedSize": 2976
+                }
+            }, {
+                "Item": {
+                    "Name": "PauseMenuGroup",
+                    "Size": 9004,
+                    "CompressedSize": 1907
+                }
             }]
         }, {
             "Item": {
                 "Name": "TinyExport/TyrionThrower/html5/development/build/bindings.js",
-                "Size": 114562,
-                "CompressedSize": 10001
+                "Size": 163299,
+                "CompressedSize": 14264
             }
         }, {
             "Item": {
@@ -127,15 +208,15 @@
             "Children": [{
                 "Item": {
                     "Name": "TinyExport/TyrionThrower/html5/development/artifacts/scripts/tsc-emit.js",
-                    "Size": 14291,
-                    "CompressedSize": 3033
+                    "Size": 27237,
+                    "CompressedSize": 4875
                 }
             }]
         }, {
             "Item": {
                 "Name": "TinyExport/TyrionThrower/html5/development/build/main.js",
-                "Size": 3638,
-                "CompressedSize": 1070
+                "Size": 3842,
+                "CompressedSize": 1073
             }
         }, {
             "Item": {

@@ -1,10 +1,5 @@
-/// <reference path="FlyingSystem.ts" />
-/// <reference path="HitGroundSystem.ts" />
-
 namespace game {
 
-    @ut.executeAfter(FlyingSystem)
-    @ut.executeBefore(HitGroundSystem)
     export class HitEnemySystem extends ut.ComponentSystem {
 
         //private hero: game.BoxCollider;

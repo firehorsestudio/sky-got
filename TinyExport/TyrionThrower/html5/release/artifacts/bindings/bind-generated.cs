@@ -22,7 +22,7 @@ namespace entities.game.Bootstrap
 
     }
 }
-namespace entities.game.GroundTile
+namespace entities.game.Session
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
     public struct Component : UTiny.IComponentData
@@ -239,6 +239,83 @@ namespace game
         public bool IsPointerOver;
         public bool IsInteractable;
         public bool LastIsInteractable;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct RepeatingBackground : UTiny.IComponentData
+    {
+
+
+        public UTiny.Entity First;
+        public UTiny.Entity Second;
+        public float Spacing;
+        public float Offscreen;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct MovingWithPlayer : UTiny.IComponentData
+    {
+
+
+        public float Speed;
+        public bool Deactivated;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct DwarfSprites : UTiny.IComponentData
+    {
+
+
+        public UTiny.Entity Idle;
+        public UTiny.Entity Fly1;
+        public UTiny.Entity Fly2;
+        public UTiny.Entity Kick1;
+        public UTiny.Entity Kick2;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct ThrowState : UTiny.IComponentData
+    {
+
+
+        public sbyte State;
+        public float Angle;
+        public float Force;
+        public float ThrowTimer;
+        public bool CanRethrow;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Rotation2D : UTiny.IComponentData
+    {
+
+
+        public float Rotation;
 
 
 

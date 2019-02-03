@@ -1,0 +1,45 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "e0d08220394341859ebe8f57c851d088",
+    "Name": "RepeatingBackground",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "cfca648dccf6448dbec6d606ae4b5cbe",
+        "Name": "First",
+        "FieldType": { "Id": "5a182d9d039d4dfd8fa96132d05f9ee7", "Name": "EntityReference" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "7036ffb17170488c87f18f2d36636753",
+        "Name": "Second",
+        "FieldType": { "Id": "5a182d9d039d4dfd8fa96132d05f9ee7", "Name": "EntityReference" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "6f9a22424e4b4a49a0141ae2533d8506",
+        "Name": "Spacing",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "22c090655ba44515bd1241133245a673",
+        "Name": "Offscreen",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "e0d08220394341859ebe8f57c851d088", "Name": "RepeatingBackground" }
+    }
+}]

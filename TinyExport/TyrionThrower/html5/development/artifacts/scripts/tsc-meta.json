@@ -3,22 +3,52 @@
     "Diagnostics": [],
     "Systems": [
         {
-            "Name": "FlyingSystem",
-            "QualifiedName": "game.FlyingSystem",
+            "Name": "UIDataGetSystem",
+            "QualifiedName": "game.UIDataGetSystem",
             "Description": "",
             "Source": {
-                "File": "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Systems/FlyingSystem.ts",
+                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/UIDataGetSystem.ts",
                 "Line": 4,
                 "Character": 17
             }
         },
         {
-            "Name": "LaunchSystem",
-            "QualifiedName": "game.LaunchSystem",
+            "Name": "MovingWithPlayerSystem",
+            "QualifiedName": "game.MovingWithPlayerSystem",
             "Description": "",
             "Source": {
-                "File": "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Systems/LaunchSystem.ts",
+                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
                 "Line": 4,
+                "Character": 17
+            }
+        },
+        {
+            "Name": "RepeatingBackgroundSystem",
+            "QualifiedName": "game.RepeatingBackgroundSystem",
+            "Description": "",
+            "Source": {
+                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
+                "Line": 24,
+                "Character": 17
+            }
+        },
+        {
+            "Name": "HeroSystem",
+            "QualifiedName": "game.HeroSystem",
+            "Description": "",
+            "Source": {
+                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
+                "Line": 54,
+                "Character": 17
+            }
+        },
+        {
+            "Name": "HitEnemySystem",
+            "QualifiedName": "game.HitEnemySystem",
+            "Description": "",
+            "Source": {
+                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HitEnemySystem.ts",
+                "Line": 3,
                 "Character": 17
             }
         },
@@ -27,7 +57,7 @@
             "QualifiedName": "game.UpdateCustomButtonSystem",
             "Description": "Update the sprite and other visual elements of buttons depending on their current state.",
             "Source": {
-                "File": "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Systems/UpdateCustomButtonSystem.ts",
+                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/UpdateCustomButtonSystem.ts",
                 "Line": 7,
                 "Character": 17
             }
@@ -39,43 +69,45 @@
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 95,
+            "Duration": 93,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 178,
+            "Duration": 187,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 786,
-            "Steps": 14
+            "Duration": 903,
+            "Steps": 16
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 63,
+            "Duration": 125,
             "Steps": 2
         },
         {
             "Key": "metadata",
             "Description": "Time taken to reflect Tiny metadata from the compiled program",
-            "Duration": 3,
-            "Steps": 3
+            "Duration": 5,
+            "Steps": 6
         }
     ],
     "SourceFiles": [
-        "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Services/GameService.ts",
-        "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Services/UserDataService.ts",
-        "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Systems/FlyingSystem.ts",
-        "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Systems/LaunchSystem.ts",
-        "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Assets/_GAME/TyrionThrower/Scripts/Systems/UpdateCustomButtonSystem.ts",
-        "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
-        "C:/Ramon/Projetos/TyrionThrower/TyrionThrower/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
+        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/UIDataGetSystem.ts",
+        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Services/GameService.ts",
+        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Services/UIDataService.ts",
+        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Services/UserDataService.ts",
+        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
+        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HitEnemySystem.ts",
+        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/UpdateCustomButtonSystem.ts",
+        "C:/Ramon/Projetos/SkyGot/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
+        "C:/Ramon/Projetos/SkyGot/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "c05e11fef251d9796d5bf5eb7e874561",
-    "GeneratedAt": "Sat Feb 02 2019 06:35:58 GMT-0200 (Horário brasileiro de verão)"
+    "InputHash": "3e940434180a2691dab83035b5b24a45",
+    "GeneratedAt": "Sat Feb 02 2019 22:09:06 GMT-0200 (Horário brasileiro de verão)"
 }

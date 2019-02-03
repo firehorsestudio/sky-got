@@ -6,7 +6,11 @@ namespace game {
         static MAINCAMERA: ut.Entity;
         static GAME: ut.Entity;
         static HERO: ut.Entity;
-        
+
+        static Lerp(start: number, end: number, amt: number): number {
+            return (1 - amt) * start + amt * end;
+        }
+
         static GetConfig(world: ut.World): Config {
             return world.getConfigData(Config);
         }

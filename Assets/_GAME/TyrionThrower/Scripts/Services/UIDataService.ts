@@ -94,9 +94,9 @@ namespace game {
                 if (btnPlayGame.JustClicked)
                 {
                     this.ToogleMenuInitial(world, false);
-                    GameService.SetGameState(world, GameState.PLAYING);
+                    GameService.SetGameState(world, GameState.THROW);
                     this.ToogleInGamePanel(world, true);
-                    ut.EntityGroup.instantiate(world, "game.GroundTile");
+                    ut.EntityGroup.instantiate(world, "game.Session");
                 }
             }
         }

@@ -1,0 +1,21 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "0ceaeee812f1443a9e2ded1acac86328",
+    "Name": "Rotation2D",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "97bf56b1b27a4c29838f6d2dd9768caa",
+        "Name": "Rotation",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "0ceaeee812f1443a9e2ded1acac86328", "Name": "Rotation2D" }
+    }
+}]

@@ -1,0 +1,29 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "d98646120b104a7f991362983c959e56",
+    "Name": "MovingWithPlayer",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "832b70e92d4f45a29b9957ff9b3ae1f0",
+        "Name": "Speed",
+        "FieldType": { "Id": "67325dccf2f047c19c7ef4a045354e67", "Name": "Float32" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "22a0542ab0d14f60a67c3857741a2ff2",
+        "Name": "Deactivated",
+        "FieldType": { "Id": "2b477f505af74487b7092b5617d88d3f", "Name": "Boolean" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "d98646120b104a7f991362983c959e56", "Name": "MovingWithPlayer" }
+    }
+}]

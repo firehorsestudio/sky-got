@@ -43,7 +43,7 @@
 /**
 
 @component
-@memberof entities.game.GroundTile
+@memberof entities.game.Session
 @name Component
 */
 /**
@@ -386,6 +386,138 @@
 
 @component
 @memberof game
+@name RepeatingBackground
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.RepeatingBackground
+@name First
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.RepeatingBackground
+@name Second
+*/
+/**
+
+@member {float}
+@memberof game.RepeatingBackground
+@name Spacing
+*/
+/**
+
+@member {float}
+@memberof game.RepeatingBackground
+@name Offscreen
+*/
+/**
+
+@component
+@memberof game
+@name MovingWithPlayer
+*/
+/**
+
+@member {float}
+@memberof game.MovingWithPlayer
+@name Speed
+*/
+/**
+
+@member {bool}
+@memberof game.MovingWithPlayer
+@name Deactivated
+*/
+/**
+
+@component
+@memberof game
+@name DwarfSprites
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.DwarfSprites
+@name Idle
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.DwarfSprites
+@name Fly1
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.DwarfSprites
+@name Fly2
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.DwarfSprites
+@name Kick1
+*/
+/**
+
+@member {ut.Entity}
+@memberof game.DwarfSprites
+@name Kick2
+*/
+/**
+
+@component
+@memberof game
+@name ThrowState
+*/
+/**
+
+@member {int8}
+@memberof game.ThrowState
+@name State
+*/
+/**
+
+@member {float}
+@memberof game.ThrowState
+@name Angle
+*/
+/**
+
+@member {float}
+@memberof game.ThrowState
+@name Force
+*/
+/**
+
+@member {float}
+@memberof game.ThrowState
+@name ThrowTimer
+*/
+/**
+
+@member {bool}
+@memberof game.ThrowState
+@name CanRethrow
+*/
+/**
+
+@component
+@memberof game
+@name Rotation2D
+*/
+/**
+
+@member {float}
+@memberof game.Rotation2D
+@name Rotation
+*/
+/**
+
+@component
+@memberof game
 @name Config
 */
 /**
@@ -662,7 +794,13 @@
 
 @system
 @memberof game
-@name FlyingSystemJS
+@name MovingWithPlayerSystemJS
+*/
+/**
+
+@system
+@memberof game
+@name RepeatingBackgroundSystemJS
 */
 /**
 
@@ -674,19 +812,7 @@
 
 @system
 @memberof game
-@name HitGroundSystemJS
-*/
-/**
-
-@system
-@memberof game
 @name HitEnemySystemJS
-*/
-/**
-
-@system
-@memberof game
-@name LaunchSystemJS
 */
 /**
 

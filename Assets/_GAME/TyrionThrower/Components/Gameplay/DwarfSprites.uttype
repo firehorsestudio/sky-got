@@ -1,0 +1,60 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "b58acc1e5e0447e48bdde5cca4718b8c",
+    "Name": "DwarfSprites",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "1e2f83a4c6f84a7a9874aa189f9ceeb6",
+        "Name": "Idle",
+        "FieldType": { "Id": "cf54a635a25248ab87f2563bb840ed5b", "Name": "SpriteEntity" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "40d5520cbdbc42f294d11551a4f8d937",
+        "Name": "Fly1",
+        "FieldType": { "Id": "cf54a635a25248ab87f2563bb840ed5b", "Name": "SpriteEntity" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "bbf2b0851f344ec0a4a3b89665bcf8f5",
+        "Name": "Fly2",
+        "FieldType": { "Id": "cf54a635a25248ab87f2563bb840ed5b", "Name": "SpriteEntity" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "f804640822c047729927bc8de89c9cad",
+        "Name": "Kick1",
+        "FieldType": { "Id": "cf54a635a25248ab87f2563bb840ed5b", "Name": "SpriteEntity" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }, {
+        "Id": "75a445cd2dbb47149a29e8c975e3f863",
+        "Name": "Kick2",
+        "FieldType": { "Id": "cf54a635a25248ab87f2563bb840ed5b", "Name": "SpriteEntity" },
+        "Array": false,
+        "Visibility": 0,
+        "EditorOnly": false,
+        "Versioned": true
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "b58acc1e5e0447e48bdde5cca4718b8c", "Name": "DwarfSprites" },
+        "Properties": {
+            "Idle": { "$TypeId": 10, "Guid": "e5028401e10a7f24ab1f10e650620e42", "FileId": 21300000, "Type": 3 },
+            "Fly1": { "$TypeId": 10, "Guid": "2fb77f2ef63c43745b30abe86008356a", "FileId": 21300000, "Type": 3 },
+            "Fly2": { "$TypeId": 10, "Guid": "ddbad0dc231f5be4c8e3ffb10da62efb", "FileId": 21300000, "Type": 3 },
+            "Kick1": { "$TypeId": 10, "Guid": "53bf6531845b990419660599462c78f0", "FileId": 21300000, "Type": 3 },
+            "Kick2": { "$TypeId": 10, "Guid": "16b2d733b4368824c834009eb91f936e", "FileId": 21300000, "Type": 3 }
+        }
+    }
+}]

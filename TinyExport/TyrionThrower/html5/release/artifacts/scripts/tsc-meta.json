@@ -13,12 +13,22 @@
             }
         },
         {
-            "Name": "FlyingSystem",
-            "QualifiedName": "game.FlyingSystem",
+            "Name": "MovingWithPlayerSystem",
+            "QualifiedName": "game.MovingWithPlayerSystem",
             "Description": "",
             "Source": {
-                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/FlyingSystem.ts",
+                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
                 "Line": 4,
+                "Character": 17
+            }
+        },
+        {
+            "Name": "RepeatingBackgroundSystem",
+            "QualifiedName": "game.RepeatingBackgroundSystem",
+            "Description": "",
+            "Source": {
+                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
+                "Line": 27,
                 "Character": 17
             }
         },
@@ -28,22 +38,9 @@
             "Description": "",
             "Source": {
                 "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
-                "Line": 4,
+                "Line": 57,
                 "Character": 17
             }
-        },
-        {
-            "Name": "HitGroundSystem",
-            "QualifiedName": "game.HitGroundSystem",
-            "Description": "",
-            "Source": {
-                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HitGroundSystem.ts",
-                "Line": 6,
-                "Character": 17
-            },
-            "ExecuteAfter": [
-                "game.FlyingSystem"
-            ]
         },
         {
             "Name": "HitEnemySystem",
@@ -51,23 +48,7 @@
             "Description": "",
             "Source": {
                 "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HitEnemySystem.ts",
-                "Line": 8,
-                "Character": 17
-            },
-            "ExecuteAfter": [
-                "game.FlyingSystem"
-            ],
-            "ExecuteBefore": [
-                "game.HitGroundSystem"
-            ]
-        },
-        {
-            "Name": "LaunchSystem",
-            "QualifiedName": "game.LaunchSystem",
-            "Description": "",
-            "Source": {
-                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/LaunchSystem.ts",
-                "Line": 4,
+                "Line": 3,
                 "Character": 17
             }
         },
@@ -88,32 +69,32 @@
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 78,
+            "Duration": 88,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 154,
+            "Duration": 192,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 746,
-            "Steps": 19
+            "Duration": 964,
+            "Steps": 16
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 98,
+            "Duration": 132,
             "Steps": 2
         },
         {
             "Key": "metadata",
             "Description": "Time taken to reflect Tiny metadata from the compiled program",
             "Duration": 4,
-            "Steps": 7
+            "Steps": 6
         }
     ],
     "SourceFiles": [
@@ -121,15 +102,12 @@
         "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Services/GameService.ts",
         "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Services/UIDataService.ts",
         "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Services/UserDataService.ts",
-        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/FlyingSystem.ts",
         "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
-        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HitGroundSystem.ts",
         "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HitEnemySystem.ts",
-        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/LaunchSystem.ts",
         "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/UpdateCustomButtonSystem.ts",
         "C:/Ramon/Projetos/SkyGot/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
         "C:/Ramon/Projetos/SkyGot/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "8055d4c8b0d5d3bdabd181264e6053d6",
-    "GeneratedAt": "Sat Feb 02 2019 20:53:02 GMT-0200 (Horário brasileiro de verão)"
+    "InputHash": "c186dab99a4c35ef51ff50ccc6854ea4",
+    "GeneratedAt": "Sun Feb 03 2019 00:57:02 GMT-0200 (Horário brasileiro de verão)"
 }
