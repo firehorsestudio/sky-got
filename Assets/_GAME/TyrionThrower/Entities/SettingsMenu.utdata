@@ -219,7 +219,7 @@
     }, {
         "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
         "Properties": {
-            "sprite": { "$TypeId": 10, "Guid": "5a2de0cef17b5d24cb4b6af52c7a8681", "FileId": 21300000, "Type": 3 },
+            "sprite": { "$TypeId": 10 },
             "color": {
                 "Type": { "Id": "2a90a1633d6dc16cd37cdfaca7b93cea", "Name": "Color" },
                 "Properties": {
@@ -317,7 +317,7 @@
     }, {
         "Type": { "Id": "0481d22c456081a992e7c7ee42da6c19", "Name": "Text2DStyleBitmapFont" },
         "Properties": {
-            "font": { "$TypeId": 10, "Guid": "f7fdd39164ea67a4f839f1aa793a2e11", "FileId": 11400000, "Type": 2 }
+            "font": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "00d6bc791188d69186aa19bf8f6652a8", "Name": "RectTransformFinalSize" }
@@ -412,7 +412,7 @@
     }, {
         "Type": { "Id": "0481d22c456081a992e7c7ee42da6c19", "Name": "Text2DStyleBitmapFont" },
         "Properties": {
-            "font": { "$TypeId": 10, "Guid": "f7fdd39164ea67a4f839f1aa793a2e11", "FileId": 11400000, "Type": 2 }
+            "font": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "00d6bc791188d69186aa19bf8f6652a8", "Name": "RectTransformFinalSize" }
@@ -491,7 +491,7 @@
     }, {
         "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
         "Properties": {
-            "sprite": { "$TypeId": 10, "Guid": "029c686306c63954fa46e1492ab751ad", "FileId": 21300000, "Type": 3 }
+            "sprite": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "be2f221c9af74ec5c0a4495a2d6769a3", "Name": "Sprite2DRendererOptions" },
@@ -600,7 +600,7 @@
     }, {
         "Type": { "Id": "0481d22c456081a992e7c7ee42da6c19", "Name": "Text2DStyleBitmapFont" },
         "Properties": {
-            "font": { "$TypeId": 10, "Guid": "f7fdd39164ea67a4f839f1aa793a2e11", "FileId": 11400000, "Type": 2 }
+            "font": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "00d6bc791188d69186aa19bf8f6652a8", "Name": "RectTransformFinalSize" }
@@ -706,7 +706,7 @@
     }, {
         "Type": { "Id": "0481d22c456081a992e7c7ee42da6c19", "Name": "Text2DStyleBitmapFont" },
         "Properties": {
-            "font": { "$TypeId": 10, "Guid": "f7fdd39164ea67a4f839f1aa793a2e11", "FileId": 11400000, "Type": 2 }
+            "font": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "00d6bc791188d69186aa19bf8f6652a8", "Name": "RectTransformFinalSize" }
@@ -785,7 +785,7 @@
     }, {
         "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
         "Properties": {
-            "sprite": { "$TypeId": 10, "Guid": "1a7421a3d68e99445a24363d34b154f2", "FileId": 21300000, "Type": 3 }
+            "sprite": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "be2f221c9af74ec5c0a4495a2d6769a3", "Name": "Sprite2DRendererOptions" },
@@ -869,7 +869,7 @@
     }, {
         "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
         "Properties": {
-            "sprite": { "$TypeId": 10, "Guid": "1a7421a3d68e99445a24363d34b154f2", "FileId": 21300000, "Type": 3 }
+            "sprite": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "be2f221c9af74ec5c0a4495a2d6769a3", "Name": "Sprite2DRendererOptions" },
@@ -953,7 +953,7 @@
     }, {
         "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
         "Properties": {
-            "sprite": { "$TypeId": 10, "Guid": "63d3e316ee2e9b0469701614bacd11e3", "FileId": 21300000, "Type": 3 }
+            "sprite": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "be2f221c9af74ec5c0a4495a2d6769a3", "Name": "Sprite2DRendererOptions" },
@@ -974,10 +974,10 @@
     }, {
         "Type": { "Id": "8d64990f3999469dae6fe8f4dcda39e7", "Name": "CustomButton" },
         "Properties": {
-            "DefaultSprite": { "$TypeId": 10, "Guid": "63d3e316ee2e9b0469701614bacd11e3", "FileId": 21300000, "Type": 3 },
-            "HoveredSprite": { "$TypeId": 10, "Guid": "001b8d39acfae53449ca98ba22bd2ca4", "FileId": 21300000, "Type": 3 },
-            "PressedSprite": { "$TypeId": 10, "Guid": "69a2b574a967a0b43bbf703d3e234e13", "FileId": 21300000, "Type": 3 },
-            "DisabledSprite": { "$TypeId": 10, "Guid": "9c78ea53fb8a45445a758b7a6bfd35c2", "FileId": 21300000, "Type": 3 },
+            "DefaultSprite": { "$TypeId": 10 },
+            "HoveredSprite": { "$TypeId": 10 },
+            "PressedSprite": { "$TypeId": 10 },
+            "DisabledSprite": { "$TypeId": 10 },
             "ContentToOffsetOnPress": { "$TypeId": 9, "Id": "8aab61a9eeae409ca5f2003c759b2ce1", "Name": "ButtonLanguage" },
             "PressedOffsetY": -2
         }
@@ -1067,7 +1067,7 @@
     }, {
         "Type": { "Id": "0481d22c456081a992e7c7ee42da6c19", "Name": "Text2DStyleBitmapFont" },
         "Properties": {
-            "font": { "$TypeId": 10, "Guid": "f7fdd39164ea67a4f839f1aa793a2e11", "FileId": 11400000, "Type": 2 }
+            "font": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "00d6bc791188d69186aa19bf8f6652a8", "Name": "RectTransformFinalSize" }
@@ -1146,7 +1146,7 @@
     }, {
         "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
         "Properties": {
-            "sprite": { "$TypeId": 10, "Guid": "63d3e316ee2e9b0469701614bacd11e3", "FileId": 21300000, "Type": 3 }
+            "sprite": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "be2f221c9af74ec5c0a4495a2d6769a3", "Name": "Sprite2DRendererOptions" },
@@ -1250,7 +1250,7 @@
     }, {
         "Type": { "Id": "0481d22c456081a992e7c7ee42da6c19", "Name": "Text2DStyleBitmapFont" },
         "Properties": {
-            "font": { "$TypeId": 10, "Guid": "f7fdd39164ea67a4f839f1aa793a2e11", "FileId": 11400000, "Type": 2 }
+            "font": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "00d6bc791188d69186aa19bf8f6652a8", "Name": "RectTransformFinalSize" }
@@ -1329,7 +1329,7 @@
     }, {
         "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
         "Properties": {
-            "sprite": { "$TypeId": 10, "Guid": "63d3e316ee2e9b0469701614bacd11e3", "FileId": 21300000, "Type": 3 }
+            "sprite": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "be2f221c9af74ec5c0a4495a2d6769a3", "Name": "Sprite2DRendererOptions" },
@@ -1418,7 +1418,7 @@
     }, {
         "Type": { "Id": "0481d22c456081a992e7c7ee42da6c19", "Name": "Text2DStyleBitmapFont" },
         "Properties": {
-            "font": { "$TypeId": 10, "Guid": "f7fdd39164ea67a4f839f1aa793a2e11", "FileId": 11400000, "Type": 2 }
+            "font": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "00d6bc791188d69186aa19bf8f6652a8", "Name": "RectTransformFinalSize" }
@@ -1508,7 +1508,7 @@
     }, {
         "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
         "Properties": {
-            "sprite": { "$TypeId": 10, "Guid": "63d3e316ee2e9b0469701614bacd11e3", "FileId": 21300000, "Type": 3 }
+            "sprite": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "be2f221c9af74ec5c0a4495a2d6769a3", "Name": "Sprite2DRendererOptions" },
@@ -1612,7 +1612,7 @@
     }, {
         "Type": { "Id": "0481d22c456081a992e7c7ee42da6c19", "Name": "Text2DStyleBitmapFont" },
         "Properties": {
-            "font": { "$TypeId": 10, "Guid": "f7fdd39164ea67a4f839f1aa793a2e11", "FileId": 11400000, "Type": 2 }
+            "font": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "00d6bc791188d69186aa19bf8f6652a8", "Name": "RectTransformFinalSize" }
@@ -1691,7 +1691,7 @@
     }, {
         "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
         "Properties": {
-            "sprite": { "$TypeId": 10, "Guid": "da61b8f36c0a7dc4e9dedd7c80951709", "FileId": 21300000, "Type": 3 }
+            "sprite": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "be2f221c9af74ec5c0a4495a2d6769a3", "Name": "Sprite2DRendererOptions" },
@@ -1797,7 +1797,7 @@
     }, {
         "Type": { "Id": "0481d22c456081a992e7c7ee42da6c19", "Name": "Text2DStyleBitmapFont" },
         "Properties": {
-            "font": { "$TypeId": 10, "Guid": "f7fdd39164ea67a4f839f1aa793a2e11", "FileId": 11400000, "Type": 2 }
+            "font": { "$TypeId": 10 }
         }
     }, {
         "Type": { "Id": "b1e5348389156b7a260d6ed393754fba", "Name": "LayerSorting" },

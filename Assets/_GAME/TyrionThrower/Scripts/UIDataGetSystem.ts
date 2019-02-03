@@ -23,8 +23,9 @@ namespace game {
             switch (GameService.GetCurrentGameState(this.world))
             {
                 case GameState.MENU:
+                    UIDataService.ToogleGameplayEntity(this.world);
                     if (UserDataService.GetBoolean("PlayedFirstGame")) {
-                        GameService.SetGameState(this.world, GameState.THROW);
+                        GameService.SetGameState(this.world, GameState.PLAYING);
                         break;
                     }
                     else {
@@ -34,6 +35,10 @@ namespace game {
                     }
                 case GameState.PAUSED:
                     UIDataService.CheckForPauseButton(this.world);
+                    break;
+
+                case GameState.THROW:
+                    
                     break;
 
                 case GameState.PLAYING:

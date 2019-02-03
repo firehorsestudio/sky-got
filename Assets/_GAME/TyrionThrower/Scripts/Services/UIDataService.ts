@@ -8,6 +8,8 @@ namespace game {
         private static PREVIOUSTATE: GameState;
         static INGAMEPANEL: ut.EntityGroup;
         static MENUINITIALL: ut.EntityGroup;
+        static GAMEPLAYSTATE: ut.EntityGroup;
+
 
         static GetPauseMenuEntity(world: ut.World): ut.Entity {
 
@@ -68,7 +70,8 @@ namespace game {
                     if (!GameService.IsPaused(world))
                         this.TooglePauseMenu(world, true);
                     else
-                        this.TooglePauseMenu(world, true);
+                        this.TooglePauseMenu(world, false
+                        );
 
                 }
             }
@@ -83,6 +86,12 @@ namespace game {
                 this.INGAMEPANEL = null;
                 ut.EntityGroup.destroyAll(world, "game.InGameTopMenuGroup");
             }
+        }
+
+        static ToogleGameplayEntity(world: ut.World)
+        {
+            if (this.GAMEPLAYSTATE == null)
+                this.GAMEPLAYSTATE = ut.EntityGroup.instantiate(world, "game.GroundTile");
         }
 
         static CheckForPlayerScore(world: ut.World)
