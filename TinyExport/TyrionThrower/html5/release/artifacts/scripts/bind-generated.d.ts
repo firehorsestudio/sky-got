@@ -245,77 +245,20 @@ declare namespace game{
         static _tempHeapPtr(v: CustomButton): number;
         static _dtorFn(v: CustomButton): void;
     }
-    class RepeatingBackground extends ut.Component {
+    class FollowerCamera extends ut.Component {
         constructor();
-        First: ut.Entity;
-        Second: ut.Entity;
-        Spacing: number;
-        Offscreen: number;
+        Smooth: boolean;
+        Offset: ut.Math.Vector2;
+        UpperLimit: number;
+        BottomLimit: number;
         static readonly cid: number;
         static readonly _view: any;
         static readonly _isSharedComp: boolean;
         static _size: number;
-        static _fromPtr(p: number, v?: RepeatingBackground): RepeatingBackground;
-        static _toPtr(p: number, v: RepeatingBackground): void;
-        static _tempHeapPtr(v: RepeatingBackground): number;
-        static _dtorFn(v: RepeatingBackground): void;
-    }
-    class MovingWithPlayer extends ut.Component {
-        constructor();
-        Speed: number;
-        Deactivated: boolean;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: MovingWithPlayer): MovingWithPlayer;
-        static _toPtr(p: number, v: MovingWithPlayer): void;
-        static _tempHeapPtr(v: MovingWithPlayer): number;
-        static _dtorFn(v: MovingWithPlayer): void;
-    }
-    class DwarfSprites extends ut.Component {
-        constructor();
-        Idle: ut.Entity;
-        Fly1: ut.Entity;
-        Fly2: ut.Entity;
-        Kick1: ut.Entity;
-        Kick2: ut.Entity;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: DwarfSprites): DwarfSprites;
-        static _toPtr(p: number, v: DwarfSprites): void;
-        static _tempHeapPtr(v: DwarfSprites): number;
-        static _dtorFn(v: DwarfSprites): void;
-    }
-    class ThrowState extends ut.Component {
-        constructor();
-        State: number;
-        Angle: number;
-        Force: number;
-        ThrowTimer: number;
-        CanRethrow: boolean;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: ThrowState): ThrowState;
-        static _toPtr(p: number, v: ThrowState): void;
-        static _tempHeapPtr(v: ThrowState): number;
-        static _dtorFn(v: ThrowState): void;
-    }
-    class Rotation2D extends ut.Component {
-        constructor();
-        Rotation: number;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: Rotation2D): Rotation2D;
-        static _toPtr(p: number, v: Rotation2D): void;
-        static _tempHeapPtr(v: Rotation2D): number;
-        static _dtorFn(v: Rotation2D): void;
+        static _fromPtr(p: number, v?: FollowerCamera): FollowerCamera;
+        static _toPtr(p: number, v: FollowerCamera): void;
+        static _tempHeapPtr(v: FollowerCamera): number;
+        static _dtorFn(v: FollowerCamera): void;
     }
     enum GameState {
         MENU = 0,
@@ -462,7 +405,7 @@ declare namespace ut{
         game: {
             [data: string]: EntityGroupData;
             Bootstrap: EntityGroupData;
-            Session: EntityGroupData;
+            GroundTile: EntityGroupData;
             SettingsMenu: EntityGroupData;
             InGameTopMenuGroup: EntityGroupData;
             MenuInitialGroup: EntityGroupData;

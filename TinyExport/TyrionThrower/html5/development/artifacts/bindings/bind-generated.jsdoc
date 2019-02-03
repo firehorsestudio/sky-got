@@ -43,7 +43,7 @@
 /**
 
 @component
-@memberof entities.game.Session
+@memberof entities.game.GroundTile
 @name Component
 */
 /**
@@ -386,84 +386,6 @@
 
 @component
 @memberof game
-@name RepeatingBackground
-*/
-/**
-
-@member {ut.Entity}
-@memberof game.RepeatingBackground
-@name First
-*/
-/**
-
-@member {ut.Entity}
-@memberof game.RepeatingBackground
-@name Second
-*/
-/**
-
-@member {float}
-@memberof game.RepeatingBackground
-@name Spacing
-*/
-/**
-
-@member {float}
-@memberof game.RepeatingBackground
-@name Offscreen
-*/
-/**
-
-@component
-@memberof game
-@name MovingWithPlayer
-*/
-/**
-
-@member {float}
-@memberof game.MovingWithPlayer
-@name Speed
-*/
-/**
-
-@component
-@memberof game
-@name DwarfSprites
-*/
-/**
-
-@member {ut.Entity}
-@memberof game.DwarfSprites
-@name Idle
-*/
-/**
-
-@member {ut.Entity}
-@memberof game.DwarfSprites
-@name Fly1
-*/
-/**
-
-@member {ut.Entity}
-@memberof game.DwarfSprites
-@name Fly2
-*/
-/**
-
-@member {ut.Entity}
-@memberof game.DwarfSprites
-@name Kick1
-*/
-/**
-
-@member {ut.Entity}
-@memberof game.DwarfSprites
-@name Kick2
-*/
-/**
-
-@component
-@memberof game
 @name Config
 */
 /**
@@ -740,13 +662,7 @@
 
 @system
 @memberof game
-@name MovingWithPlayerSystemJS
-*/
-/**
-
-@system
-@memberof game
-@name RepeatingBackgroundSystemJS
+@name FlyingSystemJS
 */
 /**
 
@@ -758,7 +674,19 @@
 
 @system
 @memberof game
+@name HitGroundSystemJS
+*/
+/**
+
+@system
+@memberof game
 @name HitEnemySystemJS
+*/
+/**
+
+@system
+@memberof game
+@name LaunchSystemJS
 */
 /**
 

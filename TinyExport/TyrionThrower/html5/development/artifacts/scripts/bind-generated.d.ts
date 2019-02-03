@@ -245,49 +245,6 @@ declare namespace game{
         static _tempHeapPtr(v: CustomButton): number;
         static _dtorFn(v: CustomButton): void;
     }
-    class RepeatingBackground extends ut.Component {
-        constructor();
-        First: ut.Entity;
-        Second: ut.Entity;
-        Spacing: number;
-        Offscreen: number;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: RepeatingBackground): RepeatingBackground;
-        static _toPtr(p: number, v: RepeatingBackground): void;
-        static _tempHeapPtr(v: RepeatingBackground): number;
-        static _dtorFn(v: RepeatingBackground): void;
-    }
-    class MovingWithPlayer extends ut.Component {
-        constructor();
-        Speed: number;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: MovingWithPlayer): MovingWithPlayer;
-        static _toPtr(p: number, v: MovingWithPlayer): void;
-        static _tempHeapPtr(v: MovingWithPlayer): number;
-        static _dtorFn(v: MovingWithPlayer): void;
-    }
-    class DwarfSprites extends ut.Component {
-        constructor();
-        Idle: ut.Entity;
-        Fly1: ut.Entity;
-        Fly2: ut.Entity;
-        Kick1: ut.Entity;
-        Kick2: ut.Entity;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: DwarfSprites): DwarfSprites;
-        static _toPtr(p: number, v: DwarfSprites): void;
-        static _tempHeapPtr(v: DwarfSprites): number;
-        static _dtorFn(v: DwarfSprites): void;
-    }
     enum GameState {
         MENU = 0,
         THROW = 1,
@@ -433,7 +390,7 @@ declare namespace ut{
         game: {
             [data: string]: EntityGroupData;
             Bootstrap: EntityGroupData;
-            Session: EntityGroupData;
+            GroundTile: EntityGroupData;
             SettingsMenu: EntityGroupData;
             InGameTopMenuGroup: EntityGroupData;
             MenuInitialGroup: EntityGroupData;

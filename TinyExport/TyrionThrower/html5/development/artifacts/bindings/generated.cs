@@ -21,7 +21,7 @@ namespace entities.game
         {
         }
     }
-    namespace Session
+    namespace GroundTile
     {
         public struct Component : IComponentData
         {
@@ -126,25 +126,6 @@ namespace game
         public bool IsPointerOver;
         public bool IsInteractable;
         public bool LastIsInteractable;
-    }
-    public struct RepeatingBackground : IComponentData
-    {
-        public Entity First;
-        public Entity Second;
-        public float Spacing;
-        public float Offscreen;
-    }
-    public struct MovingWithPlayer : IComponentData
-    {
-        public float Speed;
-    }
-    public struct DwarfSprites : IComponentData
-    {
-        public Entity Idle;
-        public Entity Fly1;
-        public Entity Fly2;
-        public Entity Kick1;
-        public Entity Kick2;
     }
     public enum GameState
     {
@@ -324,13 +305,7 @@ namespace game
 }
 namespace game
 {
-    public class MovingWithPlayerSystemJS : IComponentSystem
-    {
-    }
-}
-namespace game
-{
-    public class RepeatingBackgroundSystemJS : IComponentSystem
+    public class FlyingSystemJS : IComponentSystem
     {
     }
 }
@@ -342,7 +317,22 @@ namespace game
 }
 namespace game
 {
+    [UpdateAfter(typeof(game.FlyingSystemJS))]
+    public class HitGroundSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(game.HitGroundSystemJS))]
+    [UpdateAfter(typeof(game.FlyingSystemJS))]
     public class HitEnemySystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    public class LaunchSystemJS : IComponentSystem
     {
     }
 }

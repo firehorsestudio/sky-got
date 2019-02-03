@@ -7,28 +7,28 @@
             "QualifiedName": "game.UIDataGetSystem",
             "Description": "",
             "Source": {
-                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/UIDataGetSystem.ts",
+                "File": "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/UIDataGetSystem.ts",
                 "Line": 4,
                 "Character": 17
             }
         },
         {
-            "Name": "MovingWithPlayerSystem",
-            "QualifiedName": "game.MovingWithPlayerSystem",
+            "Name": "CameraSystem",
+            "QualifiedName": "game.CameraSystem",
             "Description": "",
             "Source": {
-                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
-                "Line": 4,
+                "File": "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Systems/CameraSystem.ts",
+                "Line": 3,
                 "Character": 17
             }
         },
         {
-            "Name": "RepeatingBackgroundSystem",
-            "QualifiedName": "game.RepeatingBackgroundSystem",
+            "Name": "FlyingSystem",
+            "QualifiedName": "game.FlyingSystem",
             "Description": "",
             "Source": {
-                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
-                "Line": 27,
+                "File": "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Systems/FlyingSystem.ts",
+                "Line": 4,
                 "Character": 17
             }
         },
@@ -37,18 +37,47 @@
             "QualifiedName": "game.HeroSystem",
             "Description": "",
             "Source": {
-                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
-                "Line": 57,
+                "File": "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
+                "Line": 4,
                 "Character": 17
             }
+        },
+        {
+            "Name": "HitGroundSystem",
+            "QualifiedName": "game.HitGroundSystem",
+            "Description": "",
+            "Source": {
+                "File": "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Systems/HitGroundSystem.ts",
+                "Line": 6,
+                "Character": 17
+            },
+            "ExecuteAfter": [
+                "game.FlyingSystem"
+            ]
         },
         {
             "Name": "HitEnemySystem",
             "QualifiedName": "game.HitEnemySystem",
             "Description": "",
             "Source": {
-                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HitEnemySystem.ts",
-                "Line": 3,
+                "File": "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Systems/HitEnemySystem.ts",
+                "Line": 8,
+                "Character": 17
+            },
+            "ExecuteAfter": [
+                "game.FlyingSystem"
+            ],
+            "ExecuteBefore": [
+                "game.HitGroundSystem"
+            ]
+        },
+        {
+            "Name": "LaunchSystem",
+            "QualifiedName": "game.LaunchSystem",
+            "Description": "",
+            "Source": {
+                "File": "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Systems/LaunchSystem.ts",
+                "Line": 4,
                 "Character": 17
             }
         },
@@ -57,7 +86,7 @@
             "QualifiedName": "game.UpdateCustomButtonSystem",
             "Description": "Update the sprite and other visual elements of buttons depending on their current state.",
             "Source": {
-                "File": "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/UpdateCustomButtonSystem.ts",
+                "File": "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Systems/UpdateCustomButtonSystem.ts",
                 "Line": 7,
                 "Character": 17
             }
@@ -69,45 +98,49 @@
         {
             "Key": "tsconfig",
             "Description": "Time taken to read and parse the given tsconfig.json file",
-            "Duration": 88,
+            "Duration": 77,
             "Steps": 1
         },
         {
             "Key": "checksum",
             "Description": "Time taken to compute the MD5 of all inputs",
-            "Duration": 192,
+            "Duration": 172,
             "Steps": 1
         },
         {
             "Key": "compile",
             "Description": "Time taken to compile the TypeScript program",
-            "Duration": 964,
-            "Steps": 16
+            "Duration": 730,
+            "Steps": 20
         },
         {
             "Key": "emit",
             "Description": "Time taken to generate and write the JavaScript output",
-            "Duration": 132,
+            "Duration": 120,
             "Steps": 2
         },
         {
             "Key": "metadata",
             "Description": "Time taken to reflect Tiny metadata from the compiled program",
-            "Duration": 4,
-            "Steps": 6
+            "Duration": 5,
+            "Steps": 8
         }
     ],
     "SourceFiles": [
-        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/UIDataGetSystem.ts",
-        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Services/GameService.ts",
-        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Services/UIDataService.ts",
-        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Services/UserDataService.ts",
-        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
-        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/HitEnemySystem.ts",
-        "C:/Ramon/Projetos/SkyGot/Assets/_GAME/TyrionThrower/Scripts/Systems/UpdateCustomButtonSystem.ts",
-        "C:/Ramon/Projetos/SkyGot/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
-        "C:/Ramon/Projetos/SkyGot/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
+        "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/UIDataGetSystem.ts",
+        "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Services/GameService.ts",
+        "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Services/UIDataService.ts",
+        "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Services/UserDataService.ts",
+        "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Systems/CameraSystem.ts",
+        "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Systems/FlyingSystem.ts",
+        "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Systems/HeroSystem.ts",
+        "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Systems/HitGroundSystem.ts",
+        "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Systems/HitEnemySystem.ts",
+        "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Systems/LaunchSystem.ts",
+        "C:/Users/Gabriel/Documents/sky-got/Assets/_GAME/TyrionThrower/Scripts/Systems/UpdateCustomButtonSystem.ts",
+        "C:/Users/Gabriel/Documents/sky-got/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
+        "C:/Users/Gabriel/Documents/sky-got/Library/PackageCache/com.unity.tiny@0.14.1-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
     ],
-    "InputHash": "c186dab99a4c35ef51ff50ccc6854ea4",
-    "GeneratedAt": "Sun Feb 03 2019 00:57:02 GMT-0200 (Horário brasileiro de verão)"
+    "InputHash": "e808f88168b7d8d59ccb34dba9525884",
+    "GeneratedAt": "Sun Feb 03 2019 00:33:17 GMT-0200 (Horário brasileiro de verão)"
 }

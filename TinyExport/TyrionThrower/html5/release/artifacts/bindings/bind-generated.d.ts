@@ -23,7 +23,7 @@ class Component extends ut.Component {
 }
 
 }
-declare namespace entities.game.Session {
+declare namespace entities.game.GroundTile {
 
 class Component extends ut.Component {
   constructor();
@@ -349,115 +349,25 @@ class CustomButton extends ut.Component {
 }
 declare namespace game {
 
-class RepeatingBackground extends ut.Component {
-  constructor(First?: Entity, Second?: Entity, Spacing?: number, Offscreen?: number);
-  First: Entity;
-  Second: Entity;
-  Spacing: number;
-  Offscreen: number;
-  static readonly First: EntityComponentFieldDesc;
-  static readonly Second: EntityComponentFieldDesc;
-  static readonly Spacing: ComponentFieldDesc;
-  static readonly Offscreen: ComponentFieldDesc;
+class FollowerCamera extends ut.Component {
+  constructor(Smooth?: boolean, Offset?: Vector2, UpperLimit?: number, BottomLimit?: number);
+  Smooth: boolean;
+  Offset: Vector2;
+  UpperLimit: number;
+  BottomLimit: number;
+  static readonly Smooth: ComponentFieldDesc;
+  static readonly Offset: Vector2ComponentFieldDesc;
+  static readonly UpperLimit: ComponentFieldDesc;
+  static readonly BottomLimit: ComponentFieldDesc;
   static readonly cid: number;
   static readonly _view: any;
   static readonly _isSharedComp: boolean;
 
   static _size: number;
-  static _fromPtr(p: number, v?: RepeatingBackground): RepeatingBackground;
-  static _toPtr(p: number, v: RepeatingBackground): void;
-  static _tempHeapPtr(v: RepeatingBackground): number;
-  static _dtorFn(v: RepeatingBackground): void;
-}
-
-}
-declare namespace game {
-
-class MovingWithPlayer extends ut.Component {
-  constructor(Speed?: number, Deactivated?: boolean);
-  Speed: number;
-  Deactivated: boolean;
-  static readonly Speed: ComponentFieldDesc;
-  static readonly Deactivated: ComponentFieldDesc;
-  static readonly cid: number;
-  static readonly _view: any;
-  static readonly _isSharedComp: boolean;
-
-  static _size: number;
-  static _fromPtr(p: number, v?: MovingWithPlayer): MovingWithPlayer;
-  static _toPtr(p: number, v: MovingWithPlayer): void;
-  static _tempHeapPtr(v: MovingWithPlayer): number;
-  static _dtorFn(v: MovingWithPlayer): void;
-}
-
-}
-declare namespace game {
-
-class DwarfSprites extends ut.Component {
-  constructor(Idle?: Entity, Fly1?: Entity, Fly2?: Entity, Kick1?: Entity, Kick2?: Entity);
-  Idle: Entity;
-  Fly1: Entity;
-  Fly2: Entity;
-  Kick1: Entity;
-  Kick2: Entity;
-  static readonly Idle: EntityComponentFieldDesc;
-  static readonly Fly1: EntityComponentFieldDesc;
-  static readonly Fly2: EntityComponentFieldDesc;
-  static readonly Kick1: EntityComponentFieldDesc;
-  static readonly Kick2: EntityComponentFieldDesc;
-  static readonly cid: number;
-  static readonly _view: any;
-  static readonly _isSharedComp: boolean;
-
-  static _size: number;
-  static _fromPtr(p: number, v?: DwarfSprites): DwarfSprites;
-  static _toPtr(p: number, v: DwarfSprites): void;
-  static _tempHeapPtr(v: DwarfSprites): number;
-  static _dtorFn(v: DwarfSprites): void;
-}
-
-}
-declare namespace game {
-
-class ThrowState extends ut.Component {
-  constructor(State?: number, Angle?: number, Force?: number, ThrowTimer?: number, CanRethrow?: boolean);
-  State: number;
-  Angle: number;
-  Force: number;
-  ThrowTimer: number;
-  CanRethrow: boolean;
-  
-  static readonly Angle: ComponentFieldDesc;
-  static readonly Force: ComponentFieldDesc;
-  static readonly ThrowTimer: ComponentFieldDesc;
-  static readonly CanRethrow: ComponentFieldDesc;
-  static readonly cid: number;
-  static readonly _view: any;
-  static readonly _isSharedComp: boolean;
-
-  static _size: number;
-  static _fromPtr(p: number, v?: ThrowState): ThrowState;
-  static _toPtr(p: number, v: ThrowState): void;
-  static _tempHeapPtr(v: ThrowState): number;
-  static _dtorFn(v: ThrowState): void;
-}
-
-}
-declare namespace game {
-
-class Rotation2D extends ut.Component {
-  constructor(Rotation?: number);
-  Rotation: number;
-  static readonly Rotation: ComponentFieldDesc;
-  static readonly cid: number;
-  static readonly _view: any;
-  static readonly _isSharedComp: boolean;
-
-  static _size: number;
-  static _fromPtr(p: number, v?: Rotation2D): Rotation2D;
-  static _toPtr(p: number, v: Rotation2D): void;
-  static _tempHeapPtr(v: Rotation2D): number;
-  static _dtorFn(v: Rotation2D): void;
+  static _fromPtr(p: number, v?: FollowerCamera): FollowerCamera;
+  static _toPtr(p: number, v: FollowerCamera): void;
+  static _tempHeapPtr(v: FollowerCamera): number;
+  static _dtorFn(v: FollowerCamera): void;
 }
 
 }
@@ -807,16 +717,22 @@ declare namespace game {
 var UIDataGetSystemJS: ut.SystemJS;
 }
 declare namespace game {
-var MovingWithPlayerSystemJS: ut.SystemJS;
+var CameraSystemJS: ut.SystemJS;
 }
 declare namespace game {
-var RepeatingBackgroundSystemJS: ut.SystemJS;
+var FlyingSystemJS: ut.SystemJS;
 }
 declare namespace game {
 var HeroSystemJS: ut.SystemJS;
 }
 declare namespace game {
+var HitGroundSystemJS: ut.SystemJS;
+}
+declare namespace game {
 var HitEnemySystemJS: ut.SystemJS;
+}
+declare namespace game {
+var LaunchSystemJS: ut.SystemJS;
 }
 declare namespace game {
 var UpdateCustomButtonSystemJS: ut.SystemJS;

@@ -21,7 +21,7 @@ namespace entities.game
         {
         }
     }
-    namespace Session
+    namespace GroundTile
     {
         public struct Component : IComponentData
         {
@@ -127,37 +127,12 @@ namespace game
         public bool IsInteractable;
         public bool LastIsInteractable;
     }
-    public struct RepeatingBackground : IComponentData
+    public struct FollowerCamera : IComponentData
     {
-        public Entity First;
-        public Entity Second;
-        public float Spacing;
-        public float Offscreen;
-    }
-    public struct MovingWithPlayer : IComponentData
-    {
-        public float Speed;
-        public bool Deactivated;
-    }
-    public struct DwarfSprites : IComponentData
-    {
-        public Entity Idle;
-        public Entity Fly1;
-        public Entity Fly2;
-        public Entity Kick1;
-        public Entity Kick2;
-    }
-    public struct ThrowState : IComponentData
-    {
-        public sbyte State;
-        public float Angle;
-        public float Force;
-        public float ThrowTimer;
-        public bool CanRethrow;
-    }
-    public struct Rotation2D : IComponentData
-    {
-        public float Rotation;
+        public bool Smooth;
+        public Vector2 Offset;
+        public float UpperLimit;
+        public float BottomLimit;
     }
     public enum GameState
     {
@@ -337,13 +312,13 @@ namespace game
 }
 namespace game
 {
-    public class MovingWithPlayerSystemJS : IComponentSystem
+    public class CameraSystemJS : IComponentSystem
     {
     }
 }
 namespace game
 {
-    public class RepeatingBackgroundSystemJS : IComponentSystem
+    public class FlyingSystemJS : IComponentSystem
     {
     }
 }
@@ -355,7 +330,22 @@ namespace game
 }
 namespace game
 {
+    [UpdateAfter(typeof(game.FlyingSystemJS))]
+    public class HitGroundSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(game.HitGroundSystemJS))]
+    [UpdateAfter(typeof(game.FlyingSystemJS))]
     public class HitEnemySystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    public class LaunchSystemJS : IComponentSystem
     {
     }
 }
